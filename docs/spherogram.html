@@ -1,21 +1,19 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Links: planar diagrams and invariants &#8212; SnapPy 3.1rc1 documentation</title>
+    <title>Links: planar diagrams and invariants &#8212; SnapPy 3.0.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,7 +35,7 @@
         <li class="right" >
           <a href="plink.html" title="Using SnapPy’s link editor"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Links: planar diagrams and invariants</a></li> 
       </ul>
     </div>  
@@ -48,9 +46,9 @@
           <div class="body" role="main">
             
   <span class="target" id="module-spherogram"></span><section id="links-planar-diagrams-and-invariants">
-<h1>Links: planar diagrams and invariants<a class="headerlink" href="#links-planar-diagrams-and-invariants" title="Permalink to this heading">¶</a></h1>
+<h1>Links: planar diagrams and invariants<a class="headerlink" href="#links-planar-diagrams-and-invariants" title="Permalink to this headline">¶</a></h1>
 <section id="tutorial">
-<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading">¶</a></h2>
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
 <p>SnapPy includes the <a class="reference external" href="https://github.com/3-manifolds/Spherogram">Spherogram</a> module which allows one to
 create links programmatically.  The graphical conventions used are
 <a class="reference external" href="https://github.com/3-manifolds/Spherogram/raw/master/spherogram_src/links/doc.pdf">summarized here</a>.</p>
@@ -115,7 +113,7 @@ basic link invariants, including the Jones polynomial.  See the
 complete list of Link methods below.</p>
 </section>
 <section id="random-links">
-<h2>Random Links<a class="headerlink" href="#random-links" title="Permalink to this heading">¶</a></h2>
+<h2>Random Links<a class="headerlink" href="#random-links" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="spherogram.random_link">
 <span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">random_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crossings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_map_gives_link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consistent_twist_regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime_decomposition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_all_pieces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.random_link" title="Permalink to this definition">¶</a></dt>
@@ -185,7 +183,7 @@ can have fewer components than the link as a whole.</p>
 
 </section>
 <section id="the-link-class">
-<h2>The Link class<a class="headerlink" href="#the-link-class" title="Permalink to this heading">¶</a></h2>
+<h2>The Link class<a class="headerlink" href="#the-link-class" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="spherogram.Link">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">Link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crossings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">braid_closure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_planarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">build</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link" title="Permalink to this definition">¶</a></dt>
@@ -303,8 +301,7 @@ possibly for components with only two crossings.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.alexander_polynomial">
 <span class="sig-name descname"><span class="pre">alexander_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multivar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'no'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factored</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alexander_polynomial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the Alexander polynomial of the link.</p>
-<p>For links with one component,
+<dd><p>Calculates the Alexander polynomial of the link. For links with one component,
 can evaluate the alexander polynomial at v:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;4_1&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">alexander_polynomial</span><span class="p">()</span>
@@ -369,11 +366,10 @@ moves is the parameter steps.  The diagram is modified in place.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.black_graph">
 <span class="sig-name descname"><span class="pre">black_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.black_graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the black graph of K.</p>
-<p>If the black graph is disconnected (which can only happen for
-a split link diagram), returns one connected component. The
-edges are labeled by the crossings they correspond to.</p>
-<p>Example:</p>
+<dd><p>Returns the black graph of K. If the black graph is disconnected
+(which can only happen for a split link diagram), returns one
+connected component. The edges are labeled by the crossings
+they correspond to.  Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">=</span><span class="n">Link</span><span class="p">(</span><span class="s1">&#39;5_1&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">black_graph</span><span class="p">()</span>
 <span class="n">Subgraph</span> <span class="n">of</span> <span class="p">():</span> <span class="n">Multi</span><span class="o">-</span><span class="n">graph</span> <span class="n">on</span> <span class="mi">2</span> <span class="n">vertices</span>
@@ -824,25 +820,18 @@ CrossingEntryPoints), sorted in descending order of length.</p>
 </pre></div>
 </div>
 <p>Can also go the other way:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;K11n11&#39;</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">sage_link</span><span class="p">())</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">signature</span><span class="p">(),</span> <span class="n">M</span><span class="o">.</span><span class="n">signature</span><span class="p">()</span>
-<span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">B</span> <span class="o">=</span> <span class="n">BraidGroup</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">gens</span><span class="p">()</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">Link</span><span class="p">(</span><span class="n">braid_closure</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">**-</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span> <span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Link</span><span class="p">:</span> <span class="mi">2</span> <span class="n">comp</span><span class="p">;</span> <span class="mi">12</span> <span class="n">cross</span><span class="o">&gt;</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">);</span> <span class="n">L</span>
+<span class="o">&lt;</span><span class="n">Link</span><span class="p">:</span> <span class="mi">1</span> <span class="n">comp</span><span class="p">;</span> <span class="mi">3</span> <span class="n">cross</span><span class="o">&gt;</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">S</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">sage_link</span><span class="p">();</span> <span class="n">S</span>
+<span class="n">Knot</span> <span class="n">represented</span> <span class="n">by</span> <span class="mi">3</span> <span class="n">crossings</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">Link</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Link</span><span class="p">:</span> <span class="mi">1</span> <span class="n">comp</span><span class="p">;</span> <span class="mi">3</span> <span class="n">cross</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Can also take a braid group perspective.</p>
-<blockquote>
-<div><p>sage: B = BraidGroup(4)
-sage: a, b, c = B.gens()
-sage: Link(braid_closure=(a**-3) * (b**4) * (c**2) * a * b * c )
-&lt;Link: 2 comp; 12 cross&gt;
-sage: L = Link(a * b * c); L
-&lt;Link: 1 comp; 3 cross&gt;
-sage: S = L.sage_link(); S
-Knot represented by 3 crossings
-sage: Link(S)
-&lt;Link: 1 comp; 3 cross&gt;</p>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
@@ -1053,7 +1042,7 @@ expected way.</p>
 
 </section>
 <section id="the-closedbraid-class">
-<h2>The ClosedBraid class<a class="headerlink" href="#the-closedbraid-class" title="Permalink to this heading">¶</a></h2>
+<h2>The ClosedBraid class<a class="headerlink" href="#the-closedbraid-class" title="Permalink to this headline">¶</a></h2>
 <p>The ClosedBraid class provides an alternative way to construct links
 as closed braids.  It is a subclass of Link, and currently defines
 the same methods and attributes.</p>
@@ -1085,84 +1074,23 @@ and used as the braid_closure parameter.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Links: planar diagrams and invariants</a><ul>
 <li><a class="reference internal" href="#tutorial">Tutorial</a></li>
-<li><a class="reference internal" href="#random-links">Random Links</a><ul>
-<li><a class="reference internal" href="#spherogram.random_link"><code class="docutils literal notranslate"><span class="pre">random_link()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-link-class">The Link class</a><ul>
-<li><a class="reference internal" href="#spherogram.Link"><code class="docutils literal notranslate"><span class="pre">Link</span></code></a><ul>
-<li><a class="reference internal" href="#spherogram.Link.DT_code"><code class="docutils literal notranslate"><span class="pre">Link.DT_code()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.KLPProjection"><code class="docutils literal notranslate"><span class="pre">Link.KLPProjection()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.PD_code"><code class="docutils literal notranslate"><span class="pre">Link.PD_code()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.alexander_matrix"><code class="docutils literal notranslate"><span class="pre">Link.alexander_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.alexander_poly"><code class="docutils literal notranslate"><span class="pre">Link.alexander_poly()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.alexander_polynomial"><code class="docutils literal notranslate"><span class="pre">Link.alexander_polynomial()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.all_crossings_oriented"><code class="docutils literal notranslate"><span class="pre">Link.all_crossings_oriented()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.alternating"><code class="docutils literal notranslate"><span class="pre">Link.alternating()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.backtrack"><code class="docutils literal notranslate"><span class="pre">Link.backtrack()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.black_graph"><code class="docutils literal notranslate"><span class="pre">Link.black_graph()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.braid_word"><code class="docutils literal notranslate"><span class="pre">Link.braid_word()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.connected_sum"><code class="docutils literal notranslate"><span class="pre">Link.connected_sum()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.copy"><code class="docutils literal notranslate"><span class="pre">Link.copy()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.crossing_entries"><code class="docutils literal notranslate"><span class="pre">Link.crossing_entries()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.crossing_strands"><code class="docutils literal notranslate"><span class="pre">Link.crossing_strands()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.deconnect_sum"><code class="docutils literal notranslate"><span class="pre">Link.deconnect_sum()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.determinant"><code class="docutils literal notranslate"><span class="pre">Link.determinant()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.digraph"><code class="docutils literal notranslate"><span class="pre">Link.digraph()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.dual_graph"><code class="docutils literal notranslate"><span class="pre">Link.dual_graph()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.exterior"><code class="docutils literal notranslate"><span class="pre">Link.exterior()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.faces"><code class="docutils literal notranslate"><span class="pre">Link.faces()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.goeritz_matrix"><code class="docutils literal notranslate"><span class="pre">Link.goeritz_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.is_alternating"><code class="docutils literal notranslate"><span class="pre">Link.is_alternating()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.is_planar"><code class="docutils literal notranslate"><span class="pre">Link.is_planar()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.jones_polynomial"><code class="docutils literal notranslate"><span class="pre">Link.jones_polynomial()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.knot_floer_homology"><code class="docutils literal notranslate"><span class="pre">Link.knot_floer_homology()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.knot_group"><code class="docutils literal notranslate"><span class="pre">Link.knot_group()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.linking_matrix"><code class="docutils literal notranslate"><span class="pre">Link.linking_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.linking_number"><code class="docutils literal notranslate"><span class="pre">Link.linking_number()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.mirror"><code class="docutils literal notranslate"><span class="pre">Link.mirror()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.morse_diagram"><code class="docutils literal notranslate"><span class="pre">Link.morse_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.morse_number"><code class="docutils literal notranslate"><span class="pre">Link.morse_number()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.optimize_overcrossings"><code class="docutils literal notranslate"><span class="pre">Link.optimize_overcrossings()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.overstrands"><code class="docutils literal notranslate"><span class="pre">Link.overstrands()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.peer_code"><code class="docutils literal notranslate"><span class="pre">Link.peer_code()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.sage_link"><code class="docutils literal notranslate"><span class="pre">Link.sage_link()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.seifert_matrix"><code class="docutils literal notranslate"><span class="pre">Link.seifert_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.signature"><code class="docutils literal notranslate"><span class="pre">Link.signature()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.simplify"><code class="docutils literal notranslate"><span class="pre">Link.simplify()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.split_link_diagram"><code class="docutils literal notranslate"><span class="pre">Link.split_link_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.sublink"><code class="docutils literal notranslate"><span class="pre">Link.sublink()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.view"><code class="docutils literal notranslate"><span class="pre">Link.view()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.white_graph"><code class="docutils literal notranslate"><span class="pre">Link.white_graph()</span></code></a></li>
-<li><a class="reference internal" href="#spherogram.Link.writhe"><code class="docutils literal notranslate"><span class="pre">Link.writhe()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-closedbraid-class">The ClosedBraid class</a><ul>
-<li><a class="reference internal" href="#spherogram.ClosedBraid"><code class="docutils literal notranslate"><span class="pre">ClosedBraid</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#random-links">Random Links</a></li>
+<li><a class="reference internal" href="#the-link-class">The Link class</a></li>
+<li><a class="reference internal" href="#the-closedbraid-class">The ClosedBraid class</a></li>
 </ul>
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="plink.html"
-                          title="previous chapter">Using SnapPy’s link editor</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="snap.html"
-                          title="next chapter">Number theory of hyperbolic 3-manifolds</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plink.html"
+                        title="previous chapter">Using SnapPy’s link editor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="snap.html"
+                        title="next chapter">Number theory of hyperbolic 3-manifolds</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1179,7 +1107,7 @@ and used as the braid_closure parameter.</p>
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1199,13 +1127,13 @@ and used as the braid_closure parameter.</p>
         <li class="right" >
           <a href="plink.html" title="Using SnapPy’s link editor"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Links: planar diagrams and invariants</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
   </body>
 </html>

@@ -1,21 +1,19 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Internals of verified computations &#8212; SnapPy 3.1rc1 documentation</title>
+    <title>Internals of verified computations &#8212; SnapPy 3.0.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,7 +35,7 @@
         <li class="right" >
           <a href="verify_canon.html" title="Canonical retriangulation and isometry signature"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="verify.html" accesskey="U">Verified computations</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Internals of verified computations</a></li> 
       </ul>
@@ -49,9 +47,9 @@
           <div class="body" role="main">
             
   <section id="internals-of-verified-computations">
-<h1>Internals of verified computations<a class="headerlink" href="#internals-of-verified-computations" title="Permalink to this heading">¶</a></h1>
+<h1>Internals of verified computations<a class="headerlink" href="#internals-of-verified-computations" title="Permalink to this headline">¶</a></h1>
 <section id="naming">
-<h2>Naming<a class="headerlink" href="#naming" title="Permalink to this heading">¶</a></h2>
+<h2>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h2>
 <p>The names of methods containing <code class="docutils literal notranslate"><span class="pre">check</span></code> will raise an exception if
 the desired property cannot be certified. There are different types of
 Exceptions to indicate how the certification failed. This type can be
@@ -62,7 +60,7 @@ triangulation or increasing precision or to give up.</p>
 <code class="docutils literal notranslate"><span class="pre">None</span></code> in such a case.</p>
 </section>
 <section id="generating-certified-shape-intervals">
-<h2>Generating certified shape intervals<a class="headerlink" href="#generating-certified-shape-intervals" title="Permalink to this heading">¶</a></h2>
+<h2>Generating certified shape intervals<a class="headerlink" href="#generating-certified-shape-intervals" title="Permalink to this headline">¶</a></h2>
 <p>The recommended way to obtain certified intervals for the shapes is via
 <code class="docutils literal notranslate"><span class="pre">manifold.tetrahedra_shapes(intervals=True)</span></code> as <a class="reference internal" href="verify.html"><span class="doc">described
 earlier</span></a>. Here we document the <code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine</span></code> and
@@ -76,7 +74,7 @@ verify.</p>
 <span class="target" id="module-snappy.verify"></span><dl class="py attribute">
 <dt class="sig sig-object py" id="snappy.verify.CertifiedShapesEngine">
 <span class="sig-prename descclassname"><span class="pre">snappy.verify.</span></span><span class="sig-name descname"><span class="pre">CertifiedShapesEngine</span></span><a class="headerlink" href="#snappy.verify.CertifiedShapesEngine" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#snappy.verify.KrawczykShapesEngine" title="snappy.verify.krawczyk_shapes_engine.KrawczykShapesEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">KrawczykShapesEngine</span></code></a></p>
+<dd><p>alias of <a class="reference internal" href="#snappy.verify.KrawczykShapesEngine" title="snappy.verify.krawczyk_shapes_engine.KrawczykShapesEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">snappy.verify.krawczyk_shapes_engine.KrawczykShapesEngine</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -126,7 +124,7 @@ equations of the following form and try to solve them:</p>
 </li>
 </ol>
 <p>In contrast to HIKMOT, we use and return Sage’s native implementation of
-(complex) interval arithmetic here, which allows for increased interoperability.
+(complex) interval arithmetic here, which allows for increased interoperability. 
 Another advantage is that Sage supports arbitrary precision. Unfortunately,
 performance suffers and this implementation is 5-10 times slower than HIKMOT.</p>
 <p>Here is an example how to explicitly invoke the IntervalNewtonShapesEngine:</p>
@@ -305,6 +303,52 @@ False
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="snappy.verify.IntervalNewtonShapesEngine.mat_solve">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mat_solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.verify.IntervalNewtonShapesEngine.mat_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a matrix m and a vector v of (complex) intervals, returns
+the vector a such that v = m * a preserving interval
+arithmetics: if m’ is a matrix with values in the intervals of m and 
+v’ is a vector with values in the intervals of v, then the intervals
+of the result a returned by this method are guaranteed to contain
+the entries of m’^-1 * v’.</p>
+<p>Sage already provides a method for inverting matrices. However, it
+has a flaw and fails inverting interval matrices even though the
+interval determinant is far from containing zero (it returns
+unusable matrices with entries (-inf, inf).</p>
+<p>Our implementation improves on this by swapping rows to avoid
+diagonal entries close to zero during Gaussian elimination.</p>
+<p>Setup a complex interval for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">RIF</span> <span class="o">=</span> <span class="n">RealIntervalField</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">CIF</span> <span class="o">=</span> <span class="n">ComplexIntervalField</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">fuzzy_four</span> <span class="o">=</span> <span class="n">CIF</span><span class="p">(</span><span class="n">RIF</span><span class="p">(</span><span class="mf">3.9999</span><span class="p">,</span><span class="mf">4.0001</span><span class="p">),</span><span class="n">RIF</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.0001</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Construct a matrix/vector with complex interval coefficients. One entry
+is a complex interval with non-zero diameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">m</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">CIF</span><span class="p">,</span>
+<span class="o">...</span>      <span class="p">[</span>  <span class="p">[</span> <span class="n">fuzzy_four</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="o">...</span>         <span class="p">[</span>          <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="o">...</span>         <span class="p">[</span>          <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="o">...</span>         <span class="p">[</span>          <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">v</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">CIF</span><span class="p">,</span> <span class="p">[</span><span class="n">fuzzy_four</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Now compute the solutions a to v = m * a:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sage: a = IntervalNewtonShapesEngine.mat_solve(m, v)
+sage: a  # doctest: +ELLIPSIS
+(1.5...? + 0.000?*I, -1.2...? + 0.000?*I, 0.34...? + 0.0000?*I, 0.24...? + 0.000?*I)
+sage: m * a  # doctest: +ELLIPSIS
+(4.0...? + 0.00?*I, 2.0...? + 0.00?*I, 0.0...? + 0.00?*I, 1.00? + 0.00?*I)
+</pre></div>
+</div>
+<p>The product actually contains the vector v, we check entry wise:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">s</span> <span class="ow">in</span> <span class="n">t</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">m</span> <span class="o">*</span> <span class="n">a</span><span class="p">)]</span>
+<span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="snappy.verify.IntervalNewtonShapesEngine.newton_iteration">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">newton_iteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">equations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_intervals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_in_intervals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_value_at_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.verify.IntervalNewtonShapesEngine.newton_iteration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform a Newton interval method of iteration for
@@ -355,7 +399,7 @@ stable in the sense that the interval size decreases:</p>
 sage: shape_intervals = C.initial_shapes.apply_map(lambda shape: shape + box)
 sage: shape_intervals
 (0.700? + 1.000?*I, 0.700? + 1.000?*I, 0.500? + 0.500?*I)
-sage: for i in range(7):
+sage: for i in range(7): 
 ...     shape_intervals = IntervalNewtonShapesEngine.newton_iteration(C.equations, shape_intervals)
 sage: print(shape_intervals) # doctest: +ELLIPSIS
 (0.78055252785072483798...? + 0.91447366296772645593...?*I, 0.7805525278507248379869? + 0.914473662967726455938...?*I, 0.460021175573717872891...? + 0.632624193605256171637...?*I)
@@ -410,7 +454,7 @@ equations of the following form and try to solve them:</p>
 double’s. Some intermediate matrix computations are performed sparsely.</p></li>
 </ol>
 <p>In contrast to HIKMOT, we use and return Sage’s native implementation of
-(complex) interval arithmetic here, which allows for increased interoperability.
+(complex) interval arithmetic here, which allows for increased interoperability. 
 Another advantage is that Sage supports arbitrary precision.</p>
 <p>Here is an example how to explicitly invoke the KrawczykShapesEngine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sage: shapes = M.tetrahedra_shapes(&#39;rect&#39;, bits_prec = 80)
@@ -609,7 +653,7 @@ False
 
 </section>
 <section id="verification-of-hyperbolicity">
-<h2>Verification of hyperbolicity<a class="headerlink" href="#verification-of-hyperbolicity" title="Permalink to this heading">¶</a></h2>
+<h2>Verification of hyperbolicity<a class="headerlink" href="#verification-of-hyperbolicity" title="Permalink to this headline">¶</a></h2>
 <p>Methods containing <code class="docutils literal notranslate"><span class="pre">check</span></code> will raise an exception if the desired property
 cannot be certified. Methods containing <code class="docutils literal notranslate"><span class="pre">verify</span></code> or <code class="docutils literal notranslate"><span class="pre">verified</span></code> will fail
 more gracefully returning <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> in such a case.</p>
@@ -648,7 +692,7 @@ ShapePositiveImaginaryPartNumericalVerifyError: Numerical verification that shap
 
 </section>
 <section id="cusp-cross-sections">
-<h2>Cusp cross sections<a class="headerlink" href="#cusp-cross-sections" title="Permalink to this heading">¶</a></h2>
+<h2>Cusp cross sections<a class="headerlink" href="#cusp-cross-sections" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.verify.RealCuspCrossSection">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.verify.</span></span><span class="sig-name descname"><span class="pre">RealCuspCrossSection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mcomplex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.verify.RealCuspCrossSection" title="Permalink to this definition">¶</a></dt>
@@ -679,7 +723,7 @@ in a cusp’s double-cover like the SnapPea kernel does).</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="snappy.verify.RealCuspCrossSection.HoroTriangle">
 <span class="sig-name descname"><span class="pre">HoroTriangle</span></span><a class="headerlink" href="#snappy.verify.RealCuspCrossSection.HoroTriangle" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">RealHoroTriangle</span></code></p>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">snappy.verify.cuspCrossSection.RealHoroTriangle</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -735,7 +779,7 @@ neighborhoods are disjoint since there might be a geodesic between
 the two cusps such that the distance between the two cusps measured
 along the geodesic is shorter than measured along any edge of the
 triangulation.</p>
-<p>Thus, it is necessary to call ensure_std_form as well:
+<p>Thus, it is necessary to call ensure_std_form as well: 
 it will make sure that the cusp neighborhoods are small enough so
 that they intersect the tetrahedra in “standard” form.
 Here, “standard” form means that the corresponding horoball about a
@@ -888,7 +932,7 @@ It is encoded as dictionary with key (tet index, t3m face, t3m vertex).</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="snappy.verify.ComplexCuspCrossSection.HoroTriangle">
 <span class="sig-name descname"><span class="pre">HoroTriangle</span></span><a class="headerlink" href="#snappy.verify.ComplexCuspCrossSection.HoroTriangle" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">ComplexHoroTriangle</span></code></p>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">snappy.verify.cuspCrossSection.ComplexHoroTriangle</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -968,7 +1012,7 @@ neighborhoods are disjoint since there might be a geodesic between
 the two cusps such that the distance between the two cusps measured
 along the geodesic is shorter than measured along any edge of the
 triangulation.</p>
-<p>Thus, it is necessary to call ensure_std_form as well:
+<p>Thus, it is necessary to call ensure_std_form as well: 
 it will make sure that the cusp neighborhoods are small enough so
 that they intersect the tetrahedra in “standard” form.
 Here, “standard” form means that the corresponding horoball about a
@@ -1054,7 +1098,7 @@ entry in the array.</p>
 
 </section>
 <section id="verified-canonical-cell-decompositions">
-<h2>Verified canonical cell decompositions<a class="headerlink" href="#verified-canonical-cell-decompositions" title="Permalink to this heading">¶</a></h2>
+<h2>Verified canonical cell decompositions<a class="headerlink" href="#verified-canonical-cell-decompositions" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="snappy.verify.verifyCanonical.interval_checked_canonical_triangulation">
 <span class="sig-prename descclassname"><span class="pre">snappy.verify.verifyCanonical.</span></span><span class="sig-name descname"><span class="pre">interval_checked_canonical_triangulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_prec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.verify.verifyCanonical.interval_checked_canonical_triangulation" title="Permalink to this definition">¶</a></dt>
@@ -1137,7 +1181,7 @@ TiltProvenPositiveNumericalVerifyError: Numerical verification that tilt is nega
 
 </section>
 <section id="module-snappy.verify.squareExtensions">
-<span id="exact-computations-for-cusp-cross-sections"></span><h2>Exact computations for cusp cross sections<a class="headerlink" href="#module-snappy.verify.squareExtensions" title="Permalink to this heading">¶</a></h2>
+<span id="exact-computations-for-cusp-cross-sections"></span><h2>Exact computations for cusp cross sections<a class="headerlink" href="#module-snappy.verify.squareExtensions" title="Permalink to this headline">¶</a></h2>
 <p>The squareExtensions module provides
 two special classes to give exact representations of the values
 involved when computing a cusp cross section.</p>
@@ -1302,7 +1346,7 @@ real + imag * I. Supports <code class="docutils literal notranslate"><span class
 
 </section>
 <section id="module-snappy.verify.exceptions">
-<span id="exceptions"></span><h2>Exceptions<a class="headerlink" href="#module-snappy.verify.exceptions" title="Permalink to this heading">¶</a></h2>
+<span id="exceptions"></span><h2>Exceptions<a class="headerlink" href="#module-snappy.verify.exceptions" title="Permalink to this headline">¶</a></h2>
 <p>All final exceptions are deriving from two base classes:</p>
 <ul class="simple">
 <li><p>a subclass of VerifyErrorBase to indicate whether a numerical or exact
@@ -1560,139 +1604,26 @@ proto-canonical triangulation.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Internals of verified computations</a><ul>
 <li><a class="reference internal" href="#naming">Naming</a></li>
-<li><a class="reference internal" href="#generating-certified-shape-intervals">Generating certified shape intervals</a><ul>
-<li><a class="reference internal" href="#snappy.verify.CertifiedShapesEngine"><code class="docutils literal notranslate"><span class="pre">CertifiedShapesEngine</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.certified_newton_iteration"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.certified_newton_iteration()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.expand_until_certified"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.expand_until_certified()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.interval_vector_is_contained_in"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.interval_vector_is_contained_in()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.interval_vector_mid_points"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.interval_vector_mid_points()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.interval_vector_union"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.interval_vector_union()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.log_gluing_LHS_derivatives"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.log_gluing_LHS_derivatives()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.log_gluing_LHSs"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.log_gluing_LHSs()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.IntervalNewtonShapesEngine.newton_iteration"><code class="docutils literal notranslate"><span class="pre">IntervalNewtonShapesEngine.newton_iteration()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.expand_until_certified"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.expand_until_certified()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.interval_vector_is_contained_in"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.interval_vector_is_contained_in()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.interval_vector_mid_points"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.interval_vector_mid_points()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.interval_vector_union"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.interval_vector_union()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.krawczyk_interval"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.krawczyk_interval()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.log_gluing_LHS_derivatives"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.log_gluing_LHS_derivatives()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.log_gluing_LHS_derivatives_sparse"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.log_gluing_LHS_derivatives_sparse()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.log_gluing_LHSs"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.log_gluing_LHSs()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.KrawczykShapesEngine.matrix_times_sparse"><code class="docutils literal notranslate"><span class="pre">KrawczykShapesEngine.matrix_times_sparse()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#verification-of-hyperbolicity">Verification of hyperbolicity</a><ul>
-<li><a class="reference internal" href="#snappy.verify.verifyHyperbolicity.check_logarithmic_gluing_equations_and_positively_oriented_tets"><code class="docutils literal notranslate"><span class="pre">check_logarithmic_gluing_equations_and_positively_oriented_tets()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cusp-cross-sections">Cusp cross sections</a><ul>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.HoroTriangle"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.HoroTriangle</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.check_cusp_development_exactly"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.check_cusp_development_exactly()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.check_logarithmic_edge_equations_and_positivity"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.check_logarithmic_edge_equations_and_positivity()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.check_polynomial_edge_equations_exactly"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.check_polynomial_edge_equations_exactly()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.compute_tilts"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.compute_tilts()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.cusp_areas"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.cusp_areas()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.ensure_disjoint_on_edges"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.ensure_disjoint_on_edges()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.ensure_std_form"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.ensure_std_form()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.fromManifoldAndShapes"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.fromManifoldAndShapes()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.normalize_cusps"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.normalize_cusps()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.read_tilts"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.read_tilts()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.RealCuspCrossSection.scale_cusps"><code class="docutils literal notranslate"><span class="pre">RealCuspCrossSection.scale_cusps()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.HoroTriangle"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.HoroTriangle</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.add_vertex_positions_to_horotriangles"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.add_vertex_positions_to_horotriangles()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.all_normalized_translations"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.all_normalized_translations()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.check_cusp_development_exactly"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.check_cusp_development_exactly()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.check_logarithmic_edge_equations_and_positivity"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.check_logarithmic_edge_equations_and_positivity()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.check_polynomial_edge_equations_exactly"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.check_polynomial_edge_equations_exactly()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.cusp_areas"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.cusp_areas()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.cusp_shapes"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.cusp_shapes()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.ensure_disjoint_on_edges"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.ensure_disjoint_on_edges()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.ensure_std_form"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.ensure_std_form()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.lift_vertex_positions_of_horotriangles"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.lift_vertex_positions_of_horotriangles()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.move_fixed_point_to_zero"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.move_fixed_point_to_zero()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.move_lifted_vertex_positions_to_zero_first"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.move_lifted_vertex_positions_to_zero_first()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.normalize_cusps"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.normalize_cusps()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.ComplexCuspCrossSection.scale_cusps"><code class="docutils literal notranslate"><span class="pre">ComplexCuspCrossSection.scale_cusps()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#verified-canonical-cell-decompositions">Verified canonical cell decompositions</a><ul>
-<li><a class="reference internal" href="#snappy.verify.verifyCanonical.interval_checked_canonical_triangulation"><code class="docutils literal notranslate"><span class="pre">interval_checked_canonical_triangulation()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.verifyCanonical.exactly_checked_canonical_retriangulation"><code class="docutils literal notranslate"><span class="pre">exactly_checked_canonical_retriangulation()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-snappy.verify.squareExtensions">Exact computations for cusp cross sections</a><ul>
-<li><a class="reference internal" href="#snappy.verify.squareExtensions.find_shapes_as_complex_sqrt_lin_combinations"><code class="docutils literal notranslate"><span class="pre">find_shapes_as_complex_sqrt_lin_combinations()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.squareExtensions.SqrtLinCombination"><code class="docutils literal notranslate"><span class="pre">SqrtLinCombination</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.verify.squareExtensions.SqrtLinCombination.sign"><code class="docutils literal notranslate"><span class="pre">SqrtLinCombination.sign()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.squareExtensions.SqrtLinCombination.sign_with_interval"><code class="docutils literal notranslate"><span class="pre">SqrtLinCombination.sign_with_interval()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#snappy.verify.squareExtensions.ComplexSqrtLinCombination"><code class="docutils literal notranslate"><span class="pre">ComplexSqrtLinCombination</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.verify.squareExtensions.ComplexSqrtLinCombination.imag"><code class="docutils literal notranslate"><span class="pre">ComplexSqrtLinCombination.imag()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.squareExtensions.ComplexSqrtLinCombination.real"><code class="docutils literal notranslate"><span class="pre">ComplexSqrtLinCombination.real()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-snappy.verify.exceptions">Exceptions</a><ul>
-<li><a class="reference internal" href="#snappy.verify.exceptions.ConsistencyWithSnapPeaNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">ConsistencyWithSnapPeaNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.ConsistencyWithSnapPeaType"><code class="docutils literal notranslate"><span class="pre">ConsistencyWithSnapPeaType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.CuspConsistencyType"><code class="docutils literal notranslate"><span class="pre">CuspConsistencyType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.CuspDevelopmentExactVerifyError"><code class="docutils literal notranslate"><span class="pre">CuspDevelopmentExactVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.CuspDevelopmentType"><code class="docutils literal notranslate"><span class="pre">CuspDevelopmentType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.CuspEquationExactVerifyError"><code class="docutils literal notranslate"><span class="pre">CuspEquationExactVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.CuspEquationLogLiftNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">CuspEquationLogLiftNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.CuspEquationType"><code class="docutils literal notranslate"><span class="pre">CuspEquationType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.EdgeEquationExactVerifyError"><code class="docutils literal notranslate"><span class="pre">EdgeEquationExactVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.EdgeEquationLogLiftNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">EdgeEquationLogLiftNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.EdgeEquationType"><code class="docutils literal notranslate"><span class="pre">EdgeEquationType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.EquationType"><code class="docutils literal notranslate"><span class="pre">EquationType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.ExactVerifyError"><code class="docutils literal notranslate"><span class="pre">ExactVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.InequalityNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">InequalityNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.IsZeroExactVerifyError"><code class="docutils literal notranslate"><span class="pre">IsZeroExactVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.LogLiftNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">LogLiftNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.NumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">NumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.ShapePositiveImaginaryPartNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">ShapePositiveImaginaryPartNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.ShapeType"><code class="docutils literal notranslate"><span class="pre">ShapeType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.TiltInequalityNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">TiltInequalityNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.TiltIsZeroExactVerifyError"><code class="docutils literal notranslate"><span class="pre">TiltIsZeroExactVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.TiltProvenPositiveNumericalVerifyError"><code class="docutils literal notranslate"><span class="pre">TiltProvenPositiveNumericalVerifyError</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.TiltType"><code class="docutils literal notranslate"><span class="pre">TiltType</span></code></a></li>
-<li><a class="reference internal" href="#snappy.verify.exceptions.VerifyErrorBase"><code class="docutils literal notranslate"><span class="pre">VerifyErrorBase</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#generating-certified-shape-intervals">Generating certified shape intervals</a></li>
+<li><a class="reference internal" href="#verification-of-hyperbolicity">Verification of hyperbolicity</a></li>
+<li><a class="reference internal" href="#cusp-cross-sections">Cusp cross sections</a></li>
+<li><a class="reference internal" href="#verified-canonical-cell-decompositions">Verified canonical cell decompositions</a></li>
+<li><a class="reference internal" href="#module-snappy.verify.squareExtensions">Exact computations for cusp cross sections</a></li>
+<li><a class="reference internal" href="#module-snappy.verify.exceptions">Exceptions</a></li>
 </ul>
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="verify_canon.html"
-                          title="previous chapter">Canonical retriangulation and isometry signature</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="other.html"
-                          title="next chapter">Other components</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="verify_canon.html"
+                        title="previous chapter">Canonical retriangulation and isometry signature</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="other.html"
+                        title="next chapter">Other components</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1709,7 +1640,7 @@ proto-canonical triangulation.</p>
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1729,14 +1660,14 @@ proto-canonical triangulation.</p>
         <li class="right" >
           <a href="verify_canon.html" title="Canonical retriangulation and isometry signature"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="verify.html" >Verified computations</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Internals of verified computations</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
   </body>
 </html>

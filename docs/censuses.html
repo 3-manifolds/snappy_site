@@ -1,21 +1,19 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Census manifolds &#8212; SnapPy 3.1rc1 documentation</title>
+    <title>Census manifolds &#8212; SnapPy 3.0.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,7 +35,7 @@
         <li class="right" >
           <a href="additional_classes.html" title="Additional Classes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="snappy.html" accesskey="U">The snappy module and its classes</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Census manifolds</a></li> 
       </ul>
@@ -49,7 +47,7 @@
           <div class="body" role="main">
             
   <section id="census-manifolds">
-<h1>Census manifolds<a class="headerlink" href="#census-manifolds" title="Permalink to this heading">¶</a></h1>
+<h1>Census manifolds<a class="headerlink" href="#census-manifolds" title="Permalink to this headline">¶</a></h1>
 <p>Snappy comes with a large library of manifolds, which can be accessed
 individually through the Manifold and Triangulation constructors but
 can also be iterated through using the objects described on this
@@ -181,10 +179,10 @@ with 1 or more than 1 component and a specified crossing
 number.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">HTLinkExteriors</span><span class="o">.</span><span class="n">identify</span><span class="p">(</span><span class="n">LinkExteriors</span><span class="p">[</span><span class="s1">&#39;8_20&#39;</span><span class="p">])</span>
 <span class="go">K8n1(0,0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">some_links</span> <span class="o">=</span> <span class="n">HTLinkExteriors</span><span class="p">(</span><span class="n">alternating</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">knots_vs_links</span><span class="o">=</span><span class="s1">&#39;links&#39;</span><span class="p">)[</span><span class="mf">8.5</span><span class="p">:</span><span class="mf">8.7</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">some_links</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Mylist</span> <span class="o">=</span> <span class="n">HTLinkExteriors</span><span class="p">(</span><span class="n">alternating</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">knots_vs_links</span><span class="o">=</span><span class="s1">&#39;links&#39;</span><span class="p">)[</span><span class="mf">8.5</span><span class="p">:</span><span class="mf">8.7</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">Mylist</span><span class="p">)</span>
 <span class="go">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">some_links</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">Mylist</span><span class="p">:</span>
 <span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span> <span class="n">L</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">L</span><span class="o">.</span><span class="n">num_cusps</span><span class="p">(),</span> <span class="n">L</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> <span class="p">)</span>
 <span class="gp">... </span>
 <span class="go">L11n138 2 8.66421454</span>
@@ -195,7 +193,7 @@ number.</p>
 <span class="go">L14n24425 2 8.60676092</span>
 <span class="go">L14n24777 2 8.53123093</span>
 <span class="go">L14n26042 2 8.64333782</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">some_links</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">Mylist</span><span class="p">:</span>
 <span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span> <span class="n">L</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">L</span><span class="o">.</span><span class="n">DT_code</span><span class="p">()</span> <span class="p">)</span>
 <span class="gp">... </span>
 <span class="go">L11n138 [(8, -10, -12), (6, -16, -18, -22, -20, -2, -4, -14)]</span>
@@ -218,18 +216,6 @@ with 15 crossings.  You can determine which you have by whether</p>
 <p>gives 0 or 253293. To upgrade to the larger database, install
 the Python module ‘snappy_15_knots’ as discussed on the
 ‘installing SnapPy’ webpage.</p>
-<p>If you have the larger version, the 15 crossing knots are
-ordered so that the original HTLinkExteriors come first, then
-the alternating 15 crossing knots, then the nonalternating 15
-crossing knots.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="s1">&#39;sLLLvzLLwQQQQcefjnilmlpnrrqqpprqiitcifaudnbsvrbccnn_bBEd&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">HTLinkExteriors</span><span class="o">.</span><span class="n">identify</span><span class="p">(</span><span class="n">Manifold</span><span class="p">(</span><span class="n">isosig</span><span class="p">))</span>
-<span class="go">K15n82491(0,0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">big_links</span> <span class="o">=</span> <span class="n">HTLinkExteriors</span><span class="p">[</span><span class="mf">32.75</span><span class="p">:</span><span class="mf">33.0</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">L</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">big_links</span><span class="p">]</span>
-<span class="go">[&#39;K15a81381&#39;, &#39;K15a82192&#39;]</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py data">
@@ -358,47 +344,12 @@ Hoste-Thistlethwaite tables.  Goes through 16 crossings.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Census manifolds</a><ul>
-<li><a class="reference internal" href="#snappy.OrientableCuspedCensus"><code class="docutils literal notranslate"><span class="pre">OrientableCuspedCensus</span></code></a></li>
-<li><a class="reference internal" href="#snappy.OrientableClosedCensus"><code class="docutils literal notranslate"><span class="pre">OrientableClosedCensus</span></code></a></li>
-<li><a class="reference internal" href="#snappy.CensusKnots"><code class="docutils literal notranslate"><span class="pre">CensusKnots</span></code></a></li>
-<li><a class="reference internal" href="#snappy.LinkExteriors"><code class="docutils literal notranslate"><span class="pre">LinkExteriors</span></code></a></li>
-<li><a class="reference internal" href="#snappy.HTLinkExteriors"><code class="docutils literal notranslate"><span class="pre">HTLinkExteriors</span></code></a></li>
-<li><a class="reference internal" href="#snappy.NonorientableCuspedCensus"><code class="docutils literal notranslate"><span class="pre">NonorientableCuspedCensus</span></code></a></li>
-<li><a class="reference internal" href="#snappy.NonorientableClosedCensus"><code class="docutils literal notranslate"><span class="pre">NonorientableClosedCensus</span></code></a></li>
-<li><a class="reference internal" href="#snappy.database.ManifoldTable"><code class="docutils literal notranslate"><span class="pre">ManifoldTable</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.database.ManifoldTable.find"><code class="docutils literal notranslate"><span class="pre">ManifoldTable.find()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.database.ManifoldTable.identify"><code class="docutils literal notranslate"><span class="pre">ManifoldTable.identify()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.database.ManifoldTable.keys"><code class="docutils literal notranslate"><span class="pre">ManifoldTable.keys()</span></code></a></li>
-<li><a class="reference internal" href="#snappy.database.ManifoldTable.siblings"><code class="docutils literal notranslate"><span class="pre">ManifoldTable.siblings()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#snappy.AlternatingKnotExteriors"><code class="docutils literal notranslate"><span class="pre">AlternatingKnotExteriors</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.AlternatingKnotExteriors.next"><code class="docutils literal notranslate"><span class="pre">AlternatingKnotExteriors.next()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#snappy.NonalternatingKnotExteriors"><code class="docutils literal notranslate"><span class="pre">NonalternatingKnotExteriors</span></code></a><ul>
-<li><a class="reference internal" href="#snappy.NonalternatingKnotExteriors.next"><code class="docutils literal notranslate"><span class="pre">NonalternatingKnotExteriors.next()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="additional_classes.html"
-                          title="previous chapter">Additional Classes</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="platonic_census.html"
-                          title="next chapter">Censuses of Platonic manifolds</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="additional_classes.html"
+                        title="previous chapter">Additional Classes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="platonic_census.html"
+                        title="next chapter">Censuses of Platonic manifolds</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -415,7 +366,7 @@ Hoste-Thistlethwaite tables.  Goes through 16 crossings.</p>
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -435,14 +386,14 @@ Hoste-Thistlethwaite tables.  Goes through 16 crossings.</p>
         <li class="right" >
           <a href="additional_classes.html" title="Additional Classes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="snappy.html" >The snappy module and its classes</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Census manifolds</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
   </body>
 </html>

@@ -1,21 +1,19 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Development Basics &#8212; SnapPy 3.1rc1 documentation</title>
+    <title>Development Basics &#8212; SnapPy 3.0.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -33,7 +31,7 @@
         <li class="right" >
           <a href="todo.html" title="To Do List"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Development Basics</a></li> 
       </ul>
     </div>  
@@ -44,15 +42,15 @@
           <div class="body" role="main">
             
   <section id="development-basics">
-<h1>Development Basics<a class="headerlink" href="#development-basics" title="Permalink to this heading">¶</a></h1>
+<h1>Development Basics<a class="headerlink" href="#development-basics" title="Permalink to this headline">¶</a></h1>
 <section id="submitting-patches">
-<h2>Submitting patches<a class="headerlink" href="#submitting-patches" title="Permalink to this heading">¶</a></h2>
+<h2>Submitting patches<a class="headerlink" href="#submitting-patches" title="Permalink to this headline">¶</a></h2>
 <p>The source code for SnapPy and its various parts are <a class="reference external" href="https://github.com/3-manifolds">hosted on GitHub</a> as <a class="reference external" href="https://git-scm.com/">Git repositories</a>.  To contribute a patch, create a free
 GitHub account, fork the appropriate repository, and then send us a
 pull request, as described in <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">here</a>.</p>
 </section>
 <section id="macos">
-<h2>macOS<a class="headerlink" href="#macos" title="Permalink to this heading">¶</a></h2>
+<h2>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
 <p>Here is how to get a clean development setup under macOS.</p>
 <ul>
 <li><p>Install the latest Python 3.8 from Python.org using the <a class="reference external" href="http://www.python.org/download/">Mac
@@ -69,7 +67,7 @@ following packages:</p>
 <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>        <span class="c1"># For building the documentation</span>
 <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ipython</span>       <span class="c1"># Improved Python shell</span>
 <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">py2app</span>        <span class="c1"># For making app bundles</span>
-<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyx</span> <span class="n">FXrays</span> <span class="n">low_index</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyx</span>
 </pre></div>
 </div>
 </li>
@@ -102,6 +100,7 @@ documentation, much of which is extracted from the installed module:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">snappy</span>
 <span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">pip_install</span>
 <span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">test</span>   <span class="c1"># Run the tests; pretty picture should appear.</span>
+<span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build_docs</span> <span class="n">pip_install</span>
 <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">snappy</span><span class="o">.</span><span class="n">app</span>   <span class="c1">#SnapPy starts!</span>
 </pre></div>
 </div>
@@ -129,7 +128,7 @@ to the SnapPea kernel</p></li>
 out, after installing <a class="reference external" href="http://pmw.sf.net">PythonMegaWidgets</a>.</p>
 </section>
 <section id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">¶</a></h2>
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
 <p>These instructions have been tested on Windows 10, and describe
 setting up a development environment using the (free) MSVC
 compiler. To build the CyPari subcomponent, which few will want or
@@ -143,7 +142,7 @@ These instructions assume it has been installed in the directory
 get them by using Microsoft’s free <a class="reference external" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=16">Build Tools for Visual Studio 2019</a>
 installer and selecting the “C++ command line tools” and installing
 the following subpackages: “MSVC v142 - VS 2019 C++ build tools”,
-“Testing tools core features”, “C++/CLI support for v142”, and
+“Testsing tools core features”, “C++/CLI support for v142”, and
 “Windows 10 SDK (most recent version)”.</p>
 <p>If you would like to make your own installer you will also need
 <a class="reference external" href="http://www.jrsoftware.org/isdl.php">Inno Setup</a>, specifically the
@@ -194,7 +193,7 @@ typing:</p>
 </li>
 <li><p>Use pip to install some basic tools:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">setuptools</span> <span class="n">wheel</span>  <span class="c1"># Upgrades pip to the current version.</span>
-<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyreadline</span> <span class="n">sphinx</span> <span class="n">cython</span> <span class="n">cypari</span> <span class="n">pyx</span> <span class="n">FXrays</span> <span class="n">low_index</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyreadline</span> <span class="n">sphinx</span> <span class="n">cython</span> <span class="n">cypari</span> <span class="n">pyx</span>
 </pre></div>
 </div>
 </li>
@@ -276,7 +275,7 @@ the CyPari directory.</p>
 </ul>
 </section>
 <section id="linux">
-<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this heading">¶</a></h2>
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
 <p>See the <a class="reference internal" href="installing.html#generic-unix"><span class="std std-ref">installation instructions on generic Unix</span></a> for how to build SnapPy from source.</p>
 </section>
 </section>
@@ -288,9 +287,8 @@ the CyPari directory.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Development Basics</a><ul>
 <li><a class="reference internal" href="#submitting-patches">Submitting patches</a></li>
 <li><a class="reference internal" href="#macos">macOS</a></li>
@@ -300,12 +298,9 @@ the CyPari directory.</p>
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="todo.html"
-                          title="previous chapter">To Do List</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="todo.html"
+                        title="previous chapter">To Do List</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -322,7 +317,7 @@ the CyPari directory.</p>
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -339,13 +334,13 @@ the CyPari directory.</p>
         <li class="right" >
           <a href="todo.html" title="To Do List"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.1rc1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Development Basics</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
   </body>
 </html>
