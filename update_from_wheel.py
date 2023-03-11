@@ -12,7 +12,7 @@ for file_name in wheel_contents.namelist():
     if file_name.startswith('snappy/doc'):
         wheel_contents.extract(file_name, work_dir)
 
-keepers = ['CNAME', '.nojekyll']
+keepers = ['CNAME', '.nojekyll', 'current.txt']
 for file_name in keepers:
     os.rename('docs/' + file_name, work_dir + '/snappy/doc/' + file_name)
 
