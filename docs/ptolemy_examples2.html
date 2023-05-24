@@ -1,56 +1,118 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Step-by-step examples: Part 2 &#8212; SnapPy 3.0.3 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Step-by-step examples: Part 2 &mdash; SnapPy 3.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Step-by-step examples: Part 3" href="ptolemy_examples3.html" />
     <link rel="prev" title="Step-by-step examples: Part 1" href="ptolemy_examples1.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_examples3.html" title="Step-by-step examples: Part 3"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_examples1.html" title="Step-by-step examples: Part 1"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="other.html" >Other components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="ptolemy.html" accesskey="U">The ptolemy module</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Step-by-step examples: Part 2</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SnapPy
+              <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing SnapPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshots.html">Screenshots: SnapPy in action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snappy.html">The snappy module and its classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plink.html">Using SnapPy’s link editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spherogram.html">Links: planar diagrams and invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snap.html">Number theory of hyperbolic 3-manifolds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verify.html">Verified computations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="other.html">Other components</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="other.html#ptolemy-module">Ptolemy module</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ptolemy.html">The ptolemy module</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ptolemy.html#what-is-the-ptolemy-module">What is the ptolemy module?</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="ptolemy.html#documentation">Documentation</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_prelim.html">Mathematical preliminaries</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_examples1.html">Step-by-step examples: Part 1</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">Step-by-step examples: Part 2</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_examples3.html">Step-by-step examples: Part 3</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_examples4.html">Step-by-step examples: Part 4</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_classes.html">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other.html#twister">Twister</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting bugs and other problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development Basics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SnapPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="other.html">Other components</a></li>
+          <li class="breadcrumb-item"><a href="ptolemy.html">The ptolemy module</a></li>
+      <li class="breadcrumb-item active">Step-by-step examples: Part 2</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="step-by-step-examples-part-2">
-<h1>Step-by-step examples: Part 2<a class="headerlink" href="#step-by-step-examples-part-2" title="Permalink to this headline">¶</a></h1>
+<h1>Step-by-step examples: Part 2<a class="headerlink" href="#step-by-step-examples-part-2" title="Permalink to this heading"></a></h1>
 <section id="the-ptolemy-list-type">
-<span id="ptolemy-example-smart-lists"></span><h2>The Ptolemy list type<a class="headerlink" href="#the-ptolemy-list-type" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-smart-lists"></span><h2>The Ptolemy list type<a class="headerlink" href="#the-ptolemy-list-type" title="Permalink to this heading"></a></h2>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">ptolemy_variety</span></code> with <code class="docutils literal notranslate"><span class="pre">obstruction_class='all'</span></code> returns a list of varieties, one for each obstruction class:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">obstruction_class</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
@@ -93,7 +155,7 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <p>Since <code class="docutils literal notranslate"><span class="pre">retrieve_solutions</span></code> itself actually returns a list, the result is a list of lists of solutions which are of type <code class="docutils literal notranslate"><span class="pre">PtolemyCoordinates</span></code>. The first level groups the solutions by obstruction class. The inner lists contain the different (non-Galois conjugate) solutions for each obstruction class (here, for <code class="docutils literal notranslate"><span class="pre">m003</span></code>, each inner lists contains only one element).</p>
 </section>
 <section id="using-the-ptolemy-list-type-recursively">
-<h2>Using the Ptolemy list type recursively<a class="headerlink" href="#using-the-ptolemy-list-type-recursively" title="Permalink to this headline">¶</a></h2>
+<h2>Using the Ptolemy list type recursively<a class="headerlink" href="#using-the-ptolemy-list-type-recursively" title="Permalink to this heading"></a></h2>
 <p>The list type described in the previous example works recursively. Recall that an algebraic solution to a Ptolemy variety (of type <code class="docutils literal notranslate"><span class="pre">PtolemyCoordinates</span></code>) has a method <code class="docutils literal notranslate"><span class="pre">volume_numerical</span></code> that returns a list of volumes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">=</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">=</span><span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -102,7 +164,7 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <span class="go">[0.E-19, 1.88267370443418 E-14]</span>
 </pre></div>
 </div>
-<p>We can chain these commands together to retrieve the volumes of all boundary-unpotent PSL(2, <strong>C</strong>) (that are <a class="reference internal" href="ptolemy_prelim.html#ptolemy-generically-decorated"><span class="std std-ref">generically decorated</span></a> with respect to the triangulation) in just one line:</p>
+<p>We can chain these commands together to retrieve the volumes of all boundary-unipotent PSL(2, <strong>C</strong>) (that are <a class="reference internal" href="ptolemy_prelim.html#ptolemy-generically-decorated"><span class="std std-ref">generically decorated</span></a> with respect to the triangulation) in just one line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span>
 <span class="go">[[[0.E-19, 1.88267370443418 E-14]], [[2.02988321281931, -2.02988321281931]]]</span>
 </pre></div>
@@ -112,7 +174,7 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <p><strong>Remark:</strong> Unfortunately, this is not compatible with tab-autocompletion, see <a class="reference internal" href="#ptolemy-example-missing-auto-completion"><span class="std std-ref">later</span></a>.</p>
 </section>
 <section id="a-comparison-of-m003-and-m004">
-<h2>A comparison of <code class="docutils literal notranslate"><span class="pre">m003</span></code> and <code class="docutils literal notranslate"><span class="pre">m004</span></code><a class="headerlink" href="#a-comparison-of-m003-and-m004" title="Permalink to this headline">¶</a></h2>
+<h2>A comparison of <code class="docutils literal notranslate"><span class="pre">m003</span></code> and <code class="docutils literal notranslate"><span class="pre">m004</span></code><a class="headerlink" href="#a-comparison-of-m003-and-m004" title="Permalink to this heading"></a></h2>
 <p>We can now compare the set of volumes of <code class="docutils literal notranslate"><span class="pre">m003</span></code> and <code class="docutils literal notranslate"><span class="pre">m004</span></code>:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span>
 <span class="go">[[[0.E-19, 1.88267370443418 E-14]], [[2.02988321281931, -2.02988321281931]]]</span>
@@ -123,7 +185,7 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <p>We see that the two manifolds are distinguished by their volumes of boundary-unipotent representations: <code class="docutils literal notranslate"><span class="pre">m004</span></code> has no representation with trivial volume (this is not a proof as in theory, there could be such a representation which is not <a class="reference internal" href="ptolemy_prelim.html#ptolemy-generically-decorated"><span class="std std-ref">generically decorated</span></a> with respect to the given triangulation) and no representation that can be lifted to a boundary-unipotent SL(2, <strong>C</strong>)-representation.</p>
 </section>
 <section id="a-non-hyperbolic-example">
-<h2>A non-hyperbolic example<a class="headerlink" href="#a-non-hyperbolic-example" title="Permalink to this headline">¶</a></h2>
+<h2>A non-hyperbolic example<a class="headerlink" href="#a-non-hyperbolic-example" title="Permalink to this heading"></a></h2>
 <p>We can also compute the volumes for a manifold that might be non-hyperbolic, here the complement of the 5<sub>1</sub> knot:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;5_1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span>
 <span class="go">[[], [[1.52310839130992 E-14, 0.E-37]]]</span>
@@ -133,13 +195,13 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <p><strong>Remark:</strong> The ptolemy module does not (yet) support interval arithmetics, otherwise, this would be a proof that 5<sub>1</sub> is not hyperbolic.</p>
 </section>
 <section id="flattening-nested-structures">
-<h2>Flattening nested structures<a class="headerlink" href="#flattening-nested-structures" title="Permalink to this headline">¶</a></h2>
-<p>If we want to loose some of the groupping, we can call <code class="docutils literal notranslate"><span class="pre">flatten</span></code> on the results. Here the grouping by obstruction class is lost:</p>
+<h2>Flattening nested structures<a class="headerlink" href="#flattening-nested-structures" title="Permalink to this heading"></a></h2>
+<p>If we want to loose some of the grouping, we can call <code class="docutils literal notranslate"><span class="pre">flatten</span></code> on the results. Here the grouping by obstruction class is lost:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="go">[[0.E-19, 1.88267370443418 E-14], [2.02988321281931, -2.02988321281931]]</span>
 </pre></div>
 </div>
-<p>And now, the groupping by Galois conjugacy is lost as well, resulting in a flat list:</p>
+<p>And now, the grouping by Galois conjugacy is lost as well, resulting in a flat list:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">[0.E-19, 1.88267370443418 E-14, 2.02988321281931, -2.02988321281931]</span>
 </pre></div>
@@ -148,7 +210,7 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <p><strong>Remark:</strong> We cannot <cite>overflatten</cite>. If we give an even larger argument to flatten, the result will just stay a flat list.</p>
 </section>
 <section id="lack-of-tab-autocompletion-for-nested-structures">
-<span id="ptolemy-example-missing-auto-completion"></span><h2>Lack of tab-autocompletion for nested structures<a class="headerlink" href="#lack-of-tab-autocompletion-for-nested-structures" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-missing-auto-completion"></span><h2>Lack of tab-autocompletion for nested structures<a class="headerlink" href="#lack-of-tab-autocompletion-for-nested-structures" title="Permalink to this heading"></a></h2>
 <p>Unfortunately, the autocompletion does not list all the desired results when we have a nested structure. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span><span class="o">.</span>
@@ -172,7 +234,7 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <p>The overview diagram might also be helpful.</p>
 </section>
 <section id="converting-exact-solutions-into-numerical-solutions">
-<h2>Converting exact solutions into numerical solutions<a class="headerlink" href="#converting-exact-solutions-into-numerical-solutions" title="Permalink to this headline">¶</a></h2>
+<h2>Converting exact solutions into numerical solutions<a class="headerlink" href="#converting-exact-solutions-into-numerical-solutions" title="Permalink to this heading"></a></h2>
 <p>We can turn exact solutions into numerical solutions by calling <code class="docutils literal notranslate"><span class="pre">numerical</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span>
@@ -206,7 +268,7 @@ the given arguments (here <code class="docutils literal notranslate"><span class
 <p><strong>Remark:</strong> <code class="docutils literal notranslate"><span class="pre">CrossRatios</span></code> also support <code class="docutils literal notranslate"><span class="pre">numerical</span></code>.</p>
 </section>
 <section id="working-with-exact-vs-numerical-solutions">
-<span id="ptolemy-example-numerical-matrix"></span><h2>Working with exact vs numerical solutions<a class="headerlink" href="#working-with-exact-vs-numerical-solutions" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-numerical-matrix"></span><h2>Working with exact vs numerical solutions<a class="headerlink" href="#working-with-exact-vs-numerical-solutions" title="Permalink to this heading"></a></h2>
 <p>Most methods such as <code class="docutils literal notranslate"><span class="pre">evaluate_word</span></code> or <code class="docutils literal notranslate"><span class="pre">cross_ratios</span></code> work just the same way on an exact solution:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exact_sol</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exact_sol</span>
@@ -251,7 +313,7 @@ of Galois conjugate numerical solutions first. <code class="docutils literal not
 </div>
 </section>
 <section id="computing-numerical-solutions-directly">
-<span id="ptolemy-example-retrieve-numerical-solutions"></span><h2>Computing numerical solutions directly<a class="headerlink" href="#computing-numerical-solutions-directly" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-retrieve-numerical-solutions"></span><h2>Computing numerical solutions directly<a class="headerlink" href="#computing-numerical-solutions-directly" title="Permalink to this heading"></a></h2>
 <p>We can also directly compute numerical solutions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">numerical</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -279,7 +341,7 @@ of Galois conjugate numerical solutions first. <code class="docutils literal not
 (because it can avoid computing the number field from the lexicographic Groebner basis, see later). For example, many PSL(3, <strong>C</strong>) examples only work when using <code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
 </section>
 <section id="computing-cross-ratios-from-ptolemy-coordinates">
-<span id="ptolemy-example-cross-ratios"></span><h2>Computing cross ratios from Ptolemy coordinates<a class="headerlink" href="#computing-cross-ratios-from-ptolemy-coordinates" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-cross-ratios"></span><h2>Computing cross ratios from Ptolemy coordinates<a class="headerlink" href="#computing-cross-ratios-from-ptolemy-coordinates" title="Permalink to this heading"></a></h2>
 <p>Given exact or numerical solutions to the Ptolemy variety, we can also compute the cross ratios/shape parameters:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">zs</span><span class="o">=</span><span class="n">sols</span><span class="o">.</span><span class="n">cross_ratios</span><span class="p">()</span>
@@ -321,7 +383,7 @@ of Galois conjugate numerical solutions first. <code class="docutils literal not
 <p>The result is of type <code class="docutils literal notranslate"><span class="pre">CrossRatios</span></code> and assigns z as well as z’=1/(1-z) and z’’=1-1/z a value.</p>
 </section>
 <section id="the-dimension-of-a-component">
-<span id="ptolemy-non-zero-dim-comp"></span><h2>The dimension of a component<a class="headerlink" href="#the-dimension-of-a-component" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-non-zero-dim-comp"></span><h2>The dimension of a component<a class="headerlink" href="#the-dimension-of-a-component" title="Permalink to this heading"></a></h2>
 <p>A Ptolemy variety might have positively dimensional components (note that this might or might not be a positively dimensional family of representations, see <a class="reference internal" href="ptolemy_prelim.html#ptolemy-generically-decorated"><span class="std std-ref">here</span></a>). For example, the Ptolemy variety for <code class="docutils literal notranslate"><span class="pre">m371</span></code> and the trivial obstruction class has a 1-dimensional component. This is indicated by:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span>
 <span class="go">[NonZeroDimensionalComponent(dimension = 1)]</span>
@@ -379,81 +441,34 @@ of Galois conjugate numerical solutions first. <code class="docutils literal not
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Step-by-step examples: Part 2</a><ul>
-<li><a class="reference internal" href="#the-ptolemy-list-type">The Ptolemy list type</a></li>
-<li><a class="reference internal" href="#using-the-ptolemy-list-type-recursively">Using the Ptolemy list type recursively</a></li>
-<li><a class="reference internal" href="#a-comparison-of-m003-and-m004">A comparison of <code class="docutils literal notranslate"><span class="pre">m003</span></code> and <code class="docutils literal notranslate"><span class="pre">m004</span></code></a></li>
-<li><a class="reference internal" href="#a-non-hyperbolic-example">A non-hyperbolic example</a></li>
-<li><a class="reference internal" href="#flattening-nested-structures">Flattening nested structures</a></li>
-<li><a class="reference internal" href="#lack-of-tab-autocompletion-for-nested-structures">Lack of tab-autocompletion for nested structures</a></li>
-<li><a class="reference internal" href="#converting-exact-solutions-into-numerical-solutions">Converting exact solutions into numerical solutions</a></li>
-<li><a class="reference internal" href="#working-with-exact-vs-numerical-solutions">Working with exact vs numerical solutions</a></li>
-<li><a class="reference internal" href="#computing-numerical-solutions-directly">Computing numerical solutions directly</a></li>
-<li><a class="reference internal" href="#computing-cross-ratios-from-ptolemy-coordinates">Computing cross ratios from Ptolemy coordinates</a></li>
-<li><a class="reference internal" href="#the-dimension-of-a-component">The dimension of a component</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ptolemy_examples1.html" class="btn btn-neutral float-left" title="Step-by-step examples: Part 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ptolemy_examples3.html" class="btn btn-neutral float-right" title="Step-by-step examples: Part 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ptolemy_examples1.html"
-                        title="previous chapter">Step-by-step examples: Part 1</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="ptolemy_examples3.html"
-                        title="next chapter">Step-by-step examples: Part 3</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/ptolemy_examples2.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_examples3.html" title="Step-by-step examples: Part 3"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_examples1.html" title="Step-by-step examples: Part 1"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="other.html" >Other components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="ptolemy.html" >The ptolemy module</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Step-by-step examples: Part 2</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

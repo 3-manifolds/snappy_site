@@ -1,54 +1,158 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Links: planar diagrams and invariants &#8212; SnapPy 3.0.3 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Links: planar diagrams and invariants &mdash; SnapPy 3.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Number theory of hyperbolic 3-manifolds" href="snap.html" />
     <link rel="prev" title="Using SnapPy’s link editor" href="plink.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="snap.html" title="Number theory of hyperbolic 3-manifolds"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="plink.html" title="Using SnapPy’s link editor"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Links: planar diagrams and invariants</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SnapPy
+              <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing SnapPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshots.html">Screenshots: SnapPy in action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snappy.html">The snappy module and its classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plink.html">Using SnapPy’s link editor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Links: planar diagrams and invariants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-links">Random Links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spherogram.random_link"><code class="docutils literal notranslate"><span class="pre">random_link()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-link-class">The Link class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spherogram.Link"><code class="docutils literal notranslate"><span class="pre">Link</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.DT_code"><code class="docutils literal notranslate"><span class="pre">Link.DT_code()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.KLPProjection"><code class="docutils literal notranslate"><span class="pre">Link.KLPProjection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.PD_code"><code class="docutils literal notranslate"><span class="pre">Link.PD_code()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.alexander_matrix"><code class="docutils literal notranslate"><span class="pre">Link.alexander_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.alexander_poly"><code class="docutils literal notranslate"><span class="pre">Link.alexander_poly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.alexander_polynomial"><code class="docutils literal notranslate"><span class="pre">Link.alexander_polynomial()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.all_crossings_oriented"><code class="docutils literal notranslate"><span class="pre">Link.all_crossings_oriented()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.alternating"><code class="docutils literal notranslate"><span class="pre">Link.alternating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.backtrack"><code class="docutils literal notranslate"><span class="pre">Link.backtrack()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.black_graph"><code class="docutils literal notranslate"><span class="pre">Link.black_graph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.braid_word"><code class="docutils literal notranslate"><span class="pre">Link.braid_word()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.connected_sum"><code class="docutils literal notranslate"><span class="pre">Link.connected_sum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.copy"><code class="docutils literal notranslate"><span class="pre">Link.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.crossing_entries"><code class="docutils literal notranslate"><span class="pre">Link.crossing_entries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.crossing_strands"><code class="docutils literal notranslate"><span class="pre">Link.crossing_strands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.deconnect_sum"><code class="docutils literal notranslate"><span class="pre">Link.deconnect_sum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.determinant"><code class="docutils literal notranslate"><span class="pre">Link.determinant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.digraph"><code class="docutils literal notranslate"><span class="pre">Link.digraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.dual_graph"><code class="docutils literal notranslate"><span class="pre">Link.dual_graph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.exterior"><code class="docutils literal notranslate"><span class="pre">Link.exterior()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.faces"><code class="docutils literal notranslate"><span class="pre">Link.faces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.goeritz_matrix"><code class="docutils literal notranslate"><span class="pre">Link.goeritz_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.is_alternating"><code class="docutils literal notranslate"><span class="pre">Link.is_alternating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.is_planar"><code class="docutils literal notranslate"><span class="pre">Link.is_planar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.jones_polynomial"><code class="docutils literal notranslate"><span class="pre">Link.jones_polynomial()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.knot_floer_homology"><code class="docutils literal notranslate"><span class="pre">Link.knot_floer_homology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.knot_group"><code class="docutils literal notranslate"><span class="pre">Link.knot_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.linking_matrix"><code class="docutils literal notranslate"><span class="pre">Link.linking_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.linking_number"><code class="docutils literal notranslate"><span class="pre">Link.linking_number()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.mirror"><code class="docutils literal notranslate"><span class="pre">Link.mirror()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.morse_diagram"><code class="docutils literal notranslate"><span class="pre">Link.morse_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.morse_number"><code class="docutils literal notranslate"><span class="pre">Link.morse_number()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.optimize_overcrossings"><code class="docutils literal notranslate"><span class="pre">Link.optimize_overcrossings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.overstrands"><code class="docutils literal notranslate"><span class="pre">Link.overstrands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.peer_code"><code class="docutils literal notranslate"><span class="pre">Link.peer_code()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.sage_link"><code class="docutils literal notranslate"><span class="pre">Link.sage_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.seifert_matrix"><code class="docutils literal notranslate"><span class="pre">Link.seifert_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.signature"><code class="docutils literal notranslate"><span class="pre">Link.signature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.simplify"><code class="docutils literal notranslate"><span class="pre">Link.simplify()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.split_link_diagram"><code class="docutils literal notranslate"><span class="pre">Link.split_link_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.sublink"><code class="docutils literal notranslate"><span class="pre">Link.sublink()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.view"><code class="docutils literal notranslate"><span class="pre">Link.view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.white_graph"><code class="docutils literal notranslate"><span class="pre">Link.white_graph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spherogram.Link.writhe"><code class="docutils literal notranslate"><span class="pre">Link.writhe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-closedbraid-class">The ClosedBraid class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spherogram.ClosedBraid"><code class="docutils literal notranslate"><span class="pre">ClosedBraid</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snap.html">Number theory of hyperbolic 3-manifolds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verify.html">Verified computations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Other components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting bugs and other problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development Basics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SnapPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Links: planar diagrams and invariants</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <span class="target" id="module-spherogram"></span><section id="links-planar-diagrams-and-invariants">
-<h1>Links: planar diagrams and invariants<a class="headerlink" href="#links-planar-diagrams-and-invariants" title="Permalink to this headline">¶</a></h1>
+<h1>Links: planar diagrams and invariants<a class="headerlink" href="#links-planar-diagrams-and-invariants" title="Permalink to this heading"></a></h1>
 <section id="tutorial">
-<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading"></a></h2>
 <p>SnapPy includes the <a class="reference external" href="https://github.com/3-manifolds/Spherogram">Spherogram</a> module which allows one to
 create links programmatically.  The graphical conventions used are
 <a class="reference external" href="https://github.com/3-manifolds/Spherogram/raw/master/spherogram_src/links/doc.pdf">summarized here</a>.</p>
@@ -113,10 +217,10 @@ basic link invariants, including the Jones polynomial.  See the
 complete list of Link methods below.</p>
 </section>
 <section id="random-links">
-<h2>Random Links<a class="headerlink" href="#random-links" title="Permalink to this headline">¶</a></h2>
+<h2>Random Links<a class="headerlink" href="#random-links" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="spherogram.random_link">
-<span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">random_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crossings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_map_gives_link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consistent_twist_regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime_decomposition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_all_pieces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.random_link" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">random_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crossings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_map_gives_link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consistent_twist_regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime_decomposition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_all_pieces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.random_link" title="Permalink to this definition"></a></dt>
 <dd><p>Generates a random link from a model that starts with a random
 4-valent planar graph sampled with the uniform distribution by
 Schaeffer’s <a class="reference external" href="http://www.lix.polytechnique.fr/~schaeffe/PagesWeb/PlanarMap/index-en.html">PlanarMap program.</a></p>
@@ -183,10 +287,10 @@ can have fewer components than the link as a whole.</p>
 
 </section>
 <section id="the-link-class">
-<h2>The Link class<a class="headerlink" href="#the-link-class" title="Permalink to this headline">¶</a></h2>
+<h2>The Link class<a class="headerlink" href="#the-link-class" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="spherogram.Link">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">Link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crossings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">braid_closure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_planarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">build</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">Link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crossings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">braid_closure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_planarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">build</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link" title="Permalink to this definition"></a></dt>
 <dd><p>Links are made from Crossings.  The general model is that of the PD
 diagrams used in <a class="reference external" href="http://katlas.org/wiki/Planar_Diagrams">KnotTheory</a>.</p>
 <p>See the file “doc.pdf” for the conventions, which can be accessed
@@ -235,7 +339,7 @@ Hoste-Thistlethwaite tables by name.</p>
 see the documentation for the “sage_link” method for details.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.DT_code">
-<span class="sig-name descname"><span class="pre">DT_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DT_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flips</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.DT_code" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DT_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DT_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flips</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.DT_code" title="Permalink to this definition"></a></dt>
 <dd><p>The Dowker-Thistlethwaite code for the link in either numerical or
 alphabetical form.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;K8n1&#39;</span><span class="p">)</span>
@@ -252,12 +356,12 @@ each component; subsequent letters describe each crossing with
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.KLPProjection">
-<span class="sig-name descname"><span class="pre">KLPProjection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.KLPProjection" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">KLPProjection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.KLPProjection" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.PD_code">
-<span class="sig-name descname"><span class="pre">PD_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">KnotTheory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_strand_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.PD_code" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">PD_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">KnotTheory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_strand_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.PD_code" title="Permalink to this definition"></a></dt>
 <dd><p>The planar diagram code for the link.  When reconstructing a link
 from its PD code, it will not change the ordering of the
 components, and will preserve their orientation except
@@ -274,7 +378,7 @@ possibly for components with only two crossings.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.alexander_matrix">
-<span class="sig-name descname"><span class="pre">alexander_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alexander_matrix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">alexander_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alexander_matrix" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the Alexander matrix of the link:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;3_1&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">A</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">alexander_matrix</span><span class="p">()</span>
@@ -294,14 +398,15 @@ possibly for components with only two crossings.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.alexander_poly">
-<span class="sig-name descname"><span class="pre">alexander_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alexander_poly" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">alexander_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alexander_poly" title="Permalink to this definition"></a></dt>
 <dd><p>Please use the “alexander_polynomial” method instead.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.alexander_polynomial">
-<span class="sig-name descname"><span class="pre">alexander_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multivar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'no'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factored</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alexander_polynomial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the Alexander polynomial of the link. For links with one component,
+<span class="sig-name descname"><span class="pre">alexander_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multivar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'no'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factored</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alexander_polynomial" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the Alexander polynomial of the link.</p>
+<p>For links with one component,
 can evaluate the alexander polynomial at v:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;4_1&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">alexander_polynomial</span><span class="p">()</span>
@@ -326,12 +431,12 @@ Wirtinger presentation for the link:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.all_crossings_oriented">
-<span class="sig-name descname"><span class="pre">all_crossings_oriented</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.all_crossings_oriented" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">all_crossings_oriented</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.all_crossings_oriented" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.alternating">
-<span class="sig-name descname"><span class="pre">alternating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alternating" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">alternating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.alternating" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the alternating link with the same planar graph.  No attempt
 is made to preserve the order of the link components or ensure
 that the DT code of the result has all positive entries (as
@@ -346,7 +451,7 @@ opposed to all negative).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.backtrack">
-<span class="sig-name descname"><span class="pre">backtrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_type_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_type_2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.backtrack" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">backtrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_type_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_type_2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.backtrack" title="Permalink to this definition"></a></dt>
 <dd><p>Performs a sequence of Reidemeister moves which increase or maintain
 the number of crossings in a diagram.  The number of such
 moves is the parameter steps.  The diagram is modified in place.</p>
@@ -365,11 +470,12 @@ moves is the parameter steps.  The diagram is modified in place.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.black_graph">
-<span class="sig-name descname"><span class="pre">black_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.black_graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the black graph of K. If the black graph is disconnected
-(which can only happen for a split link diagram), returns one
-connected component. The edges are labeled by the crossings
-they correspond to.  Example:</p>
+<span class="sig-name descname"><span class="pre">black_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.black_graph" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the black graph of K.</p>
+<p>If the black graph is disconnected (which can only happen for
+a split link diagram), returns one connected component. The
+edges are labeled by the crossings they correspond to.</p>
+<p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">=</span><span class="n">Link</span><span class="p">(</span><span class="s1">&#39;5_1&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">black_graph</span><span class="p">()</span>
 <span class="n">Subgraph</span> <span class="n">of</span> <span class="p">():</span> <span class="n">Multi</span><span class="o">-</span><span class="n">graph</span> <span class="n">on</span> <span class="mi">2</span> <span class="n">vertices</span>
@@ -382,7 +488,7 @@ expected way.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.braid_word">
-<span class="sig-name descname"><span class="pre">braid_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_sage_braid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.braid_word" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">braid_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_sage_braid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.braid_word" title="Permalink to this definition"></a></dt>
 <dd><p>Return a list of integers which defines a braid word whose closure is the
 given link.  The natural numbers 1, 2, 3, etc are the generators and the
 negatives are the inverses.</p>
@@ -407,7 +513,7 @@ braids, a new algorithm”.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.connected_sum">
-<span class="sig-name descname"><span class="pre">connected_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_knot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.connected_sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">connected_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_knot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.connected_sum" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the connected sum of two knots.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig8</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">fig8</span><span class="p">)</span>
@@ -419,7 +525,7 @@ braids, a new algorithm”.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recursively</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.copy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recursively</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.copy" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a copy of the link.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;L14n467&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">copy</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">copy</span>
@@ -432,17 +538,17 @@ braids, a new algorithm”.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.crossing_entries">
-<span class="sig-name descname"><span class="pre">crossing_entries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.crossing_entries" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">crossing_entries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.crossing_entries" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.crossing_strands">
-<span class="sig-name descname"><span class="pre">crossing_strands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.crossing_strands" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">crossing_strands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.crossing_strands" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.deconnect_sum">
-<span class="sig-name descname"><span class="pre">deconnect_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destroy_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.deconnect_sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">deconnect_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destroy_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.deconnect_sum" title="Permalink to this definition"></a></dt>
 <dd><p>Undoes all connect sums that are diagramatically obvious,
 i.e. those where there is a circle which meets the projection
 in two points.</p>
@@ -458,7 +564,7 @@ in two points.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.determinant">
-<span class="sig-name descname"><span class="pre">determinant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'goeritz'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.determinant" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">determinant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'goeritz'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.determinant" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the determinant of the link, a non-negative integer.</p>
 <p>Possible methods are ‘wirt’, using the Wirtinger presentation; ‘goeritz’,
 using the Goeritz matrix, and ‘color’, using the ‘colorability matrix’, or
@@ -472,13 +578,13 @@ anything else, to compute the Alexander polynomial at -1.  Example:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.digraph">
-<span class="sig-name descname"><span class="pre">digraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.digraph" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">digraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.digraph" title="Permalink to this definition"></a></dt>
 <dd><p>The underlying directed graph for the link diagram.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.dual_graph">
-<span class="sig-name descname"><span class="pre">dual_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.dual_graph" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dual_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.dual_graph" title="Permalink to this definition"></a></dt>
 <dd><p>The dual graph to a link diagram D, whose vertices correspond to
 complementary regions (faces) of D and whose edges are dual to the
 edges of D.</p>
@@ -486,7 +592,7 @@ edges of D.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.exterior">
-<span class="sig-name descname"><span class="pre">exterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_hyperbolic_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_finite_vertices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.exterior" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">exterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_hyperbolic_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_finite_vertices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.exterior" title="Permalink to this definition"></a></dt>
 <dd><p>The exterior or complement of the link L, that is, S^3 minus L.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;4_1&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">exterior</span><span class="p">()</span>
@@ -508,7 +614,7 @@ projection plane, set the flag remove_finite_vertices to False.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.faces">
-<span class="sig-name descname"><span class="pre">faces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.faces" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">faces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.faces" title="Permalink to this definition"></a></dt>
 <dd><p>The faces are the complementary regions of the link diagram. Each face
 is given as a list of corners of crossings as one goes around
 <em>clockwise</em>.  These corners are recorded as CrossingStrands,
@@ -520,7 +626,7 @@ as the <em>heads</em> of the oriented edges of the face.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.goeritz_matrix">
-<span class="sig-name descname"><span class="pre">goeritz_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.goeritz_matrix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">goeritz_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.goeritz_matrix" title="Permalink to this definition"></a></dt>
 <dd><p>Call self.white_graph() and return the Goeritz matrix of the result.
 If the return_graph flag is set, also return the graph:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">=</span><span class="n">Link</span><span class="p">(</span><span class="s1">&#39;4_1&#39;</span><span class="p">)</span>
@@ -532,7 +638,7 @@ If the return_graph flag is set, also return the graph:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.is_alternating">
-<span class="sig-name descname"><span class="pre">is_alternating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.is_alternating" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_alternating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.is_alternating" title="Permalink to this definition"></a></dt>
 <dd><p>Returns whether or not this link diagram is alternating.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;K9a1&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;K10n1&#39;</span><span class="p">)</span>
@@ -555,7 +661,7 @@ class.  Here is the Hopf link with two silly extra crossings:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.is_planar">
-<span class="sig-name descname"><span class="pre">is_planar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.is_planar" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_planar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.is_planar" title="Permalink to this definition"></a></dt>
 <dd><p>Whether the 4-valent graph underlying the link projection is planar.
 Should always be True for any actual Link.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Crossing</span><span class="p">()</span>
@@ -589,7 +695,7 @@ False
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.jones_polynomial">
-<span class="sig-name descname"><span class="pre">jones_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.jones_polynomial" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">jones_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.jones_polynomial" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the Jones polynomial of the link, following the
 conventions of <a class="reference external" href="https://arxiv.org/abs/math/0201043">https://arxiv.org/abs/math/0201043</a></p>
 <p>In particular, it obeys the oriented skein relation:</p>
@@ -623,7 +729,7 @@ can recover the old conventions as illustrated below:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.knot_floer_homology">
-<span class="sig-name descname"><span class="pre">knot_floer_homology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">complex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.knot_floer_homology" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">knot_floer_homology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">complex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.knot_floer_homology" title="Permalink to this definition"></a></dt>
 <dd><p>Uses Zoltán Szabó’s HFK Calculator to compute the knot Floer
 homology.  This also gives the Seifert genus, whether the knot
 fibers, etc:</p>
@@ -693,7 +799,7 @@ sage: M.right_kernel().rank() - M.rank()
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.knot_group">
-<span class="sig-name descname"><span class="pre">knot_group</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.knot_group" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">knot_group</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.knot_group" title="Permalink to this definition"></a></dt>
 <dd><p>Computes the knot group using the Wirtinger presentation.</p>
 <p>Returns a finitely presented group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sage: K = Link(&#39;3_1&#39;)
@@ -706,7 +812,7 @@ sage: type(G)
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.linking_matrix">
-<span class="sig-name descname"><span class="pre">linking_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.linking_matrix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">linking_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.linking_matrix" title="Permalink to this definition"></a></dt>
 <dd><p>Calculates the linking number for each pair of link components.</p>
 <p>Returns a linking matrix, in which the (i,j)th component is the
 linking number of the ith and jth link components.</p>
@@ -714,7 +820,7 @@ linking number of the ith and jth link components.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.linking_number">
-<span class="sig-name descname"><span class="pre">linking_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.linking_number" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">linking_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.linking_number" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the linking number of self if self has two components;
 or the sum of the linking numbers of all pairs of components
 in general.</p>
@@ -722,14 +828,14 @@ in general.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.mirror">
-<span class="sig-name descname"><span class="pre">mirror</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.mirror" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">mirror</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.mirror" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the mirror image of the link, preserving link orientations and
 component order.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.morse_diagram">
-<span class="sig-name descname"><span class="pre">morse_diagram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.morse_diagram" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">morse_diagram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.morse_diagram" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a MorseLinkDiagram of this link diagram, that is a choice
 of height function which realizes the Morse number:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;L8n2&#39;</span><span class="p">)</span>
@@ -747,7 +853,7 @@ of height function which realizes the Morse number:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.morse_number">
-<span class="sig-name descname"><span class="pre">morse_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GLPK'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.morse_number" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">morse_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GLPK'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.morse_number" title="Permalink to this definition"></a></dt>
 <dd><p>The <em>Morse number</em> of a planar link diagram D is</p>
 <blockquote>
 <div><p>m(D) = min { # of maxima of h on D }</p>
@@ -767,7 +873,7 @@ traditional bridge number.   Examples:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.optimize_overcrossings">
-<span class="sig-name descname"><span class="pre">optimize_overcrossings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.optimize_overcrossings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">optimize_overcrossings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.optimize_overcrossings" title="Permalink to this definition"></a></dt>
 <dd><p>Minimizes the number of crossings of a strand which crosses entirely
 above the diagram by finding the path crossing over the diagram with
 the least number of overcrossings.  It begins with the longest
@@ -791,7 +897,7 @@ reduces the number of crossings. Returns number of crossings removed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.overstrands">
-<span class="sig-name descname"><span class="pre">overstrands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.overstrands" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">overstrands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.overstrands" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a list of the sequences of overcrossings (which are lists of
 CrossingEntryPoints), sorted in descending order of length.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;L14n1000&#39;</span><span class="p">)</span>
@@ -803,12 +909,12 @@ CrossingEntryPoints), sorted in descending order of length.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.peer_code">
-<span class="sig-name descname"><span class="pre">peer_code</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.peer_code" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">peer_code</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.peer_code" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.sage_link">
-<span class="sig-name descname"><span class="pre">sage_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.sage_link" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sage_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.sage_link" title="Permalink to this definition"></a></dt>
 <dd><p>Convert to a SageMath Knot or Link:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;K10n11&#39;</span><span class="p">)</span>   <span class="c1"># Spherogram link</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">sage_link</span><span class="p">();</span> <span class="n">K</span>
@@ -820,23 +926,30 @@ CrossingEntryPoints), sorted in descending order of length.</p>
 </pre></div>
 </div>
 <p>Can also go the other way:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">B</span> <span class="o">=</span> <span class="n">BraidGroup</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">gens</span><span class="p">()</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">Link</span><span class="p">(</span><span class="n">braid_closure</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">**-</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span> <span class="p">)</span>
-<span class="o">&lt;</span><span class="n">Link</span><span class="p">:</span> <span class="mi">2</span> <span class="n">comp</span><span class="p">;</span> <span class="mi">12</span> <span class="n">cross</span><span class="o">&gt;</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">);</span> <span class="n">L</span>
-<span class="o">&lt;</span><span class="n">Link</span><span class="p">:</span> <span class="mi">1</span> <span class="n">comp</span><span class="p">;</span> <span class="mi">3</span> <span class="n">cross</span><span class="o">&gt;</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">S</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">sage_link</span><span class="p">();</span> <span class="n">S</span>
-<span class="n">Knot</span> <span class="n">represented</span> <span class="n">by</span> <span class="mi">3</span> <span class="n">crossings</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">Link</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">Link</span><span class="p">:</span> <span class="mi">1</span> <span class="n">comp</span><span class="p">;</span> <span class="mi">3</span> <span class="n">cross</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;K11n11&#39;</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">sage_link</span><span class="p">())</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">signature</span><span class="p">(),</span> <span class="n">M</span><span class="o">.</span><span class="n">signature</span><span class="p">()</span>
+<span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Can also take a braid group perspective.</p>
+<blockquote>
+<div><p>sage: B = BraidGroup(4)
+sage: a, b, c = B.gens()
+sage: Link(braid_closure=(a**-3) * (b**4) * (c**2) * a * b * c )
+&lt;Link: 2 comp; 12 cross&gt;
+sage: L = Link(a * b * c); L
+&lt;Link: 1 comp; 3 cross&gt;
+sage: S = L.sage_link(); S
+Knot represented by 3 crossings
+sage: Link(S)
+&lt;Link: 1 comp; 3 cross&gt;</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.seifert_matrix">
-<span class="sig-name descname"><span class="pre">seifert_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.seifert_matrix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">seifert_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.seifert_matrix" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the Seifert matrix of the link:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;K10n11&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">A</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">seifert_matrix</span><span class="p">()</span>
@@ -855,7 +968,7 @@ from a braid representation.” (2007).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.signature">
-<span class="sig-name descname"><span class="pre">signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.signature" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.signature" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the signature of the link, computed from the Goeritz matrix using
 the algorithm of Gordon and Litherland:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;4a1&#39;</span><span class="p">)</span>
@@ -884,7 +997,7 @@ recover the previous default by:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.simplify">
-<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_III_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.simplify" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_III_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.simplify" title="Permalink to this definition"></a></dt>
 <dd><p>Tries to simplify the link projection.  Returns whether it succeeded
 in reducing the number of crossings.  Modifies the link in
 place, and unknot components which are also unlinked may be
@@ -940,7 +1053,7 @@ overcrossings (or undercrossings); this has the effect of doing
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.split_link_diagram">
-<span class="sig-name descname"><span class="pre">split_link_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destroy_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.split_link_diagram" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">split_link_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destroy_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.split_link_diagram" title="Permalink to this definition"></a></dt>
 <dd><p>Breaks the given link diagram into pieces, one for each connected
 component of the underlying 4-valent graph.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">Link</span><span class="p">([(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)],</span> <span class="n">check_planarity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -952,7 +1065,7 @@ component of the underlying 4-valent graph.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.sublink">
-<span class="sig-name descname"><span class="pre">sublink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.sublink" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sublink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.sublink" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the sublink consisting of the specified components; see the
 example below for the various accepted forms.</p>
 <p>Warnings: Components in the sublink that are both unknotted
@@ -985,7 +1098,7 @@ in the original link.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.view">
-<span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viewer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_crossing_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.view" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viewer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_crossing_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.view" title="Permalink to this definition"></a></dt>
 <dd><p>Opens a Plink link viewer window displaying the current link.
 The strands of the links are unions of edges in the standard
 integer grid, following the work of <a class="reference external" href="https://dx.doi.org/10.1137/0216030">Tamassia</a> and <a class="reference external" href="ftp://ftp.cs.brown.edu/pub/techreports/99/cs99-04.pdf">Bridgeman
@@ -994,7 +1107,7 @@ et. al.</a></p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.white_graph">
-<span class="sig-name descname"><span class="pre">white_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.white_graph" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">white_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.white_graph" title="Permalink to this definition"></a></dt>
 <dd><p>Return the white graph of a non-split link projection.</p>
 <p>This method generates a multigraph whose vertices correspond
 to the faces of the diagram, with an edge joining two
@@ -1029,7 +1142,7 @@ expected way.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spherogram.Link.writhe">
-<span class="sig-name descname"><span class="pre">writhe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.writhe" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">writhe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.Link.writhe" title="Permalink to this definition"></a></dt>
 <dd><p>Finds the writhe of a knot.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">K</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span> <span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">)]</span> <span class="p">)</span>  <span class="c1"># Figure 8 knot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">K</span><span class="o">.</span><span class="n">writhe</span><span class="p">()</span>
@@ -1042,13 +1155,13 @@ expected way.</p>
 
 </section>
 <section id="the-closedbraid-class">
-<h2>The ClosedBraid class<a class="headerlink" href="#the-closedbraid-class" title="Permalink to this headline">¶</a></h2>
+<h2>The ClosedBraid class<a class="headerlink" href="#the-closedbraid-class" title="Permalink to this heading"></a></h2>
 <p>The ClosedBraid class provides an alternative way to construct links
 as closed braids.  It is a subclass of Link, and currently defines
 the same methods and attributes.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="spherogram.ClosedBraid">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">ClosedBraid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.ClosedBraid" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spherogram.</span></span><span class="sig-name descname"><span class="pre">ClosedBraid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spherogram.ClosedBraid" title="Permalink to this definition"></a></dt>
 <dd><p>This is a convenience class for constructing closed braids.</p>
 <p>The constructor accepts either a single argument, which should be a list of
 integers to be passed to the Link constructor as the braid_closure
@@ -1068,72 +1181,34 @@ and used as the braid_closure parameter.</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Links: planar diagrams and invariants</a><ul>
-<li><a class="reference internal" href="#tutorial">Tutorial</a></li>
-<li><a class="reference internal" href="#random-links">Random Links</a></li>
-<li><a class="reference internal" href="#the-link-class">The Link class</a></li>
-<li><a class="reference internal" href="#the-closedbraid-class">The ClosedBraid class</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plink.html" class="btn btn-neutral float-left" title="Using SnapPy’s link editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="snap.html" class="btn btn-neutral float-right" title="Number theory of hyperbolic 3-manifolds" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="plink.html"
-                        title="previous chapter">Using SnapPy’s link editor</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="snap.html"
-                        title="next chapter">Number theory of hyperbolic 3-manifolds</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/spherogram.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="snap.html" title="Number theory of hyperbolic 3-manifolds"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="plink.html" title="Using SnapPy’s link editor"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Links: planar diagrams and invariants</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

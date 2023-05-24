@@ -1,70 +1,123 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Installing SnapPy &#8212; SnapPy 3.0.3 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installing SnapPy &mdash; SnapPy 3.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Screenshots: SnapPy in action" href="screenshots.html" />
     <link rel="prev" title="SnapPy" href="index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="screenshots.html" title="Screenshots: SnapPy in action"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="SnapPy"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Installing SnapPy</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SnapPy
+              <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing SnapPy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#macos">macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-modules-for-macintosh-or-windows">Python Modules for Macintosh or Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sagemath">SageMath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kitchen-sink">Kitchen sink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generic-unix">Generic Unix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="screenshots.html">Screenshots: SnapPy in action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snappy.html">The snappy module and its classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plink.html">Using SnapPy’s link editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spherogram.html">Links: planar diagrams and invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snap.html">Number theory of hyperbolic 3-manifolds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verify.html">Verified computations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Other components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting bugs and other problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development Basics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SnapPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installing SnapPy</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="installing-snappy">
-<h1>Installing SnapPy<a class="headerlink" href="#installing-snappy" title="Permalink to this headline">¶</a></h1>
+<h1>Installing SnapPy<a class="headerlink" href="#installing-snappy" title="Permalink to this heading"></a></h1>
 <p>Here are detailed instructions on how to get SnapPy working on a
-variety of platforms.  The current version is 3.0.3 which was released
-on December 2021.  If you encounter problems installing SnapPy,
+variety of platforms.  The current version is 3.1 which was released
+on May 2023.  If you encounter problems installing SnapPy,
 <a class="reference internal" href="bugs.html"><span class="doc">please let us know</span></a>.</p>
 <section id="macos">
-<h2>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
+<h2>macOS<a class="headerlink" href="#macos" title="Permalink to this heading"></a></h2>
 <p>Simply download <a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/latest/download/SnapPy.dmg">SnapPy.dmg</a>
 and copy SnapPy.app to the Applications folder.  Double-click to start
 it, just like any other application.  Works with macOS/OS X 10.9 and
 newer.  Earlier releases <a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/">can be found here</a>.</p>
 </section>
 <section id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this heading"></a></h2>
 <p>Simply download and run <a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/latest/download/InstallSnapPy.exe">InstallSnapPy.exe</a>.
 Earlier releases <a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/">can be found here</a>.</p>
 </section>
 <section id="linux">
-<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this heading"></a></h2>
 <p>Here are short recipes which work on most Linux systems, specifically
 those that run a 64-bit kernel and have Python 3.6 or newer. These
 instructions assume you have system administrator (superuser)
@@ -141,7 +194,7 @@ can start SnapPy with just the command <code class="docutils literal notranslate
 <code class="docutils literal notranslate"><span class="pre">~/.local/bin</span></code> is in <a class="reference external" href="https://opensource.com/article/17/6/set-path-linux">in your path</a>.</p>
 </section>
 <section id="python-modules-for-macintosh-or-windows">
-<h2>Python Modules for Macintosh or Windows<a class="headerlink" href="#python-modules-for-macintosh-or-windows" title="Permalink to this headline">¶</a></h2>
+<h2>Python Modules for Macintosh or Windows<a class="headerlink" href="#python-modules-for-macintosh-or-windows" title="Permalink to this heading"></a></h2>
 <p>If you write Python programs on a Macintosh or Windows system, you may
 wish to install SnapPy as a Python module into your own copy of
 Python.  We support Python 3.6 and up.  (On macOS, use a Python
@@ -162,7 +215,7 @@ crossing knots (uses 110M of disk space), do:</p>
 here</a>.</p>
 </section>
 <section id="sagemath">
-<h2>SageMath<a class="headerlink" href="#sagemath" title="Permalink to this headline">¶</a></h2>
+<h2>SageMath<a class="headerlink" href="#sagemath" title="Permalink to this heading"></a></h2>
 <p>SnapPy has some special features when used within <a class="reference external" href="http://sagemath.org">SageMath</a>, the universal mathematics software based on
 Python.  This section describes how to install SnapPy into your
 existing copy of SageMath, but you may find it easier to use the
@@ -190,7 +243,7 @@ issue type “%gui tk” at the Sage prompt; please note that doing so may
 break Sage’s “attach” feature.</p>
 </section>
 <section id="kitchen-sink">
-<h2>Kitchen sink<a class="headerlink" href="#kitchen-sink" title="Permalink to this headline">¶</a></h2>
+<h2>Kitchen sink<a class="headerlink" href="#kitchen-sink" title="Permalink to this heading"></a></h2>
 <p>SnapPy gains extra features when used in <a class="reference external" href="http://sagemath.org">SageMath</a> and one can use
 Sage’s Python to interact not just with SnapPy but a range of other
 computational tools in low-dimensional topology including
@@ -209,7 +262,7 @@ other aforementioned tools, it has the advantage that the GUI elements
 such as the link editor and the browser can be used directly.</p>
 </section>
 <section id="generic-unix">
-<h2>Generic Unix<a class="headerlink" href="#generic-unix" title="Permalink to this headline">¶</a></h2>
+<h2>Generic Unix<a class="headerlink" href="#generic-unix" title="Permalink to this heading"></a></h2>
 <p>If you use a Unix other than OS X or Linux, or if the prebuilt
 packages don’t work for you, you’ll need to build SnapPy from source.
 Here are some detailed instructions.</p>
@@ -248,8 +301,8 @@ library.  Usually, you can install this with:</p>
 </li>
 </ul>
 <p>Now download the <a class="reference internal" href="#source-code">source code</a> listed below, for instance</p>
-<pre class="literal-block">wget <a class="reference external" href="https://pypi.python.org/packages/source/s/snappy/">https://pypi.python.org/packages/source/s/snappy/</a>snappy-3.0.3.tar.gz
-tar xfz snappy-3.0.3.tar.gz; cd snappy-*</pre>
+<pre class="literal-block">wget <a class="reference external" href="https://pypi.python.org/packages/source/s/snappy/">https://pypi.python.org/packages/source/s/snappy/</a>snappy-3.1.tar.gz
+tar xfz snappy-3.1.tar.gz; cd snappy-*</pre>
 <p>There is one more dependency that may need to be dealt with:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://togl.sf.net">Togl</a>: a 3d widget for Tk. For OS X and
@@ -268,8 +321,8 @@ certain other dependencies) and test:</p>
 </div>
 </section>
 <section id="source-code">
-<h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
-<p>The complete source code for all platforms: <a class="reference external" href="https://pypi.python.org/packages/source/s/snappy/snappy-3.0.3.tar.gz">snappy-3.0.3.tar.gz</a></p>
+<h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
+<p>The complete source code for all platforms: <a class="reference external" href="https://pypi.python.org/packages/source/s/snappy/snappy-3.1.tar.gz">snappy-3.1.tar.gz</a></p>
 <p>You can also browse our <a class="reference external" href="https://github.com/3-manifolds/SnapPy">source code repository</a> or clone it using <a class="reference external" href="https://git-scm.com/">git</a> via:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">3</span><span class="o">-</span><span class="n">manifolds</span><span class="o">/</span><span class="n">SnapPy</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -278,76 +331,34 @@ certain other dependencies) and test:</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Installing SnapPy</a><ul>
-<li><a class="reference internal" href="#macos">macOS</a></li>
-<li><a class="reference internal" href="#windows">Windows</a></li>
-<li><a class="reference internal" href="#linux">Linux</a></li>
-<li><a class="reference internal" href="#python-modules-for-macintosh-or-windows">Python Modules for Macintosh or Windows</a></li>
-<li><a class="reference internal" href="#sagemath">SageMath</a></li>
-<li><a class="reference internal" href="#kitchen-sink">Kitchen sink</a></li>
-<li><a class="reference internal" href="#generic-unix">Generic Unix</a></li>
-<li><a class="reference internal" href="#source-code">Source code</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SnapPy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="screenshots.html" class="btn btn-neutral float-right" title="Screenshots: SnapPy in action" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">SnapPy</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="screenshots.html"
-                        title="next chapter">Screenshots: SnapPy in action</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/installing.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="screenshots.html" title="Screenshots: SnapPy in action"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="SnapPy"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Installing SnapPy</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

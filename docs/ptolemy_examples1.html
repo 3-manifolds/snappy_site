@@ -1,56 +1,118 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Step-by-step examples: Part 1 &#8212; SnapPy 3.0.3 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Step-by-step examples: Part 1 &mdash; SnapPy 3.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Step-by-step examples: Part 2" href="ptolemy_examples2.html" />
     <link rel="prev" title="Mathematical preliminaries" href="ptolemy_prelim.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_examples2.html" title="Step-by-step examples: Part 2"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_prelim.html" title="Mathematical preliminaries"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="other.html" >Other components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="ptolemy.html" accesskey="U">The ptolemy module</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Step-by-step examples: Part 1</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SnapPy
+              <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing SnapPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screenshots.html">Screenshots: SnapPy in action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snappy.html">The snappy module and its classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plink.html">Using SnapPy’s link editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spherogram.html">Links: planar diagrams and invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snap.html">Number theory of hyperbolic 3-manifolds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verify.html">Verified computations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="other.html">Other components</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="other.html#ptolemy-module">Ptolemy module</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ptolemy.html">The ptolemy module</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ptolemy.html#what-is-the-ptolemy-module">What is the ptolemy module?</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="ptolemy.html#documentation">Documentation</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_prelim.html">Mathematical preliminaries</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">Step-by-step examples: Part 1</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_examples2.html">Step-by-step examples: Part 2</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_examples3.html">Step-by-step examples: Part 3</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_examples4.html">Step-by-step examples: Part 4</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ptolemy_classes.html">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other.html#twister">Twister</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting bugs and other problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development Basics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SnapPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="other.html">Other components</a></li>
+          <li class="breadcrumb-item"><a href="ptolemy.html">The ptolemy module</a></li>
+      <li class="breadcrumb-item active">Step-by-step examples: Part 1</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="step-by-step-examples-part-1">
-<h1>Step-by-step examples: Part 1<a class="headerlink" href="#step-by-step-examples-part-1" title="Permalink to this headline">¶</a></h1>
+<h1>Step-by-step examples: Part 1<a class="headerlink" href="#step-by-step-examples-part-1" title="Permalink to this heading"></a></h1>
 <section id="the-ptolemy-variety-for-sl-n-c">
-<span id="ptolemy-example-basic"></span><h2>The Ptolemy variety for SL(<em>N</em>, <strong>C</strong>)<a class="headerlink" href="#the-ptolemy-variety-for-sl-n-c" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-basic"></span><h2>The Ptolemy variety for SL(<em>N</em>, <strong>C</strong>)<a class="headerlink" href="#the-ptolemy-variety-for-sl-n-c" title="Permalink to this heading"></a></h2>
 <p>Given a SnapPy triangulation, we obtain the reduced Ptolemy variety to find
 SL(2, <strong>C</strong>)-representations as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">=</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span>
@@ -84,7 +146,7 @@ for the two tetrahedra in <code class="docutils literal notranslate"><span class
 <p><strong>Remark:</strong> Similarly, we obtain four Ptolemy relations for each of the two tetrahedra in <code class="docutils literal notranslate"><span class="pre">m004</span></code> corresponding to the four subsimplices of a tetrahedron we get for <em>N</em>=3 (see Figure 2 of <a class="reference internal" href="ptolemy_prelim.html#gtz2011" id="id1"><span>[GTZ2011]</span></a>).</p>
 </section>
 <section id="using-auto-completion">
-<h2>Using auto-completion<a class="headerlink" href="#using-auto-completion" title="Permalink to this headline">¶</a></h2>
+<h2>Using auto-completion<a class="headerlink" href="#using-auto-completion" title="Permalink to this heading"></a></h2>
 <p>Let us assign a Ptolemy variety to <code class="docutils literal notranslate"><span class="pre">p</span></code> and then type <code class="docutils literal notranslate"><span class="pre">p.</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">=</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span>
@@ -112,7 +174,7 @@ Preferred filename base for writing out this Ptolemy variety
 <p>This is a general mechanism and works for all objects in SnapPy, sage or ipython.</p>
 </section>
 <section id="retrieving-exact-solutions-from-the-database">
-<span id="ptolemy-example-retrieve-exact-solutions"></span><h2>Retrieving exact solutions from the database<a class="headerlink" href="#retrieving-exact-solutions-from-the-database" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-retrieve-exact-solutions"></span><h2>Retrieving exact solutions from the database<a class="headerlink" href="#retrieving-exact-solutions-from-the-database" title="Permalink to this heading"></a></h2>
 <p>Given a Ptolemy variety, we can access the database at <a class="reference external" href="http://ptolemy.unhyperbolic.org/">ptolemy.unhyperbolic.org</a> to retrieve solutions for it with <code class="docutils literal notranslate"><span class="pre">retrieve_solutions</span></code> (if this is not working, please check your Internet connection):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">=</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span>
@@ -178,7 +240,7 @@ Preferred filename base for writing out this Ptolemy variety
 </div>
 </section>
 <section id="compute-the-matrices-for-a-representation">
-<span id="ptolemy-example-matrices"></span><h2>Compute the matrices for a representation<a class="headerlink" href="#compute-the-matrices-for-a-representation" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-matrices"></span><h2>Compute the matrices for a representation<a class="headerlink" href="#compute-the-matrices-for-a-representation" title="Permalink to this heading"></a></h2>
 <p><strong>Remark:</strong> Requires SnapPy 2.3 or later.</p>
 <p>Given a solution as above, we can take a word in the fundamental group and get its image under the representation using <code class="docutils literal notranslate"><span class="pre">evaluate_word</span></code>. Here, we do it for the two generators:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span>
@@ -204,7 +266,7 @@ Preferred filename base for writing out this Ptolemy variety
 <p><strong>Remark:</strong> The matrices are currently returned as a list of list of pari <code class="docutils literal notranslate"><span class="pre">POLMOD</span></code> objects. In the future, the ptolemy module should return the matrices as sage matrices over a <a class="reference external" href="http://doc.sagemath.org/html/en/reference/number_fields/sage/rings/number_field/number_field.html">sage NumberField</a>.</p>
 </section>
 <section id="compute-the-traces">
-<span id="ptolemy-example-traces"></span><h2>Compute the traces<a class="headerlink" href="#compute-the-traces" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-traces"></span><h2>Compute the traces<a class="headerlink" href="#compute-the-traces" title="Permalink to this heading"></a></h2>
 <p><strong>Remark:</strong> Requires SnapPy 2.3.2 or later.</p>
 <p>We can compute the traces of these matrices:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -223,7 +285,7 @@ Preferred filename base for writing out this Ptolemy variety
 <a class="reference external" href="http://www.math.illinois.edu/GEAR/resources/Culler/Culler-lecture3-slides.pdf">Marc Culler’s slides</a>.</p>
 </section>
 <section id="compute-the-trace-field-for-a-psl-2-c-representation">
-<span id="ptolemy-examples-trace-field"></span><h2>Compute the trace field for a PSL(<em>2</em>, <strong>C</strong>)-representation<a class="headerlink" href="#compute-the-trace-field-for-a-psl-2-c-representation" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-examples-trace-field"></span><h2>Compute the trace field for a PSL(<em>2</em>, <strong>C</strong>)-representation<a class="headerlink" href="#compute-the-trace-field-for-a-psl-2-c-representation" title="Permalink to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span><span class="o">.</span><span class="n">number_field</span><span class="p">()</span>
 <span class="go">x^2 + x + 1</span>
@@ -232,7 +294,7 @@ Preferred filename base for writing out this Ptolemy variety
 <p>This is the Ptolemy field which is equal to the trace field if <em>N</em>= 2 by results of <a class="reference internal" href="ptolemy_prelim.html#ggz2014" id="id2"><span>[GGZ2014]</span></a>.</p>
 </section>
 <section id="compute-the-volume">
-<span id="ptolemy-example-volume"></span><h2>Compute the volume<a class="headerlink" href="#compute-the-volume" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-volume"></span><h2>Compute the volume<a class="headerlink" href="#compute-the-volume" title="Permalink to this heading"></a></h2>
 <p>We can also compute the volume of the representations:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span>
@@ -242,7 +304,7 @@ Preferred filename base for writing out this Ptolemy variety
 <p>Recall that we had an algebraic solution in the number field with defining polynomial x<sup>2</sup>+x+1. This number field has two embeddings into <strong>C</strong>, yielding two representations. This is why the result is a list of two volumes. In this case, they are both zero up to numerical precision.</p>
 </section>
 <section id="increase-precision">
-<span id="ptolemy-example-increase-precision"></span><h2>Increase precision<a class="headerlink" href="#increase-precision" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-increase-precision"></span><h2>Increase precision<a class="headerlink" href="#increase-precision" title="Permalink to this heading"></a></h2>
 <p>We can get higher precision be setting it in pari (in decimal digits):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m011&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span>
@@ -258,7 +320,7 @@ Preferred filename base for writing out this Ptolemy variety
 <p><strong>Remark:</strong> This is not using interval arithmetics (although this is planned for the future). For now, the computed value of a quantity might differ from the real value by far more than the number of displayed digits suggests. To be confident about the result, we can increase the precision and see how many digits of the result are stabilizing.</p>
 </section>
 <section id="ptolemy-varieties-for-psl-n-c-representations">
-<span id="ptolemy-example-obstruction-class"></span><h2>Ptolemy varieties for PSL(<em>N</em>, <strong>C</strong>)-representations<a class="headerlink" href="#ptolemy-varieties-for-psl-n-c-representations" title="Permalink to this headline">¶</a></h2>
+<span id="ptolemy-example-obstruction-class"></span><h2>Ptolemy varieties for PSL(<em>N</em>, <strong>C</strong>)-representations<a class="headerlink" href="#ptolemy-varieties-for-psl-n-c-representations" title="Permalink to this heading"></a></h2>
 <p>The representations of <code class="docutils literal notranslate"><span class="pre">m003</span></code> we detected so far had trivial volume and thus cannot include the geometric representation. This is because the geometric representation is a boundary-unipotent PSL(2, <strong>C</strong>)-representation but not a <a class="reference internal" href="ptolemy_prelim.html#ptolemy-boundary-unipotent"><span class="std std-ref">boundary-unipotent SL(2, C)-representation</span></a> and we only detect the latter ones above.</p>
 <p>We can obtain the Ptolemy varieties for all <a class="reference internal" href="ptolemy_prelim.html#obstruction-class"><span class="std std-ref">obstruction classes</span></a> to find the PSL(<em>N</em>, <strong>C</strong>)-representation that do not lift to boundary-unipotent SL(<em>N</em>, <strong>C</strong>)-representations as well:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span>
@@ -284,7 +346,7 @@ Preferred filename base for writing out this Ptolemy variety
 Here is python code to iterate over all obstruction classes:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span> <span class="n">sols</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">sols</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">())</span>
 <span class="go">[[0.E-19, 1.88267370443418 E-14]]</span>
 <span class="go">[[2.02988321281931, -2.02988321281931]]</span>
 </pre></div>
@@ -301,7 +363,7 @@ Here is python code to iterate over all obstruction classes:</p>
 <p><strong>Remark</strong>: As we see, it is not necessary to use named arguments <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">obstruction_class</span> <span class="pre">=</span> <span class="pre">'all'</span></code> for faster typing. However, for better readability of our code, we recommend to include the names.</p>
 </section>
 <section id="a-short-cut-for-a-psl-n-c-ptolemy-variety">
-<h2>A short cut for a PSL(<em>N</em>, <strong>C</strong>) Ptolemy variety<a class="headerlink" href="#a-short-cut-for-a-psl-n-c-ptolemy-variety" title="Permalink to this headline">¶</a></h2>
+<h2>A short cut for a PSL(<em>N</em>, <strong>C</strong>) Ptolemy variety<a class="headerlink" href="#a-short-cut-for-a-psl-n-c-ptolemy-variety" title="Permalink to this heading"></a></h2>
 <p>We have seen that <code class="docutils literal notranslate"><span class="pre">M.ptolemy_variety(2,</span> <span class="pre">'all')</span></code> gives a Ptolemy variety for each obstruction class. We used <code class="docutils literal notranslate"><span class="pre">M.ptolemy_variety(2,</span> <span class="pre">'all')[3]</span></code> to pick one, here the fourth, of those varieties. A shorter form of doing this is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m009&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -316,80 +378,34 @@ Here is python code to iterate over all obstruction classes:</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Step-by-step examples: Part 1</a><ul>
-<li><a class="reference internal" href="#the-ptolemy-variety-for-sl-n-c">The Ptolemy variety for SL(<em>N</em>, <strong>C</strong>)</a></li>
-<li><a class="reference internal" href="#using-auto-completion">Using auto-completion</a></li>
-<li><a class="reference internal" href="#retrieving-exact-solutions-from-the-database">Retrieving exact solutions from the database</a></li>
-<li><a class="reference internal" href="#compute-the-matrices-for-a-representation">Compute the matrices for a representation</a></li>
-<li><a class="reference internal" href="#compute-the-traces">Compute the traces</a></li>
-<li><a class="reference internal" href="#compute-the-trace-field-for-a-psl-2-c-representation">Compute the trace field for a PSL(<em>2</em>, <strong>C</strong>)-representation</a></li>
-<li><a class="reference internal" href="#compute-the-volume">Compute the volume</a></li>
-<li><a class="reference internal" href="#increase-precision">Increase precision</a></li>
-<li><a class="reference internal" href="#ptolemy-varieties-for-psl-n-c-representations">Ptolemy varieties for PSL(<em>N</em>, <strong>C</strong>)-representations</a></li>
-<li><a class="reference internal" href="#a-short-cut-for-a-psl-n-c-ptolemy-variety">A short cut for a PSL(<em>N</em>, <strong>C</strong>) Ptolemy variety</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ptolemy_prelim.html" class="btn btn-neutral float-left" title="Mathematical preliminaries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ptolemy_examples2.html" class="btn btn-neutral float-right" title="Step-by-step examples: Part 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ptolemy_prelim.html"
-                        title="previous chapter">Mathematical preliminaries</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="ptolemy_examples2.html"
-                        title="next chapter">Step-by-step examples: Part 2</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/ptolemy_examples1.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_examples2.html" title="Step-by-step examples: Part 2"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="ptolemy_prelim.html" title="Mathematical preliminaries"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">SnapPy 3.0.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="other.html" >Other components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="ptolemy.html" >The ptolemy module</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Step-by-step examples: Part 1</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2009-2021, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
