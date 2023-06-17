@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Censuses of Platonic manifolds &mdash; SnapPy 3.1 documentation</title>
+  <title>Censuses of Platonic manifolds &mdash; SnapPy 3.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
@@ -38,7 +38,7 @@
               <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                3.1
+                3.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -135,7 +135,7 @@
 <dd><p>Iterator for the tetrahedral orientable cusped hyperbolic manifolds up to
 25 tetrahedra, i.e., manifolds that admit a tessellation by regular ideal
 hyperbolic tetrahedra.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">TetrahedralOrientableCuspedCensus</span><span class="p">(</span><span class="n">solids</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">TetrahedralOrientableCuspedCensus</span><span class="p">(</span><span class="n">solids</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span> 
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">())</span>
 <span class="go">otet05_00000(0,0) 5.07470803</span>
 <span class="go">otet05_00001(0,0)(0,0) 5.07470803</span>
@@ -227,7 +227,7 @@ hyperbolic octahedra.</p>
 <dd><p>Iterator for the cubical non-orientable cusped hyperbolic manifolds up to
 5 cubes, i.e., manifolds that admit a tessellation by regular ideal
 hyperbolic octahedra.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">CubicalNonorientableCuspedCensus</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]:</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">CubicalNonorientableCuspedCensus</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]:</span> 
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">())</span>
 <span class="go">ncube05_30945(0,0) 25.37354016</span>
 <span class="go">ncube05_30946(0,0)(0,0) 25.37354016</span>
@@ -272,7 +272,7 @@ hyperbolic dodecahedra.</p>
 to 4 icosahedra, i.e., manifolds that admit a tessellation by regula finite
 hyperbolic icosahedra.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">IcosahedralOrientableClosedCensus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
 <span class="go">4.68603427</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span>
 <span class="go">oicocld01_00000(1,0)</span>
@@ -336,7 +336,7 @@ hyperbolic dodecahedra with a dihedral angle of 72 degrees.</p>
 <dd><p>Iterator for the dodecahedral non-orientable closed hyperbolic manifolds up
 to 2 dodecahedra, i.e., manifolds that admit a tessellation by regular finite
 hyperbolic dodecahedra with a dihedral angle of 72 degrees.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DodecahedralNonorientableClosedCensus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DodecahedralNonorientableClosedCensus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
 <span class="go">22.39812948</span>
 </pre></div>
 </div>
