@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Step-by-step examples: Part 3 &mdash; SnapPy 3.1.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Step-by-step examples: Part 3 &mdash; SnapPy 3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
+
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=828ea960"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,9 +37,6 @@
             SnapPy
               <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                3.1.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -110,9 +107,9 @@
            <div itemprop="articleBody">
              
   <section id="step-by-step-examples-part-3">
-<h1>Step-by-step examples: Part 3<a class="headerlink" href="#step-by-step-examples-part-3" title="Permalink to this heading"></a></h1>
+<h1>Step-by-step examples: Part 3<a class="headerlink" href="#step-by-step-examples-part-3" title="Link to this heading"></a></h1>
 <section id="computing-solutions-with-magma-or-sage-vs-retrieving-solutions">
-<span id="ptolemy-example-using-magma-sage"></span><h2>Computing solutions with magma or sage vs retrieving solutions<a class="headerlink" href="#computing-solutions-with-magma-or-sage-vs-retrieving-solutions" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-example-using-magma-sage"></span><h2>Computing solutions with magma or sage vs retrieving solutions<a class="headerlink" href="#computing-solutions-with-magma-or-sage-vs-retrieving-solutions" title="Link to this heading"></a></h2>
 <p>So far, we querried the database for solutions to a Ptolemy variety:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m011&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span>
@@ -173,7 +170,7 @@
 <p><strong>Remark:</strong> If no engine is specified, it is assumed to be sage when used inside sage and magma instead.</p>
 </section>
 <section id="computing-the-complex-volume">
-<span id="ptolemy-example-complex-volume"></span><h2>Computing the complex volume<a class="headerlink" href="#computing-the-complex-volume" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-example-complex-volume"></span><h2>Computing the complex volume<a class="headerlink" href="#computing-the-complex-volume" title="Link to this heading"></a></h2>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">volume_numerical</span></code>, we can compute the complex volume (volume + i Chern-Simons) for all representations (that are <a class="reference internal" href="ptolemy_prelim.html#ptolemy-generically-decorated"><span class="std std-ref">generically decorated</span></a>).</p>
 <p>Here is an example computing the solutions to the Ptolemy variety ourselves:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m011&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">()</span><span class="o">.</span><span class="n">complex_volume_numerical</span><span class="p">()</span>
@@ -199,8 +196,8 @@
 </div>
 </section>
 <section id="computing-the-matrices-for-a-different-presentation">
-<span id="ptolemy-detailed-example-matrices"></span><h2>Computing the matrices for a different presentation<a class="headerlink" href="#computing-the-matrices-for-a-different-presentation" title="Permalink to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">fundamental_group</span></code> method of a SnapPy triangulation can yield different presentations by supplying  optional arguments such as <code class="docutils literal notranslate"><span class="pre">simplify_presentation</span></code> and <code class="docutils literal notranslate"><span class="pre">minimize_number_of_generators</span></code>. If we have a word in one of these presentations and want to evaluate its image under the representation, we need to supply the presentation as follows:</p>
+<span id="ptolemy-detailed-example-matrices"></span><h2>Computing the matrices for a different presentation<a class="headerlink" href="#computing-the-matrices-for-a-different-presentation" title="Link to this heading"></a></h2>
+<p>The <a class="reference internal" href="triangulation.html#snappy.Triangulation.fundamental_group" title="snappy.Triangulation.fundamental_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fundamental_group()</span></code></a> method of a SnapPy triangulation can yield different presentations by supplying  optional arguments such as <code class="docutils literal notranslate"><span class="pre">simplify_presentation</span></code> and <code class="docutils literal notranslate"><span class="pre">minimize_number_of_generators</span></code>. If we have a word in one of these presentations and want to evaluate its image under the representation, we need to supply the presentation as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">=</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">(</span><span class="n">simplify_presentation</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
@@ -224,8 +221,8 @@
 </div>
 </section>
 <section id="computing-the-images-of-the-peripheral-curves-for-a-representation">
-<span id="ptolemy-example-boundary-holonomy"></span><h2>Computing the images of the peripheral curves for a representation<a class="headerlink" href="#computing-the-images-of-the-peripheral-curves-for-a-representation" title="Permalink to this heading"></a></h2>
-<p>The object returned by <code class="docutils literal notranslate"><span class="pre">fundamental_group</span></code> also contains words for the peripheral curves of a manifold. We can compute the corresponding matrices:</p>
+<span id="ptolemy-example-boundary-holonomy"></span><h2>Computing the images of the peripheral curves for a representation<a class="headerlink" href="#computing-the-images-of-the-peripheral-curves-for-a-representation" title="Link to this heading"></a></h2>
+<p>The object returned by <a class="reference internal" href="triangulation.html#snappy.Triangulation.fundamental_group" title="snappy.Triangulation.fundamental_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fundamental_group()</span></code></a> also contains words for the peripheral curves of a manifold. We can compute the corresponding matrices:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
@@ -241,7 +238,7 @@
 <p><strong>Remark:</strong> For each cusp, we can conjugate these matrices into <em>P</em> since the representation is <a class="reference internal" href="ptolemy_prelim.html#ptolemy-boundary-unipotent"><span class="std std-ref">boundary-unipotent</span></a>. We might implement a method returning a matrix in <em>P</em> for the longitude and meridian of a cusp in the future (simply by finding loops corresponding to a longitude and meridian as path of short edges in the truncated simplex in Figure 17 of <a class="reference internal" href="ptolemy_prelim.html#ggz2012" id="id1"><span>[GGZ2012]</span></a>).</p>
 </section>
 <section id="finding-a-witness-point-for-a-positively-dimensional-component-of-the-ptolemy-variety">
-<span id="ptolemy-example-find-witness"></span><h2>Finding a witness point for a positively dimensional component of the Ptolemy variety<a class="headerlink" href="#finding-a-witness-point-for-a-positively-dimensional-component-of-the-ptolemy-variety" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-example-find-witness"></span><h2>Finding a witness point for a positively dimensional component of the Ptolemy variety<a class="headerlink" href="#finding-a-witness-point-for-a-positively-dimensional-component-of-the-ptolemy-variety" title="Link to this heading"></a></h2>
 <p>We already saw an <a class="reference internal" href="ptolemy_examples2.html#ptolemy-non-zero-dim-comp"><span class="std std-ref">example of a positively dimensional component</span></a>. By flattening, we obtain a list of all the components of the Ptolemy varieties for all obstruction classes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">=</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m371&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -280,7 +277,7 @@
 <p>The different volumes in a line correspond to different Galois conjugates of the same <cite>algebraic</cite> witness point.</p>
 </section>
 <section id="finding-non-zero-dimensional-families-of-boundary-unipotent-representations">
-<span id="ptolemy-example-non-zero-dim-rep"></span><h2>Finding non-zero dimensional families of boundary-unipotent representations<a class="headerlink" href="#finding-non-zero-dimensional-families-of-boundary-unipotent-representations" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-example-non-zero-dim-rep"></span><h2>Finding non-zero dimensional families of boundary-unipotent representations<a class="headerlink" href="#finding-non-zero-dimensional-families-of-boundary-unipotent-representations" title="Link to this heading"></a></h2>
 <p>We now revisit the <a class="reference internal" href="ptolemy_examples2.html#ptolemy-non-zero-dim-comp"><span class="std std-ref">1-dimensional component of the Ptolemy variety</span></a> and answer the question whether this yields a 1-dimensional family of representations or not. We pick a <a class="reference internal" href="#ptolemy-example-find-witness"><span class="std std-ref">witness point</span></a> for the component and check the <a class="reference internal" href="#ptolemy-example-boundary-holonomy"><span class="std std-ref">matrices for the peripheral curves</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m371&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">()</span>
@@ -326,7 +323,7 @@
 <p><strong>Remark:</strong> The witness points are chosen so that they are not at the intersection of two positively dimensional components. This is for the following reason: it could happen that there is a 1-dimensional family of representations which contains points where the boundary holonomy becomes trivial. This yields a representation where the above matrices are trivial yet it is part of a 1-dimensional family of boundary-unipotent representations. In the ptolemy variety, however, this means that two non-zero dimensional components (one corresponding to a family of decorations, the other to a family of representations) intersect.</p>
 </section>
 <section id="representations-that-are-the-same-as-psl-2-c-representations">
-<h2>Representations that are the same as PSL(2, <strong>C</strong>)-representations<a class="headerlink" href="#representations-that-are-the-same-as-psl-2-c-representations" title="Permalink to this heading"></a></h2>
+<h2>Representations that are the same as PSL(2, <strong>C</strong>)-representations<a class="headerlink" href="#representations-that-are-the-same-as-psl-2-c-representations" title="Link to this heading"></a></h2>
 <p>Let us compare the volumes of <code class="docutils literal notranslate"><span class="pre">m009</span></code> and <code class="docutils literal notranslate"><span class="pre">m159</span></code>:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m009&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span><span class="o">.</span><span class="n">volume_numerical</span><span class="p">()</span>
 <span class="go">[[],</span>
@@ -394,7 +391,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

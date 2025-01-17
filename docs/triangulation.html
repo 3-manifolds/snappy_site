@@ -1,23 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Triangulation &mdash; SnapPy 3.1.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Triangulation &mdash; SnapPy 3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
+
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=828ea960"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,9 +38,6 @@
             SnapPy
               <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                3.1.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -83,7 +81,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.num_cusps"><code class="docutils literal notranslate"><span class="pre">Triangulation.num_cusps()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.num_tetrahedra"><code class="docutils literal notranslate"><span class="pre">Triangulation.num_tetrahedra()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.orientation_cover"><code class="docutils literal notranslate"><span class="pre">Triangulation.orientation_cover()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.pickle"><code class="docutils literal notranslate"><span class="pre">Triangulation.pickle()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.plink"><code class="docutils literal notranslate"><span class="pre">Triangulation.plink()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.ptolemy_generalized_obstruction_classes"><code class="docutils literal notranslate"><span class="pre">Triangulation.ptolemy_generalized_obstruction_classes()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.ptolemy_obstruction_classes"><code class="docutils literal notranslate"><span class="pre">Triangulation.ptolemy_obstruction_classes()</span></code></a></li>
@@ -95,6 +92,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.set_peripheral_curves"><code class="docutils literal notranslate"><span class="pre">Triangulation.set_peripheral_curves()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.simplify"><code class="docutils literal notranslate"><span class="pre">Triangulation.simplify()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.slice_obstruction_HKL"><code class="docutils literal notranslate"><span class="pre">Triangulation.slice_obstruction_HKL()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.symplectic_basis"><code class="docutils literal notranslate"><span class="pre">Triangulation.symplectic_basis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.triangulation_isosig"><code class="docutils literal notranslate"><span class="pre">Triangulation.triangulation_isosig()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.with_hyperbolic_structure"><code class="docutils literal notranslate"><span class="pre">Triangulation.with_hyperbolic_structure()</span></code></a></li>
 </ul>
@@ -142,12 +140,12 @@
            <div itemprop="articleBody">
              
   <section id="triangulation">
-<h1>Triangulation<a class="headerlink" href="#triangulation" title="Permalink to this heading"></a></h1>
-<p>The main snappy class, namely Manifold, is derived from more
+<h1>Triangulation<a class="headerlink" href="#triangulation" title="Link to this heading"></a></h1>
+<p>The main snappy class, namely Manifold, is derived from the more
 basic class below.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.Triangulation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">Triangulation</span></span><a class="headerlink" href="#snappy.Triangulation" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">Triangulation</span></span><a class="headerlink" href="#snappy.Triangulation" title="Link to this definition"></a></dt>
 <dd><p>A Triangulation object represents a compact 3-manifold with torus
 boundary components, given as an ideal triangulation of the
 manifold’s interior.  A Dehn-filling can be specified for each
@@ -178,16 +176,16 @@ specify a link complement.</p></li>
 information on Dehn fillings added.</p>
 <ul>
 <li><p>SnapPea cusped census manifolds: e.g. ‘m123’, ‘s123’, ‘v123’.</p></li>
-<li><dl class="simple">
-<dt>Link complements:</dt><dd><ul class="simple">
+<li><p>Link complements:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Rolfsen’s table: e.g. ‘4_1’, ‘04_1’, ‘5^2_6’, ‘6_4^7’, ‘L20935’, ‘l104001’.</p></li>
 <li><p>Knots and links up to 14 crossings from tabulations by Hoste
 and Thistlethwaite: e.g. ‘K12a456’ or ‘L13n579’.</p></li>
 <li><p>Hoste-Thistlethwaite Knotscape table:  e.g. ‘11a17’ or ‘12n345’</p></li>
 <li><p>Dowker-Thistlethwaite code: e.g. ‘DT:[(6,8,2,4)]’, ‘DT:dadbcda’</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p>Once-punctured torus bundles: e.g. ‘b++LLR’, ‘b+-llR’, ‘bo-RRL’, ‘bn+LRLR’</p></li>
 <li><p>Fibered manifold associated to a braid: ‘Braid:[1,2,-3,4]’</p>
@@ -210,7 +208,7 @@ projection file.</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.DT_code">
-<span class="sig-name descname"><span class="pre">DT_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flips</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.DT_code" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">DT_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flips</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.DT_code" title="Link to this definition"></a></dt>
 <dd><p>Return the Dowker-Thistlethwaite code of this link complement,
 if it is a link complement. The DT code is intended to be an
 immutable attribute, for use with knot and link exteriors
@@ -231,7 +229,7 @@ only, which is set only when the manifold was created.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.alexander_polynomial">
-<span class="sig-name descname"><span class="pre">alexander_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.alexander_polynomial" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">alexander_polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.alexander_polynomial" title="Link to this definition"></a></dt>
 <dd><p>Computes the multivariable Alexander polynomial of the manifold:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;K12n123&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">alexander_polynomial</span><span class="p">()</span>
@@ -242,13 +240,14 @@ only, which is set only when the manifold was created.</p>
 <span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
-<p>Any provided keyword arguments are passed to fundamental_group and
+<p>Any provided keyword arguments are passed to
+<a class="reference internal" href="#snappy.Triangulation.fundamental_group" title="snappy.Triangulation.fundamental_group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fundamental_group</span></code></a> and
 so affect the group presentation used in the computation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.copy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.copy" title="Link to this definition"></a></dt>
 <dd><p>Returns a copy of the triangulation.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m125&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -258,14 +257,13 @@ so affect the group presentation used in the computation.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.cover">
-<span class="sig-name descname"><span class="pre">cover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permutation_rep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.cover" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a Triangulation representing the finite cover
-specified by a transitive permutation representation.  The
-representation is specified by a list of permutations, one for
-each generator of the simplified presentation of the
-fundamental group.  Each permutation is specified as a list P
-such that set(P) == set(range(d)) where d is the degree of the
-cover.</p>
+<span class="sig-name descname"><span class="pre">cover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permutation_rep</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><span class="pre">snappy.Triangulation</span></a></span></span><a class="headerlink" href="#snappy.Triangulation.cover" title="Link to this definition"></a></dt>
+<dd><p>Returns a <a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triangulation</span></code></a> representing the finite cover specified
+by a transitive permutation representation.  The representation is
+specified by a list of permutations, one for each generator of the
+simplified presentation of the fundamental group.  Each permutation is
+specified as a list <code class="docutils literal notranslate"><span class="pre">P</span></code> such that <code class="docutils literal notranslate"><span class="pre">set(P)</span> <span class="pre">==</span> <span class="pre">set(range(d))</span></code> where
+<code class="docutils literal notranslate"><span class="pre">d</span></code> is the degree of the cover.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N0</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">cover</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N0</span><span class="o">.</span><span class="n">homology</span><span class="p">()</span>
@@ -279,15 +277,15 @@ cover.</p>
 </pre></div>
 </div>
 <p>Within Sage the permutations can also be of type
-PermutationGroupElement, in which case they act on the set
-range(1, d + 1).  Or, you can specify a GAP or Magma subgroup
-of the fundamental group.  For examples, see the docstring for
-Manifold.cover</p>
+<code class="docutils literal notranslate"><span class="pre">PermutationGroupElement</span></code>, in which case they act on the set
+<code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">d</span> <span class="pre">+</span> <span class="pre">1)</span></code>.  Or, you can specify a GAP or Magma subgroup
+of the fundamental group.  For more examples, see the docstring for
+<a class="reference internal" href="manifold.html#snappy.Manifold.cover" title="snappy.Manifold.cover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Manifold.cover()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.cover_info">
-<span class="sig-name descname"><span class="pre">cover_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.cover_info" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cover_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.cover_info" title="Link to this definition"></a></dt>
 <dd><p>If this is a manifold or triangulation which was constructed as
 a covering space, return a dictionary describing the cover.  Otherwise
 return 0.  The dictionary keys are ‘base’, ‘type’ and ‘degree’.</p>
@@ -295,9 +293,8 @@ return 0.  The dictionary keys are ‘base’, ‘type’ and ‘degree’.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.covers">
-<span class="sig-name descname"><span class="pre">covers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cover_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.covers" title="Permalink to this definition"></a></dt>
-<dd><p>M.covers(degree, method=None, cover_type=’all’)</p>
-<p>Returns a list of Triangulations corresponding to all of the
+<span class="sig-name descname"><span class="pre">covers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cover_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><span class="pre">snappy.Triangulation</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#snappy.Triangulation.covers" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of Triangulations corresponding to all of the
 finite covers of the given degree.  The default method is
 ‘low_index’ for general covers and ‘snappea’ for cyclic
 covers.  The former uses Sim’s algorithm while the latter
@@ -333,7 +330,7 @@ used it to do the heavy lifting by specifying method=’magma’.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.cusp_info">
-<span class="sig-name descname"><span class="pre">cusp_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_spec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.cusp_info" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cusp_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_spec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.cusp_info" title="Link to this definition"></a></dt>
 <dd><p>Returns an info object containing information about the given
 cusp.   Usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;v3227(0,0)(1,2)(3,2)&#39;</span><span class="p">)</span>
@@ -359,7 +356,7 @@ cusp.   Usage:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.dehn_fill">
-<span class="sig-name descname"><span class="pre">dehn_fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filling_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which_cusp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.dehn_fill" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dehn_fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filling_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which_cusp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#snappy.Triangulation.dehn_fill" title="Link to this definition"></a></dt>
 <dd><p>Set the Dehn filling coefficients of the cusps.  This can be
 specified in the following ways, where the cusps are numbered
 by 0,1,…,(num_cusps - 1).</p>
@@ -395,12 +392,12 @@ by 0,1,…,(num_cusps - 1).</p>
 </div>
 </li>
 </ul>
-<p>Does not return a new Triangulation.</p>
+<p>Does not return a new <a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triangulation</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.edge_valences">
-<span class="sig-name descname"><span class="pre">edge_valences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.edge_valences" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">edge_valences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.edge_valences" title="Link to this definition"></a></dt>
 <dd><p>Returns a dictionary whose keys are the valences of the edges
 in the triangulation, and the value associated to a key is the
 number of edges of that valence.</p>
@@ -413,7 +410,7 @@ number of edges of that valence.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.exterior_to_link">
-<span class="sig-name descname"><span class="pre">exterior_to_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_answer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">careful_perturbation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify_link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pachner_search_tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.exterior_to_link" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">exterior_to_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_answer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">careful_perturbation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify_link</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pachner_search_tries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="spherogram.html#spherogram.Link" title="spherogram.Link"><span class="pre">Link</span></a></span></span><a class="headerlink" href="#snappy.Triangulation.exterior_to_link" title="Link to this definition"></a></dt>
 <dd><p>For a triangulation of the exterior of a link in the 3-sphere,
 return a planar diagram for the link.  The peripheral curves whose
 Dehn filling is the 3-sphere are <strong>part of the input</strong>, specified
@@ -477,7 +474,7 @@ each component of the link may not be preserved.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.filled_triangulation">
-<span class="sig-name descname"><span class="pre">filled_triangulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cusps_to_fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.filled_triangulation" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">filled_triangulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cusps_to_fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><span class="pre">snappy.Triangulation</span></a></span></span><a class="headerlink" href="#snappy.Triangulation.filled_triangulation" title="Link to this definition"></a></dt>
 <dd><p>Return a new manifold where the specified cusps have been
 permanently filled in.  Examples:</p>
 <p>Filling all the cusps:</p>
@@ -497,8 +494,8 @@ permanently filled in.  Examples:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.fundamental_group">
-<span class="sig-name descname"><span class="pre">fundamental_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simplify_presentation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillings_may_affect_generators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize_number_of_generators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">try_hard_to_shorten_relators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.fundamental_group" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a FundamentalGroup object representing the fundamental
+<span class="sig-name descname"><span class="pre">fundamental_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simplify_presentation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillings_may_affect_generators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize_number_of_generators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">try_hard_to_shorten_relators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">FundamentalGroup</span></span></span><a class="headerlink" href="#snappy.Triangulation.fundamental_group" title="Link to this definition"></a></dt>
+<dd><p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">FundamentalGroup</span></code> object representing the fundamental
 group of the manifold.  If integer Dehn surgery parameters
 have been set, then the corresponding peripheral elements are
 killed.</p>
@@ -532,7 +529,7 @@ killed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.gluing_equations">
-<span class="sig-name descname"><span class="pre">gluing_equations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'log'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.gluing_equations" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gluing_equations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'log'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.gluing_equations" title="Link to this definition"></a></dt>
 <dd><p>In the default mode, this function returns a matrix with rows
 of the form</p>
 <blockquote>
@@ -573,9 +570,8 @@ function returns a list of tuples of the form:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.gluing_equations_pgl">
-<span class="sig-name descname"><span class="pre">gluing_equations_pgl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equation_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.gluing_equations_pgl" title="Permalink to this definition"></a></dt>
-<dd><p>M.gluing_equations_pgl(N = 2, equation_type=’all’)</p>
-<p>Returns a NeumannZagierTypeEquations object that contains a matrix
+<span class="sig-name descname"><span class="pre">gluing_equations_pgl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equation_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.gluing_equations_pgl" title="Link to this definition"></a></dt>
+<dd><p>Returns a NeumannZagierTypeEquations object that contains a matrix
 encoding the gluing equations for boundary-parabolic PGL(N,C)
 representations together with explanations of the meaning
 of the rows and the columns of the matrix.</p>
@@ -584,7 +580,7 @@ as described in
 Stavros Garoufalidis, Matthias Goerner, Christian K. Zickert:
 “Gluing Equations for PGL(n,C)-Representations of 3-Manifolds”
 (<a class="reference external" href="http://arxiv.org/abs/1207.6711">http://arxiv.org/abs/1207.6711</a>).</p>
-<p>The result of the traditional gluing_equations() can be obtained from
+<p>The result of the <a class="reference internal" href="#snappy.Triangulation.gluing_equations" title="snappy.Triangulation.gluing_equations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">gluing_equations()</span></code></a> can be obtained from
 the general method by:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">gluing_equations_pgl</span><span class="p">()</span><span class="o">.</span><span class="n">matrix</span>
@@ -609,17 +605,17 @@ the columns and rows:</p>
 </div>
 <p>The first row of the matrix means that the edge equation for
 edge 0 is</p>
-<blockquote>
-<div><p>z_0000_0 ^ 2 * zp_0000_0 * z_0000_1 * zpp_0000_1 ^ 2 = 1.</p>
-</div></blockquote>
+<div class="math notranslate nohighlight">
+\[{z_{0000,0}}^2 * z'_{0000,0} * z_{0000,1} * {z''_{0000,1}}^2 = 1.\]</div>
 <p>Similarly, the next row encodes the edge equation for the other edge
 and the next two rows encode peripheral equations.</p>
-<p>Following the SnapPy convention, a z denotes the cross ratio z at the
-edge (0,1), a zp the cross ratio z’ at the edge (0,2) and a zpp the cross
-ratio z” at the edge (1,2). The entire symbol z_xxxx_y then
+<p>Following the SnapPy convention, a <code class="docutils literal notranslate"><span class="pre">z</span></code> denotes the cross ratio
+<span class="math notranslate nohighlight">\(z\)</span> at the edge (0,1), a <code class="docutils literal notranslate"><span class="pre">zp</span></code> the cross ratio <span class="math notranslate nohighlight">\(z'\)</span> at
+the edge (0,2) and a <code class="docutils literal notranslate"><span class="pre">zpp</span></code> the cross
+ratio <span class="math notranslate nohighlight">\(z''\)</span> at the edge (1,2). The entire symbol <code class="docutils literal notranslate"><span class="pre">z_xxxx_y</span></code> then
 denotes the cross ratio belonging to the subsimplex at integral
-point xxxx (always 0000 for N = 2) of the simplex y. Note: the
-SnapPy convention is different from the paper
+point <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> (always <code class="docutils literal notranslate"><span class="pre">0000</span></code> for <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">2</span></code>) of the simplex <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>Note: the SnapPy convention is different from the paper
 mentioned above, e.g., compare
 kernel_code/edge_classes.c with Figure 3. We follow the SnapPy
 convention here so that all computations done in SnapPy are
@@ -632,20 +628,20 @@ consistent.</p>
 </pre></div>
 </div>
 <p>A subset of all gluing equations can be obtained by setting the
-equation_type:</p>
+<code class="docutils literal notranslate"><span class="pre">equation_type</span></code>:</p>
 <ul class="simple">
-<li><p>all gluing equations: ‘all’</p></li>
-<li><p>non-peripheral equations: ‘non_peripheral’</p>
+<li><p>all gluing equations: <code class="docutils literal notranslate"><span class="pre">all</span></code></p></li>
+<li><p>non-peripheral equations: <code class="docutils literal notranslate"><span class="pre">non_peripheral</span></code></p>
 <ul>
-<li><p>edge gluing equations: ‘edge’</p></li>
-<li><p>face gluing equations: ‘face’</p></li>
-<li><p>internal gluing equations: ‘internal’</p></li>
+<li><p>edge gluing equations: <code class="docutils literal notranslate"><span class="pre">edge</span></code></p></li>
+<li><p>face gluing equations: <code class="docutils literal notranslate"><span class="pre">face</span></code></p></li>
+<li><p>internal gluing equations: <code class="docutils literal notranslate"><span class="pre">internal</span></code></p></li>
 </ul>
 </li>
-<li><p>cusp gluing equations: ‘peripheral’</p>
+<li><p>cusp gluing equations: <code class="docutils literal notranslate"><span class="pre">peripheral</span></code></p>
 <ul>
-<li><p>cusp gluing equations for meridians: ‘meridian’</p></li>
-<li><p>cusp gluing equations for longitudes: ‘longitude’</p></li>
+<li><p>cusp gluing equations for meridians: <code class="docutils literal notranslate"><span class="pre">meridian</span></code></p></li>
+<li><p>cusp gluing equations for longitudes: <code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -653,8 +649,8 @@ equation_type:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.has_finite_vertices">
-<span class="sig-name descname"><span class="pre">has_finite_vertices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.has_finite_vertices" title="Permalink to this definition"></a></dt>
-<dd><p>Returns True if and only if the triangulation has finite (non-ideal)
+<span class="sig-name descname"><span class="pre">has_finite_vertices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#snappy.Triangulation.has_finite_vertices" title="Link to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if and only if the triangulation has finite (non-ideal)
 vertices.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">has_finite_vertices</span><span class="p">()</span>
@@ -676,7 +672,7 @@ finite vertices:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.homological_longitude">
-<span class="sig-name descname"><span class="pre">homological_longitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cusp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.homological_longitude" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">homological_longitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cusp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.homological_longitude" title="Link to this definition"></a></dt>
 <dd><p>Returns the peripheral curve in the given cusp, if any, which is
 homologically trivial (with rational coefficients) in the manifold:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
@@ -711,8 +707,8 @@ the manifold, an exception is raised:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.homology">
-<span class="sig-name descname"><span class="pre">homology</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.homology" title="Permalink to this definition"></a></dt>
-<dd><p>Returns an AbelianGroup representing the first integral
+<span class="sig-name descname"><span class="pre">homology</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="additional_classes.html#snappy.AbelianGroup" title="SnapPy.AbelianGroup"><span class="pre">AbelianGroup</span></a></span></span><a class="headerlink" href="#snappy.Triangulation.homology" title="Link to this definition"></a></dt>
+<dd><p>Returns an <a class="reference internal" href="additional_classes.html#snappy.AbelianGroup" title="snappy.AbelianGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbelianGroup</span></code></a> representing the first integral
 homology group of the underlying (Dehn filled) manifold.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m003&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">homology</span><span class="p">()</span>
@@ -723,7 +719,7 @@ homology group of the underlying (Dehn filled) manifold.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.is_orientable">
-<span class="sig-name descname"><span class="pre">is_orientable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.is_orientable" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_orientable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#snappy.Triangulation.is_orientable" title="Link to this definition"></a></dt>
 <dd><p>Return whether the underlying 3-manifold is orientable.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;x124&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">is_orientable</span><span class="p">()</span>
@@ -734,7 +730,7 @@ homology group of the underlying (Dehn filled) manifold.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.isomorphisms_to">
-<span class="sig-name descname"><span class="pre">isomorphisms_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Triangulation</span> <span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.isomorphisms_to" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">isomorphisms_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><span class="pre">Triangulation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TriangulationHP</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Isometry</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#snappy.Triangulation.isomorphisms_to" title="Link to this definition"></a></dt>
 <dd><p>Returns a complete list of combinatorial isomorphisms between
 the two triangulations:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;5^2_1&#39;</span><span class="p">)</span>
@@ -757,17 +753,17 @@ meridian of cusp 1.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.link">
-<span class="sig-name descname"><span class="pre">link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.link" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.link" title="Link to this definition"></a></dt>
 <dd><p>If the manifold is stored as a link complement in your
 current session then it returns the number of components
 and crossing of the link. To view and interact with the
 link see <a class="reference internal" href="spherogram.html#spherogram.Link.view" title="spherogram.Link.view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spherogram.Link.view()</span></code></a>
-and <a class="reference internal" href="manifold.html#snappy.Manifold.plink" title="snappy.Manifold.plink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Manifold.plink()</span></code></a>.</p>
+and <a class="reference internal" href="#snappy.Triangulation.plink" title="snappy.Triangulation.plink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plink</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.name">
-<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#snappy.Triangulation.name" title="Link to this definition"></a></dt>
 <dd><p>Return the name of the triangulation.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;4_1&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
@@ -778,7 +774,7 @@ and <a class="reference internal" href="manifold.html#snappy.Manifold.plink" tit
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.normal_boundary_slopes">
-<span class="sig-name descname"><span class="pre">normal_boundary_slopes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FXrays'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.normal_boundary_slopes" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">normal_boundary_slopes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FXrays'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.normal_boundary_slopes" title="Link to this definition"></a></dt>
 <dd><p>For a one-cusped manifold, returns all the nonempty boundary slopes of
 spun normal surfaces.  Provided the triangulation supports a
 genuine hyperbolic structure, then by <a class="reference external" href="http://arxiv.org/abs/math/0503027">Thurston and Walsh</a> any strict boundary slope
@@ -791,8 +787,9 @@ semifiber) must be listed here.</p>
 </div>
 <p>If the <code class="docutils literal notranslate"><span class="pre">subset</span></code> flag is set to <code class="docutils literal notranslate"><span class="pre">'kabaya'</span></code>, then it only
 returns boundary slopes associated to vertex surfaces with a quad
-in every tetrahedron; by Theorem 1.1. of <a class="reference external" href="http://arxiv.org/abs/1102.4588">[DG]</a> these are all strict boundary
-slopes.</p>
+in every tetrahedron; by Theorem 1.1. of
+<a class="reference external" href="http://arxiv.org/abs/1102.4588">Dunfield and Garoufalidis ‘12</a>
+these are all strict boundary slopes.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m113&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">normal_boundary_slopes</span><span class="p">()</span>
 <span class="go">[(1, 1), (1, 2), (2, -1), (2, 3), (8, 11)]</span>
@@ -811,7 +808,7 @@ giving isolated rays in the space of embedded normal surfaces.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.normal_surfaces">
-<span class="sig-name descname"><span class="pre">normal_surfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FXrays'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.normal_surfaces" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">normal_surfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FXrays'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.normal_surfaces" title="Link to this definition"></a></dt>
 <dd><p>All the vertex spun-normal surfaces in the current triangulation.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">normal_surfaces</span><span class="p">()</span>    
@@ -825,7 +822,7 @@ giving isolated rays in the space of embedded normal surfaces.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.num_cusps">
-<span class="sig-name descname"><span class="pre">num_cusps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cusp_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.num_cusps" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">num_cusps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cusp_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#snappy.Triangulation.num_cusps" title="Link to this definition"></a></dt>
 <dd><p>Return the total number of cusps.  By giving the optional argument
 ‘orientable’ or ‘nonorientable’ it will only count cusps of that type.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m125&#39;</span><span class="p">)</span>
@@ -837,7 +834,7 @@ giving isolated rays in the space of embedded normal surfaces.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.num_tetrahedra">
-<span class="sig-name descname"><span class="pre">num_tetrahedra</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.num_tetrahedra" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">num_tetrahedra</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#snappy.Triangulation.num_tetrahedra" title="Link to this definition"></a></dt>
 <dd><p>Return the number of tetrahedra in the triangulation.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">num_tetrahedra</span><span class="p">()</span>
@@ -848,7 +845,7 @@ giving isolated rays in the space of embedded normal surfaces.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.orientation_cover">
-<span class="sig-name descname"><span class="pre">orientation_cover</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.orientation_cover" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">orientation_cover</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.orientation_cover" title="Link to this definition"></a></dt>
 <dd><p>For a non-orientable Triangulation, returns the 2-fold cover which
 is orientable.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;x123&#39;</span><span class="p">)</span>
@@ -864,13 +861,8 @@ is orientable.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="snappy.Triangulation.pickle">
-<span class="sig-name descname"><span class="pre">pickle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.pickle" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.plink">
-<span class="sig-name descname"><span class="pre">plink</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.plink" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plink</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.plink" title="Link to this definition"></a></dt>
 <dd><p>Brings up a link editor window if the manifold is stored
 as a link complement in your current session.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;4_1&#39;</span><span class="p">)</span> <span class="c1"># stored as a triangulation with a link</span>
@@ -887,9 +879,8 @@ as a link complement in your current session.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.ptolemy_generalized_obstruction_classes">
-<span class="sig-name descname"><span class="pre">ptolemy_generalized_obstruction_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.ptolemy_generalized_obstruction_classes" title="Permalink to this definition"></a></dt>
-<dd><p>M.ptolemy_generalized_obstruction_classes(N)</p>
-<p>Returns the obstruction classes needed to compute
+<span class="sig-name descname"><span class="pre">ptolemy_generalized_obstruction_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.ptolemy_generalized_obstruction_classes" title="Link to this definition"></a></dt>
+<dd><p>Returns the obstruction classes needed to compute
 PGL(N,C)-representations for any N, i.e., it returns a list with
 a representative cocycle for each element in
 H^2(M, boundary M; Z/N) / (Z/N)^* where (Z/N)^* are the units in Z/N.
@@ -947,7 +938,7 @@ four face classes.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.ptolemy_obstruction_classes">
-<span class="sig-name descname"><span class="pre">ptolemy_obstruction_classes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.ptolemy_obstruction_classes" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ptolemy_obstruction_classes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.ptolemy_obstruction_classes" title="Link to this definition"></a></dt>
 <dd><p>Returns the obstruction classes needed to compute
 pSL(N,C) = SL(N,C)/{+1,-1} representations for even N, i.e., it
 returns a list with a representative cocycle for each class in
@@ -1003,9 +994,8 @@ hence the cocycle takes the same value on those two faces (s_3_0 = s_1_1).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.ptolemy_variety">
-<span class="sig-name descname"><span class="pre">ptolemy_variety</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obstruction_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eliminate_fixed_ptolemys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.ptolemy_variety" title="Permalink to this definition"></a></dt>
-<dd><p>M.ptolemy_variety(N, obstruction_class = None, simplify = True, eliminate_fixed_ptolemys = False)</p>
-<p>Returns a Ptolemy variety as described in</p>
+<span class="sig-name descname"><span class="pre">ptolemy_variety</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obstruction_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eliminate_fixed_ptolemys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.ptolemy_variety" title="Link to this definition"></a></dt>
+<dd><p>Returns a Ptolemy variety as described in</p>
 <ul class="simple">
 <li><p>Stavros Garoufalidis, Dyland Thurston, Christian K. Zickert:
 “The Complex Volume of SL(n,C)-Representations of 3-Manifolds”
@@ -1172,7 +1162,7 @@ on how to compute cross ratios, volumes and other invariants):</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.randomize">
-<span class="sig-name descname"><span class="pre">randomize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blowup_multiple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passes_at_fours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.randomize" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">randomize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blowup_multiple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passes_at_fours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.randomize" title="Link to this definition"></a></dt>
 <dd><p>Perform random Pachner moves on the underlying triangulation,
 including some initial 3 -&gt; 2 moves that increase the number of
 tetrahedra by blowup_multiple.</p>
@@ -1184,7 +1174,7 @@ tetrahedra by blowup_multiple.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.reverse_orientation">
-<span class="sig-name descname"><span class="pre">reverse_orientation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.reverse_orientation" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reverse_orientation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#snappy.Triangulation.reverse_orientation" title="Link to this definition"></a></dt>
 <dd><p>Reverses the orientation of the Triangulation, presuming that
 it is orientable.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
@@ -1198,7 +1188,7 @@ it is orientable.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.save" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.save" title="Link to this definition"></a></dt>
 <dd><p>Save the triangulation as a SnapPea triangulation file.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>     
@@ -1216,7 +1206,7 @@ with Dehn coefficients (2,3).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.set_name">
-<span class="sig-name descname"><span class="pre">set_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.set_name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#snappy.Triangulation.set_name" title="Link to this definition"></a></dt>
 <dd><p>Give the triangulation a new name.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;4_1&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s1">&#39;figure-eight-comp&#39;</span><span class="p">)</span>
@@ -1228,7 +1218,7 @@ with Dehn coefficients (2,3).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.set_peripheral_curves">
-<span class="sig-name descname"><span class="pre">set_peripheral_curves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peripheral_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which_cusp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_matrices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.set_peripheral_curves" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_peripheral_curves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peripheral_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which_cusp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_matrices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.set_peripheral_curves" title="Link to this definition"></a></dt>
 <dd><p>Each cusp has a preferred marking. In the case of a torus
 cusp, this is pair of essential simple curves meeting in one
 point; equivalently, a basis of the first homology of the
@@ -1243,7 +1233,7 @@ as peripheral_data.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.simplify">
-<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">passes_at_fours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.simplify" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">passes_at_fours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.simplify" title="Link to this definition"></a></dt>
 <dd><p>Try to simplify the triangulation by doing Pachner moves.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;12n123&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
@@ -1268,7 +1258,7 @@ before giving up.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.slice_obstruction_HKL">
-<span class="sig-name descname"><span class="pre">slice_obstruction_HKL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primes_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in_S3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.slice_obstruction_HKL" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">slice_obstruction_HKL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primes_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in_S3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.slice_obstruction_HKL" title="Link to this definition"></a></dt>
 <dd><p>For the exterior of a knot in S^3, searches for a topological
 slicing obstruction from:</p>
 <p>Herald, Kirk, Livingston, Math Zeit., 2010
@@ -1284,7 +1274,6 @@ slice), and otherwise returns None:</p>
 <span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">]),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">])]</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>
    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
@@ -1293,7 +1282,6 @@ slice), and otherwise returns None:</p>
 the q by just q_max:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">10</span><span class="p">)]</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>
    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
@@ -1313,122 +1301,243 @@ Alexander polynomials.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="snappy.Triangulation.symplectic_basis">
+<span class="sig-name descname"><span class="pre">symplectic_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.symplectic_basis" title="Link to this definition"></a></dt>
+<dd><p>Extend the Neumann-Zagier matrix to one which is symplectic
+(up to factors of 2) using oscillating curves, see
+<a class="reference external" href="https://arxiv.org/abs/2208.06969">Mathews and Purcell ‘22</a>.
+Only accepts triangulations with 1 cusp.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;4_1&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">symplectic_basis</span><span class="p">()</span>
+<span class="go">[-1  0 -1 -1]</span>
+<span class="go">[ 2  0 -2  0]</span>
+<span class="go">[-2 -1 -2 -1]</span>
+<span class="go">[ 0 -1 -2 -1]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>verify</strong> – Explicitly test if the resulting matrix is symplectic.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.triangulation_isosig">
-<span class="sig-name descname"><span class="pre">triangulation_isosig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decorated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_cusp_ordering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_curve_orientations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.triangulation_isosig" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a compact text representation of the triangulation, called a
-“decorated isomorphism signature”</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
+<span class="sig-name descname"><span class="pre">triangulation_isosig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decorated</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_cusp_ordering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_curves</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_curve_orientations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_filling_orientations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#snappy.Triangulation.triangulation_isosig" title="Link to this definition"></a></dt>
+<dd><p>Returns the “(decorated) isomorphism signature”, a compact text
+representation of the triangulation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
 <span class="go">&#39;cPcbbbiht_BaCB&#39;</span>
 </pre></div>
 </div>
-<p>You can use this string to recreate an isomorphic triangulation later</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;y233&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
-<span class="go">&#39;hLMzMkbcdefggghhhqxqhx_BaaB&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;hLMzMkbcdefggghhhqxqhx_BaaB&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span>
+<p>This string can be used later to recreate an isomorphic triangulation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">U</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;cPcbbbiht_BaCB&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">==</span> <span class="n">U</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>By default, the returned string encodes the peripheral curves (and
-slopes of Dehn-fillings if any are present), but you can request
-only the “isomorphism signature” which can be given to
-<a class="reference external" href="https://regina-normal.github.io/">Regina</a>.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">E</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;K3_1&#39;</span><span class="p">)</span>   <span class="c1"># the (-2, 3, 7) exterior</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="n">E</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span> <span class="o">=</span> <span class="kc">False</span><span class="p">);</span> <span class="n">isosig</span>
-<span class="go">&#39;dLQacccjsnk&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="n">isosig</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">E</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">F</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">0 -&gt; 0</span>
-<span class="go">[1 18]</span>
-<span class="go">[0  1]</span>
-<span class="go">Extends to link</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">E</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
-<span class="go">&#39;dLQacccjsnk_BaRsB&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
-<span class="go">&#39;dLQacccjsnk_BaaB&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;dLQacccjsnk_BaRsB&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">E</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">G</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">0 -&gt; 0</span>
-<span class="go">[1 0]</span>
-<span class="go">[0 1]</span>
-<span class="go">Extends to link</span>
+<p>The isomorphism signature is also used to compute the
+<a class="reference internal" href="manifold.html#snappy.Manifold.isometry_signature" title="snappy.Manifold.isometry_signature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isometry_signature</span></code></a>.
+It comes in two flavors controlled by the <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span></code> flag.</p>
+<p><strong>Undecorated isomorphism signature</strong></p>
+<p>The undecorated isomorphism signature is a complete invariant of the
+(oriented) triangulation up to combinatorial isomorphism:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;dLQbcccdero&#39;</span>
 </pre></div>
 </div>
-<p>If you do not care about the indexing of the cusps when using a
-decorated signature, use ignore_cusp_ordering</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;L14n64110(1,2)(2,3)(-2,1)(3,4)(0,0)&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ignore_cusp_ordering</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span>
-<span class="go">&#39;xLLvLvMLPMPLAMQQcceflnjmmmospsrttvvvtswwwiieiifdeauinasltltahmbjn_bacBbaaBBaBbBbbaabba(2,3)(-2,1)(1,2)(3,4)(0,0)&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="n">isosig</span><span class="p">)</span><span class="o">.</span><span class="n">filled_triangulation</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">is_isometric_to</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">filled_triangulation</span><span class="p">())</span>
-<span class="go">True</span>
+<p>It was introduced in
+<a class="reference external" href="http://arxiv.org/abs/1110.6080">Burton ‘11</a>. It canonizes and
+generalizes the ealier dehydration string by
+<a class="reference external" href="https://doi.org/10.1090/S0025-5718-99-01036-4">Callahan, Hildebrand and Weeks ‘99</a>.
+The undecorated isomorphism signature can also be given to
+<a class="reference external" href="https://regina-normal.github.io/">Regina</a>’s
+<code class="docutils literal notranslate"><span class="pre">Triangulation3.fromIsoSig</span></code>.</p>
+<p>By default, the orientation (if orientable) is ignored. More
+precisely, it computes the string for both orientations (if orientable)
+and uses the lexicographically smaller string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;dLQbcccdero&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">reverse_orientation</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;dLQbcccdero&#39;</span>
 </pre></div>
 </div>
-<p>If you do not care about the orientations of the peripheral curves,
-use ignore_curve_orientations</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;L6a1&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
-<span class="go">&#39;gLLAQcdeefffdopuado_BabbBaab&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ignore_curve_orientations</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span>
-<span class="go">&#39;gLLAQcdeefffdopuado_babbbaab&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="n">isosig</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<p>When specifying <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_orientation</span> <span class="pre">=</span> <span class="pre">False</span></code>, the result
+encodes the orientation (if orientable). Now the result is
+different if we change the orientation of a chiral triangulation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_orientation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;dLQbcccdero&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">reverse_orientation</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_orientation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;dLQbccceekg&#39;</span>
+</pre></div>
+</div>
+<p><strong>Decorated isomorphism signature (default)</strong></p>
+<p>SnapPy can decorate the isomorphism signature to include the following
+peripheral information in a canonical way (that is invariant under
+the action by combinatorial isomorphisms of the triangulation):</p>
+<ol class="arabic simple">
+<li><p>Indexing of the cusps (that is, ideal vertices).</p>
+<ul class="simple">
+<li><p>Included by default.
+Can be suppressed with <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_cusp_ordering</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Peripheral curves (aka meridian and longitude, up to homotopy).</p>
+<ul class="simple">
+<li><p>Included by default.
+Can be suppressed with <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_curves</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+<li><p>By default, the decoration encodes the oriented peripheral curves.
+By specifying <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_curve_orientations</span> <span class="pre">=</span> <span class="pre">True</span></code>, it encodes
+the unoriented peripheral curves instead.</p></li>
+</ul>
+</li>
+<li><p>Dehn-fillings (if present).</p>
+<ul class="simple">
+<li><p>By default, the decoration encodes the oriented Dehn-fillings.
+That is, we also encodes the orientation of the peripheral curve
+that is used for the Dehn-filling (this explanation only
+works if the coefficients are integral).
+By specifying <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_filling_orientations</span> <span class="pre">=</span> <span class="pre">True</span></code>, the
+decoration encodes the unoriented Dehn-fillings.
+That is, it normalizes the Dehn-filling coefficients by picking
+a canonical pair among <span class="math notranslate nohighlight">\((m,l)\)</span> and <span class="math notranslate nohighlight">\((-m,-l)\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+<p>Details of the encoding are explained in the
+<a class="reference external" href="https://github.com/3-manifolds/SnapPy/blob/master/python/decorated_isosig.py">SnapPy source code</a>.</p>
+<p><strong>Example</strong></p>
+<p>Let us consider the links <span class="math notranslate nohighlight">\(9^2_{34}\)</span> and <code class="docutils literal notranslate"><span class="pre">L9a21</span></code>. Note that we use
+<a class="reference internal" href="manifold.html#snappy.Manifold.canonical_retriangulation" title="snappy.Manifold.canonical_retriangulation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">canonical_retriangulation</span></code></a>
+to make the following examples say something intrinsic about the
+hyperbolic manifold:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">snappy</span> <span class="kn">import</span> <span class="n">Manifold</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;9^2_34&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">canonical_retriangulation</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L9a21&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">canonical_retriangulation</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The decorated isosig recovers the entire peripheral information faithfully
+(including orientation, see below):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_baBabbbBbC&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">K</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_baBabbbBbC&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="go">[0 -&gt; 0  1 -&gt; 1</span>
-<span class="go">[-1 0]  [-1 0]</span>
-<span class="go">[ 0 1]  [ 0 1]</span>
-<span class="go">Extends to link, 0 -&gt; 0  1 -&gt; 1</span>
-<span class="go">[1  0]  [1  0]</span>
-<span class="go">[0 -1]  [0 -1]</span>
+<span class="go">[1 0]   [1 0]</span>
+<span class="go">[0 1]   [0 1]</span>
 <span class="go">Extends to link]</span>
 </pre></div>
 </div>
-<p>By default, the isomorphism signature does not capture the orientation
-of an orientable triangulation. If you specify
-<cite>ignore_orientation = False</cite>, the isomorphism signature for an oriented
-triangulation and its mirror image will be different if the
-triangulation is cheiral.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m006&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">ignore_orientation</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="go">&#39;dLQacccjnjs&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">reverse_orientation</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">ignore_orientation</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="go">&#39;dLQacccnsnk&#39;</span>
+<p>The two links have isometric complements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo&#39;</span>
 </pre></div>
 </div>
-<p>Note that a decorated triangulation isosig with the default values
-<cite>ignore_orientation = True</cite> but <cite>ignore_curve_orientations = False</cite>
-still captures the orientations of the triangulation through the
-peripheral curves.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m006&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
-<span class="go">&#39;dLQacccjnjs_aBbB&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">reverse_orientation</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">()</span>
-<span class="go">&#39;dLQacccjnjs_aBBb&#39;</span>
+<p>However, the complements have different handedness:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ignore_orientation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;oLLzLPwzQQccdeghjiiklmnmnnuvuvvavovvffffo&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">decorated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ignore_orientation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo&#39;</span>
 </pre></div>
 </div>
-<p>The code has been copied from <a class="reference external" href="https://regina-normal.github.io/">Regina</a> where
-the corresponding method is called “isoSig”.</p>
-<p>Unlike dehydrations for 3-manifold triangulations, an
-isomorphism signature uniquely determines a triangulation up
-to combinatorial isomorphism.  That is, two triangulations of
-3-dimensional manifolds are combinatorially isomorphic if and
-only if their isomorphism signatures are the same string.  For
-full details, see <a class="reference external" href="http://arxiv.org/abs/1110.6080">Simplification paths in the Pachner graphs
-of closed orientable 3-manifold triangulations, Burton, 2011</a>.</p>
-<p>For details about how the peripheral decorations work, see
-the SnapPy source code.</p>
+<p>Also, the cusps/components of the link are indexed differently:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_ba&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_ab&#39;</span>
+</pre></div>
+</div>
+<p>Ignoring the indexing, we also see that the oriented merdians and
+longitudes do not match:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_bBbCBabb&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_BbbCbabb&#39;</span>
+</pre></div>
+</div>
+<p>However, they are the same links (ignoring indexing and orientation):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_curve_orientations</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_bBBcbabb&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span><span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_curve_orientations</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo_bBBcbabb&#39;</span>
+</pre></div>
+</div>
+<p>Let us create two surgery presentations from the links (note that we
+fill after
+<a class="reference internal" href="manifold.html#snappy.Manifold.canonical_retriangulation" title="snappy.Manifold.canonical_retriangulation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">canonical_retriangulation</span></code></a>
+since it rejects Dehn-fillings):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>They are equivalent surgery presentations (of the same manifold):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_filling_orientations</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo(0,0)(1,5)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_filling_orientations</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo(0,0)(1,5)&#39;</span>
+</pre></div>
+</div>
+<p><strong>Orientation</strong></p>
+<p>Note that <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_orientation=True</span></code> only applies to the undecorated
+part of the isomorphism signature. The decoration can still capture the
+the orientation.
+More, precisely, the result of <a class="reference internal" href="#snappy.Triangulation.triangulation_isosig" title="snappy.Triangulation.triangulation_isosig"><code class="xref py py-meth docutils literal notranslate"><span class="pre">triangulation_isosig()</span></code></a> depends on
+the orientation (if the triangulation is orientable and chiral) if any
+of the following is true:</p>
+<ol class="arabic simple">
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_orientation</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_curves</span> <span class="pre">=</span> <span class="pre">False</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_filling_orientations</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p></li>
+</ol>
+<p>In these cases, re-constructing a triangulation from the isomorphism
+signature yields a triangulation with the same handedness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decorated</strong> – Include peripheral information such as indexing of the cusps,
+(oriented or unoriented) peripheral curves and
+(oriented or unoriented) Dehn-fillings.</p></li>
+<li><p><strong>ignore_cusp_ordering</strong> – Do not encode the indexing of the cusps.
+Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+<li><p><strong>ignore_curves</strong> – Do not encode the peripheral curves.
+Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code>.
+This is new in SnapPy version 3.2.
+If <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_curves</span> <span class="pre">=</span> <span class="pre">True</span></code>, the result of this method cannot
+be given to prior versions.</p></li>
+<li><p><strong>ignore_curve_orientations</strong> – Do not encode the orientations of the peripheral curves.
+Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_curves</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p></li>
+<li><p><strong>ignore_filling_orientations</strong> – Do not encode the orientations of the Dehn-fillings.
+Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+<li><p><strong>ignore_orientation</strong> – Do not encode the orientation of the triangulation in the
+undecorated part of the triangulation isosig.
+See above section about orientation.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.with_hyperbolic_structure">
-<span class="sig-name descname"><span class="pre">with_hyperbolic_structure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.with_hyperbolic_structure" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_hyperbolic_structure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.with_hyperbolic_structure" title="Link to this definition"></a></dt>
 <dd><p>Add a (possibly degenerate) hyperbolic structure, turning the
-Triangulation into a Manifold.</p>
+<a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triangulation</span></code></a> into a <a class="reference internal" href="manifold.html#snappy.Manifold" title="snappy.Manifold"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manifold</span></code></a>.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">with_hyperbolic_structure</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
@@ -1452,7 +1561,7 @@ Triangulation into a Manifold.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

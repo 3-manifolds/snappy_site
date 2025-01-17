@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mathematical preliminaries &mdash; SnapPy 3.1.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Mathematical preliminaries &mdash; SnapPy 3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
+
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=828ea960"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,9 +38,6 @@
             SnapPy
               <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                3.1.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -111,7 +108,7 @@
            <div itemprop="articleBody">
              
   <section id="mathematical-preliminaries">
-<h1>Mathematical preliminaries<a class="headerlink" href="#mathematical-preliminaries" title="Permalink to this heading"></a></h1>
+<h1>Mathematical preliminaries<a class="headerlink" href="#mathematical-preliminaries" title="Link to this heading"></a></h1>
 <p>Given a triangulation, the ptolemy module will produce a system of equation that is equivalent to
 the reduced Ptolemy variety (see <a class="reference internal" href="#gtz2011" id="id1"><span>[GTZ2011]</span></a>, Section 5 of <a class="reference internal" href="#ggz2012" id="id2"><span>[GGZ2012]</span></a>, and Proposition 4.7 of <a class="reference internal" href="#ggz2014" id="id3"><span>[GGZ2014]</span></a>).</p>
 <p>A solution
@@ -124,7 +121,7 @@ This is the same problem that the
 gluing equations for finding PGL(2, <strong>C</strong>)-representations suffer from where simplices in the developing
 map can be degenerate and yielding cross ratios that are 0, 1, or <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
 <section id="boundary-unipotent">
-<span id="ptolemy-boundary-unipotent"></span><h2>Boundary-unipotent<a class="headerlink" href="#boundary-unipotent" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-boundary-unipotent"></span><h2>Boundary-unipotent<a class="headerlink" href="#boundary-unipotent" title="Link to this heading"></a></h2>
 <p>We call a SL(<em>N</em>,  <strong>C</strong>)-representation <em>boundary-unipotent</em> if each peripheral subgroup is taken to
 a conjugate of the unipotent group <em>P</em> of upper unit-triangular matrices. Similarly, we call
 a PSL(<em>N</em>, <strong>C</strong>)-representation <em>boundary-unipotent</em> if each peripheral subgroup is taken to a conjugate
@@ -137,7 +134,7 @@ any lift of the geometric representation will take the longitude
 to a matrix with trace -2 and is thus not boundary-unipotent as SL(2, <strong>C</strong>)-representation.</p>
 </section>
 <section id="obstruction-class">
-<span id="id4"></span><h2>Obstruction class<a class="headerlink" href="#obstruction-class" title="Permalink to this heading"></a></h2>
+<span id="id4"></span><h2>Obstruction class<a class="headerlink" href="#obstruction-class" title="Link to this heading"></a></h2>
 <p>Given a boundary-unipotent PSL(<em>N</em>, <strong>C</strong>)-representation, we obtain an <em>obstruction class</em> in H<sup>2</sup>(M,<span class="math notranslate nohighlight">\(\partial\)</span>M; <strong>Z</strong>/<em>N</em>)
 that is trivial if and only if the representations lifts to a boundary-unipotent SL(<em>N</em>, <strong>C</strong>)-representation (see Section 9.1 of <a class="reference internal" href="#gtz2011" id="id5"><span>[GTZ2011]</span></a> and Section 1.3 of <a class="reference internal" href="#ggz2014" id="id6"><span>[GGZ2014]</span></a>).
 Given a triangulation and an element in H<sup>2</sup>(M,<span class="math notranslate nohighlight">\(\partial\)</span>M; <strong>Z</strong>/<em>N</em>), the Ptolemy variety can be modified to find
@@ -149,12 +146,12 @@ varieties corresponding to picking different Galois conjugates for the <em>N</em
 to consider a representative for each element in the quotient H<sup>2</sup>(M,<span class="math notranslate nohighlight">\(\partial\)</span>M; <strong>Z</strong>/<em>N</em>)/(<strong>Z</strong>/<em>N</em>)<sup>*</sup>.</p>
 </section>
 <section id="sl-n-c-vs-psl-n-c">
-<span id="ptolemy-psl-multiplicity"></span><h2>SL(<em>N</em>, <strong>C</strong>) vs PSL(<em>N</em>, <strong>C</strong>)<a class="headerlink" href="#sl-n-c-vs-psl-n-c" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-psl-multiplicity"></span><h2>SL(<em>N</em>, <strong>C</strong>) vs PSL(<em>N</em>, <strong>C</strong>)<a class="headerlink" href="#sl-n-c-vs-psl-n-c" title="Link to this heading"></a></h2>
 <p>The reduced Ptolemy variety for the trivial obstruction class can have several points (say <em>d</em>) giving different SL(<em>N</em>, <strong>C</strong>)-representations that are the same as PSL(<em>N</em>, <strong>C</strong>)-representations. Similarly, for the non-trivial obstruction class we can have <em>d</em> points in the reduced Ptolemy variety yielding the same PSL(<em>N</em>, <strong>C</strong>)-representation.</p>
 <p>The degree <em>d</em> of this correspondence is the size of H<sup>1</sup>(<span class="math notranslate nohighlight">\(\hat{M}\)</span>; <strong>Z</strong>/<em>N</em>) where <span class="math notranslate nohighlight">\(\hat{M}\)</span> is the cell complex obtained from collapsing each cusp to a point.</p>
 </section>
 <section id="generically-decorated-representations">
-<span id="ptolemy-generically-decorated"></span><h2>Generically decorated representations<a class="headerlink" href="#generically-decorated-representations" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-generically-decorated"></span><h2>Generically decorated representations<a class="headerlink" href="#generically-decorated-representations" title="Link to this heading"></a></h2>
 <p>We want to point out two important facts when using the reduced Ptolemy variety to find boundary-unipotent representations:</p>
 <ul class="simple">
 <li><p>We miss representations that are not generically decorated (as mentioned above). This happens but rarely.</p></li>
@@ -177,18 +174,18 @@ to consider a representative for each element in the quotient H<sup>2</sup>(M,<s
 </ul>
 </section>
 <section id="reduced-ptolemy-variety">
-<span id="ptolemy-reduced-variety"></span><h2>Reduced Ptolemy variety<a class="headerlink" href="#reduced-ptolemy-variety" title="Permalink to this heading"></a></h2>
+<span id="ptolemy-reduced-variety"></span><h2>Reduced Ptolemy variety<a class="headerlink" href="#reduced-ptolemy-variety" title="Link to this heading"></a></h2>
 <p>We will actually always use the reduced Ptolemy variety, i.e., the system of equation that consists of the Ptolemy relations (always of the form
 <span class="math notranslate nohighlight">\(\pm\)</span> c<sub>…</sub> c<sub>…</sub> <span class="math notranslate nohighlight">\(\pm\)</span> c<sub>…</sub> c<sub>…</sub>  <span class="math notranslate nohighlight">\(\pm\)</span> c<sub>…</sub> c<sub>…</sub>) and extra equations fixing an appropriate set of (N-1) Ptolemy coordinates per cusp as described in Proposition 4.7 of <a class="reference internal" href="#ggz2014" id="id9"><span>[GGZ2014]</span></a>. This is because the Ptolemy relations alone admit an action by (<strong>C</strong><sup>*</sup>)<sup>(N-1)</sup> for each cusp that does not change the representation it yields.</p>
 <p>In other words, the Ptolemy variety parametrizes <em>P</em>-decorations and the reduced Ptolemy variety parametrizes <em>B</em>-decorations.</p>
 </section>
 <section id="future-work">
-<h2>Future work<a class="headerlink" href="#future-work" title="Permalink to this heading"></a></h2>
+<h2>Future work<a class="headerlink" href="#future-work" title="Link to this heading"></a></h2>
 <p>In unpublished work, we developed an algorithm that takes some triangulation of a manifold and constructs a set of triangulations and corresponding Ptolemy varieties (with extra edge relations) such that we can guarantee that all boundary-unipotent PSL(2,C)-representations are found - not just the ones that are generically decorated with respect to the chosen triangulation. This is inspired by <a class="reference internal" href="#s2009" id="id10"><span>[S2009]</span></a>. The ptolemy module might support this in the future.</p>
 <p>In <a class="reference internal" href="#z2014" id="id11"><span>[Z2014]</span></a>, the Ptolemy variety was extended to detect non boundary-unipotent representations as well. The ptolemy module might produce these varieties in the future. This might offer another way of computing A-polynomials - that when combined with the above algorithm is guaranteed to be the full A-polynomial and not just a factor of it.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <div role="list" class="citation-list">
 <div class="citation" id="s2009" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">S2009</a><span class="fn-bracket">]</span></span>
@@ -228,7 +225,7 @@ to consider a representative for each element in the quotient H<sup>2</sup>(M,<s
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

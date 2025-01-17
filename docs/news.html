@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News &mdash; SnapPy 3.1.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/snappy_sphinx_rtd_theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>News &mdash; SnapPy 3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
+
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="_static/SnapPy.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=828ea960"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,9 +37,6 @@
             SnapPy
               <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                3.1.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -89,10 +86,71 @@
            <div itemprop="articleBody">
              
   <section id="news">
-<h1>News<a class="headerlink" href="#news" title="Permalink to this heading"></a></h1>
-<ul class="simple">
-<li><p>Version 3.1 (May 2023):</p>
+<h1>News<a class="headerlink" href="#news" title="Link to this heading"></a></h1>
 <ul>
+<li><p>Version 3.2 (January 2025):</p>
+<ul>
+<li><p>An alternative implementation of the length spectrum. It supports verified
+computations and is significantly faster in some cases. See
+<a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum_alt" title="snappy.Manifold.length_spectrum_alt"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt</span></code></a>
+and
+<a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum_alt_gen" title="snappy.Manifold.length_spectrum_alt_gen"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt_gen</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="manifold.html#snappy.Manifold.isometry_signature" title="snappy.Manifold.isometry_signature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isometry_signature</span></code></a> now also
+works for closed manifolds.</p></li>
+<li><p>A paper plane or eye ball in the
+<a class="reference internal" href="manifold.html#snappy.Manifold.inside_view" title="snappy.Manifold.inside_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">inside_view</span></code></a> showing the position
+and bearing of the user in the hyperbolic manifold. By default, we now show
+the paper plane instead of the edges of the triangulation so that the view
+is intrinsic to the manifold. The geodesics window now also features a
+button to put the camera onto a geodesic. Here are some examples:</p>
+<table class="borderless docutils align-default" style="width: 100%">
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="_images/o9_00000_systole_paper_plane.jpg"><img alt="Paper plane near shortest geodesic of o9_00000" class="align-center" src="_images/o9_00000_systole_paper_plane.jpg" style="width: 90%;" />
+</a>
+</td>
+<td><a class="reference internal image-reference" href="_images/o9_00000_systole_paper_plane_closer.jpg"><img alt="Paper plane very near shortest geodesic of o9_00000" class="align-center" src="_images/o9_00000_systole_paper_plane_closer.jpg" style="width: 90%;" />
+</a>
+</td>
+<td><a class="reference internal image-reference" href="_images/m004_paper_plane_on_systole.jpg"><img alt="Paper plane on shortest geodesic of m004" class="align-center" src="_images/m004_paper_plane_on_systole.jpg" style="width: 90%;" />
+</a>
+</td>
+<td><a class="reference internal image-reference" href="_images/m125_paper_plane.jpg"><img alt="Paper plane coming out of a cusp of m125" class="align-center" src="_images/m125_paper_plane.jpg" style="width: 90%;" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>A faster and more robust algorithm to the compute maximal cusp area matrix.
+The new algorithm is now the default for
+<a class="reference internal" href="manifold.html#snappy.Manifold.cusp_area_matrix" title="snappy.Manifold.cusp_area_matrix"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cusp_area_matrix()</span></code></a>,
+<a class="reference internal" href="manifold.html#snappy.Manifold.cusp_areas" title="snappy.Manifold.cusp_areas"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cusp_areas()</span></code></a>,
+<a class="reference internal" href="manifold.html#snappy.Manifold.short_slopes" title="snappy.Manifold.short_slopes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">short_slopes()</span></code></a> and
+<a class="reference internal" href="manifold.html#snappy.Manifold.cusp_translations" title="snappy.Manifold.cusp_translations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cusp_translations()</span></code></a>.</p></li>
+<li><p>New options <code class="docutils literal notranslate"><span class="pre">ignore_curves</span></code> and <code class="docutils literal notranslate"><span class="pre">ignore_filling_orientations</span></code>
+for <a class="reference internal" href="triangulation.html#snappy.Triangulation.triangulation_isosig" title="snappy.Triangulation.triangulation_isosig"><code class="xref py py-meth docutils literal notranslate"><span class="pre">triangulation_isosig()</span></code></a>. Also
+fixing a subtle bug where the filling coefficients returned by
+<a class="reference internal" href="triangulation.html#snappy.Triangulation.triangulation_isosig" title="snappy.Triangulation.triangulation_isosig"><code class="xref py py-meth docutils literal notranslate"><span class="pre">triangulation_isosig</span></code></a> were
+not canonical when <code class="docutils literal notranslate"><span class="pre">ignore_curve_orientations</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+<li><p><a class="reference internal" href="manifold.html#snappy.Manifold.canonical_retriangulation" title="snappy.Manifold.canonical_retriangulation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">canonical_retriangulation()</span></code></a>
+and
+<a class="reference internal" href="manifold.html#snappy.Manifold.isometry_signature" title="snappy.Manifold.isometry_signature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isometry_signature()</span></code></a> fail with
+exceptions rather than silently returning <code class="docutils literal notranslate"><span class="pre">None</span></code>. In particular, it now
+safe to compare isometry signatures (without further checks) to determine
+whether M and N are isometric hyperbolic manifolds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">isometry_signature</span><span class="p">(</span><span class="n">verified</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">N</span><span class="o">.</span><span class="n">isometry_signature</span><span class="p">(</span><span class="n">verified</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Bug fix to <a class="reference internal" href="manifold.html#snappy.Manifold.slice_obstruction_HKL" title="snappy.Manifold.slice_obstruction_HKL"><code class="xref py py-meth docutils literal notranslate"><span class="pre">slice_obstruction_HKL</span></code></a>: earlier versions
+incorrectly allowed looking at mod 2 homology of the branched
+cover, where the theory does not directly apply.</p></li>
+<li><p>New self-contained SnapPy application for Linux.</p></li>
+<li><p>Support for Python 3.13 and SageMath 10.5.</p></li>
+</ul>
+</li>
+<li><p>Versions 3.1 (May 2023) and 3.1.1 (June 2023):</p>
+<ul class="simple">
 <li><p>A method <a class="reference internal" href="manifold.html#snappy.Manifold.exterior_to_link" title="snappy.Manifold.exterior_to_link"><code class="xref py py-meth docutils literal notranslate"><span class="pre">exterior_to_link</span></code></a>
 for going from a link exterior to a link diagram taken from
 <a class="reference external" href="https://arxiv.org/abs/2112.03251">Dunfield-Obeidin-Rudd</a>.</p></li>
@@ -112,17 +170,17 @@ corresponding to a geodesic which can be given to
 </ul>
 </li>
 <li><p>Version 3.0.3 (December 2021):</p>
-<ul>
+<ul class="simple">
 <li><p>Runs natively on Macs with Apple Silicon processors (M1, M2, and variants).</p></li>
 </ul>
 </li>
 <li><p>Version 3.0.2 (November 2021):</p>
-<ul>
+<ul class="simple">
 <li><p>Support for SageMath 9.4 and 9.5, Python 3.10, and macOS Monterey.</p></li>
 </ul>
 </li>
 <li><p>Version 3.0 (April 2021): New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Incorporates Zoltán Szabó’s <a class="reference external" href="https://web.math.princeton.edu/~szabo/HFKcalc.html">program</a> for
 computing Knot Floer homology, see <a class="reference internal" href="spherogram.html#spherogram.Link.knot_floer_homology" title="spherogram.Link.knot_floer_homology"><code class="xref py py-meth docutils literal notranslate"><span class="pre">knot_floer_homology</span></code></a>.  This can compute the
 Seifert genus of a 25 crossing knot in mere seconds!</p></li>
@@ -142,7 +200,7 @@ now accepts DT codes.</p></li>
 </ul>
 </li>
 <li><p>Version 2.8 (June 2020): New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Raytraced interior views of a hyperbolic 3-manifold via the
 <a class="reference internal" href="manifold.html#snappy.Manifold.inside_view" title="snappy.Manifold.inside_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">inside_view</span></code></a> method, see also
 <a class="reference external" href="https://im.icerm.brown.edu/portfolio/snappy-views/">images</a> and
@@ -169,7 +227,7 @@ extended to triangulations with 9 ideal tetrahedra.</p></li>
 </ul>
 </li>
 <li><p>Version 2.7 (July 2019): New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Python 3 is now recommended over Python 2 on all platforms; the
 default Mac and Windows apps use Python 3 rather than
 Python 2. The only difference most users will notice is that one
@@ -184,7 +242,7 @@ support for macOS Catalina.</p></li>
 </ul>
 </li>
 <li><p>Version 2.6.1 (August 2018): New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Support for SageMath 8.3, Python 3.7, and macOS Mojave.</p></li>
 <li><p>Computing <a class="reference external" href="additional_classes.html#snappy.HolonomyGroup.character_variety_vars_and_polys">ideals defining SL(2, C) character varieties.</a>
 Contributed by Jean-Philippe Burelle, based on <a class="reference external" href="https://arxiv.org/abs/1703.08241">this paper</a>.</p></li>
@@ -192,14 +250,14 @@ Contributed by Jean-Philippe Burelle, based on <a class="reference external" hre
 </ul>
 </li>
 <li><p>Version 2.6 (Nov 2017): New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Support for macOS High Sierra, SageMath 8.1, and Windows systems
 using non-Latin alphabets.</p></li>
 <li><p>Many bug fixes, including improved Python 3 support.</p></li>
 </ul>
 </li>
 <li><p>Version 2.5 (Feb 2017): New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Rigorous computation of <a class="reference external" href="manifold.html#snappy.Manifold.volume">hyperbolic volume</a>.</p></li>
 <li><p>STL export of Dirichlet domains for 3D printing, contributed by
 Jose Sanchez.</p></li>
@@ -209,7 +267,7 @@ versions of Python on Windows.</p></li>
 </ul>
 </li>
 <li><p>Version 2.4 (May 2016): New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Added <a class="reference external" href="platonic_census.html">census of Platonic manifolds</a>.</p></li>
 <li><p>Rigorous computation of <a class="reference external" href="manifold.html#snappy.Manifold.cusp_translations">cusp translations</a>.</p></li>
 <li><p>Added decorations to <a class="reference external" href="manifold.html#snappy.Manifold.triangulation_isosig">triangulation isomorphism signatures</a> for
@@ -229,7 +287,7 @@ link as a <a class="reference external" href="spherogram.html#spherogram.Link.br
 </ul>
 </li>
 <li><p>Version 2.3 (March 2015):  New features include:</p>
-<ul>
+<ul class="simple">
 <li><p>Major improvements to the <a class="reference external" href="spherogram.html">link and planar diagram component</a>, including link simplification, random links,
 and better documentation.</p></li>
 <li><p>Basic support for <a class="reference external" href="manifold.html#snappy.Manifold.normal_boundary_slopes">spun normal surfaces</a>.</p></li>
@@ -261,7 +319,7 @@ orientable cusped manifolds with 9 tetrahedra.</a></p></li>
 (and everything related) in <a class="reference external" href="http://web.mit.edu/tabbott/Public/quaddouble-debian/qd-2.3.4-old/docs/qd.pdf">quad-double (212 bit)</a>
 precision.</p></li>
 <li><p>Version 2.0 (September 2013): Many new features, including:</p>
-<ul>
+<ul class="simple">
 <li><p>A <a class="reference external" href="manifold.html#snappy.Manifold.browse">manifold browser</a>
 window for easily examining a particular manifold.</p></li>
 <li><p>Many improvements to the <a class="reference external" href="plink.html#using-snappy-s-link-editor">link editor</a>, including</p>
@@ -307,7 +365,7 @@ censuses</a>.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2023, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
