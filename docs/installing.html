@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installing SnapPy &mdash; SnapPy 3.2 documentation</title>
+  <title>Installing SnapPy &mdash; SnapPy 3.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="_static/SnapPy.ico"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=828ea960"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/documentation_options.js?v=26f62d79"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -99,14 +99,14 @@
   <section id="installing-snappy">
 <h1>Installing SnapPy<a class="headerlink" href="#installing-snappy" title="Link to this heading"></a></h1>
 <p>Here are detailed instructions on how to get SnapPy working on a
-variety of platforms.  The current version is 3.2 which was released
-on January 2025.  If you encounter any problems installing SnapPy,
+variety of platforms.  The current version is 3.3 which was released
+on January 2026.  If you encounter any problems installing SnapPy,
 <a class="reference internal" href="bugs.html"><span class="doc">please let us know</span></a>.</p>
 <section id="macos">
 <h2>macOS<a class="headerlink" href="#macos" title="Link to this heading"></a></h2>
 <p>Simply download <a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/latest/download/SnapPy.dmg">SnapPy.dmg</a>
 and copy SnapPy.app to the Applications folder.  Double-click to start
-it, just like any other application.  The current version works with macOS 10.14 and
+it, just like any other application.  The current version works with macOS 10.15 and
 newer and earlier releases <a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/">can be found here</a>.</p>
 </section>
 <section id="windows">
@@ -116,13 +116,10 @@ Earlier releases <a class="reference external" href="https://github.com/3-manifo
 </section>
 <section id="linux-app">
 <h2>Linux app<a class="headerlink" href="#linux-app" title="Link to this heading"></a></h2>
-<p>Starting with SnapPy 3.2, a completely self-contained SnapPy <a class="reference external" href="https://docs.appimage.org/introduction/quickstart.html#ref-quickstart">AppImage</a>
-is available that should work on any Linux system from the last 5
-years.  This AppImage contains its own private copy of Python, so if
-you plan to use SnapPy in your own Python programs, skip ahead to
-<a class="reference internal" href="#python-modules-for-linux">Python Modules for Linux</a>.  Here is the recipe for installing the
-AppImage in <code class="docutils literal notranslate"><span class="pre">~/bin</span></code> after you have downloaded the file
-<a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/latest/download/SnapPy-x86_64.AppImage">SnapPy-x86_64.AppImage</a>:</p>
+<p>Starting with SnapPy 3.2, you can install snappy on Linux by downloading
+<a class="reference external" href="https://github.com/3-manifolds/SnapPy/releases/latest/download/SnapPy-x86_64.AppImage">SnapPy-x86_64.AppImage</a>, which is a completely self-contained SnapPy <a class="reference external" href="https://docs.appimage.org/introduction/quickstart.html#ref-quickstart">AppImage</a>
+that should work on any Linux system from the last 5 years.</p>
+<p>After downloading the AppImage, follow the recipe below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="nb">bin</span>
 <span class="n">mv</span> <span class="o">~/</span><span class="n">Downloads</span><span class="o">/</span><span class="n">SnapPy</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">AppImage</span> <span class="o">~/</span><span class="nb">bin</span>
 <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">~/</span><span class="nb">bin</span><span class="o">/</span><span class="n">SnapPy</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">AppImage</span>
@@ -136,6 +133,9 @@ search tool with GNOME or the main menu with KDE. You can pin also the icon
 to your dash or task bar for easy access.  From a terminal window, you
 can also start the app by typing <code class="docutils literal notranslate"><span class="pre">SnapPy</span></code> provided <code class="docutils literal notranslate"><span class="pre">~/bin</span></code> is in
 your <a class="reference external" href="https://opensource.com/article/17/6/set-path-linux">$PATH</a>.</p>
+<p>The AppImage contains its own private copy of Python, so if
+you plan to use SnapPy in your own Python programs, skip ahead to
+<a class="reference internal" href="#python-modules-for-linux">Python Modules for Linux</a>.</p>
 </section>
 <section id="python-modules-for-macos-or-windows">
 <h2>Python Modules for macOS or Windows<a class="headerlink" href="#python-modules-for-macos-or-windows" title="Link to this heading"></a></h2>
@@ -304,7 +304,7 @@ installing SnapPy into a new conda environment on macOS or Linux:</p>
 </section>
 <section id="source-code">
 <h2>Source code<a class="headerlink" href="#source-code" title="Link to this heading"></a></h2>
-<p>The complete source code for all platforms: <a class="reference external" href="https://pypi.python.org/packages/source/s/snappy/snappy-3.2.tar.gz">snappy-3.2.tar.gz</a></p>
+<p>The complete source code for all platforms: <a class="reference external" href="https://pypi.python.org/packages/source/s/snappy/snappy-3.3.tar.gz">snappy-3.3.tar.gz</a></p>
 <p>You can also browse our <a class="reference external" href="https://github.com/3-manifolds/SnapPy">source code repository</a> or clone it using <a class="reference external" href="https://git-scm.com/">git</a> via:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">3</span><span class="o">-</span><span class="n">manifolds</span><span class="o">/</span><span class="n">SnapPy</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -323,7 +323,7 @@ installing SnapPy into a new conda environment on macOS or Linux:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2026, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Triangulation &mdash; SnapPy 3.2 documentation</title>
+  <title>Triangulation &mdash; SnapPy 3.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="_static/SnapPy.ico"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=828ea960"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/documentation_options.js?v=26f62d79"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -66,6 +66,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.edge_valences"><code class="docutils literal notranslate"><span class="pre">Triangulation.edge_valences()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.exterior_to_link"><code class="docutils literal notranslate"><span class="pre">Triangulation.exterior_to_link()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.filled_triangulation"><code class="docutils literal notranslate"><span class="pre">Triangulation.filled_triangulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.fox_milnor_test"><code class="docutils literal notranslate"><span class="pre">Triangulation.fox_milnor_test()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.fundamental_group"><code class="docutils literal notranslate"><span class="pre">Triangulation.fundamental_group()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.gluing_equations"><code class="docutils literal notranslate"><span class="pre">Triangulation.gluing_equations()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Triangulation.gluing_equations_pgl"><code class="docutils literal notranslate"><span class="pre">Triangulation.gluing_equations_pgl()</span></code></a></li>
@@ -145,7 +146,7 @@
 basic class below.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.Triangulation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">Triangulation</span></span><a class="headerlink" href="#snappy.Triangulation" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">Triangulation</span></span><a class="headerlink" href="#snappy.Triangulation" title="Link to this definition"></a></dt>
 <dd><p>A Triangulation object represents a compact 3-manifold with torus
 boundary components, given as an ideal triangulation of the
 manifold’s interior.  A Dehn-filling can be specified for each
@@ -402,7 +403,7 @@ by 0,1,…,(num_cusps - 1).</p>
 in the triangulation, and the value associated to a key is the
 number of edges of that valence.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;v3227&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">edge_valences</span><span class="p">()</span>     
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">edge_valences</span><span class="p">()</span>
 <span class="go">{10: 1, 4: 1, 5: 2, 6: 3}</span>
 </pre></div>
 </div>
@@ -490,6 +491,28 @@ permanently filled in.  Examples:</p>
 <span class="go">v3227_filled(3,4)</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="snappy.Triangulation.fox_milnor_test">
+<span class="sig-name descname"><span class="pre">fox_milnor_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.fox_milnor_test" title="Link to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when the Alexander polynomial data of the link is
+compatible with it being topologically strongly slice (that is,
+the link bounds a disjoint collection of locally-flat disks in the
+4-ball).  More precisely, it checks if the Alexander nullity is as
+expected and that the appropriate Alexander polynomial is a norm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">mflds</span> <span class="o">=</span> <span class="p">[</span><span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L12n1181&#39;</span><span class="p">),</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L11n247&#39;</span><span class="p">),</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L10n107&#39;</span><span class="p">)]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="p">{</span><span class="n">M</span><span class="o">.</span><span class="n">alexander_polynomial</span><span class="p">()</span> <span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">mflds</span><span class="p">}</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">}</span>
+<span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">M</span><span class="o">.</span><span class="n">fox_milnor_test</span><span class="p">()</span> <span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">mflds</span><span class="p">]</span>
+<span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note: This method only requires that the homology (including the
+meridians) is consistent being the complement of a link in S^3.  It
+does not check that the manifold is actually a link complement.</p>
+<p>References: This test is Corollary 12.3.14 of <a class="reference external" href="https://doi.org/10.1007/978-3-0348-9227-8">[Kawauchi]</a> and Theorem 8.18 of
+<a class="reference external" href="https://doi.org/10.1007/978-1-4612-0691-0">[Lickorish]</a>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -811,7 +834,7 @@ giving isolated rays in the space of embedded normal surfaces.</p>
 <span class="sig-name descname"><span class="pre">normal_surfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FXrays'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.normal_surfaces" title="Link to this definition"></a></dt>
 <dd><p>All the vertex spun-normal surfaces in the current triangulation.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">normal_surfaces</span><span class="p">()</span>    
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">normal_surfaces</span><span class="p">()</span>
 <span class="go">[&lt;Surface 0: [0, 0] [1, 2] (4, 1)&gt;,</span>
 <span class="go"> &lt;Surface 1: [0, 1] [1, 2] (4, -1)&gt;,</span>
 <span class="go"> &lt;Surface 2: [1, 2] [2, 1] (-4, -1)&gt;,</span>
@@ -869,7 +892,7 @@ as a link complement in your current session.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">link</span><span class="p">()</span>
 <span class="go">&lt;Link: 1 comp; 4 cross&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span> <span class="c1"># stored as a triangulation without a link</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">link</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">link</span><span class="p">()</span>
 <span class="gt">Traceback (most recent call last):</span>
 <span class="c">...</span>
 <span class="gr">ValueError</span>: <span class="n">No associated link known.</span>
@@ -1022,21 +1045,21 @@ database at <a class="reference external" href="http://ptolemy.unhyperbolic.org/
 </pre></div>
 </div>
 <p>Retrieve the solutions from the database</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Compute the solutions using magma (default in SnapPy)</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;magma&#39;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;magma&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Compute the solutions using singular (default in sage)</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;sage&#39;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;sage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that magma is significantly faster.</p>
 <p>Compute all resulting complex volumes</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span> <span class="o">=</span> <span class="n">sols</span><span class="o">.</span><span class="n">complex_volume_numerical</span><span class="p">()</span> 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span>  
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span> <span class="o">=</span> <span class="n">sols</span><span class="o">.</span><span class="n">complex_volume_numerical</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span>
 <span class="go">[[[-4.29405713186238 E-16 + 0.725471193740844*I,</span>
 <span class="go">   -0.942707362776931 + 0.459731436553693*I,</span>
 <span class="go">   0.942707362776931 + 0.459731436553693*I]],</span>
@@ -1047,7 +1070,7 @@ database at <a class="reference external" href="http://ptolemy.unhyperbolic.org/
 </pre></div>
 </div>
 <p>Show complex volumes as a non-nested list:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">[-4.29405713186238 E-16 + 0.725471193740844*I,</span>
 <span class="go"> -0.942707362776931 + 0.459731436553693*I,</span>
 <span class="go"> 0.942707362776931 + 0.459731436553693*I,</span>
@@ -1082,13 +1105,13 @@ help(varieties[0]) for more information):</p>
 </pre></div>
 </div>
 <p>Print the variety as an ideal (sage object) for the non-trivial class:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">varieties</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ideal</span>    
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">varieties</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ideal</span>
 <span class="go">Ideal (-c_0011_0^2 + c_0011_0*c_0101_0 + c_0101_0^2, -c_0011_0^2 - c_0011_0*c_0101_0 + c_0101_0^2, c_0011_0 - 1) of Multivariate Polynomial Ring in c_0011_0, c_0101_0 over Rational Field</span>
 </pre></div>
 </div>
 <p>Print the equations of the variety for the non-trivial class:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">eqn</span> <span class="ow">in</span> <span class="n">varieties</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">equations</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>          
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>
 <span class="go">     - c_0011_0 * c_0101_0 + c_0011_0^2 + c_0101_0^2</span>
 <span class="go">     c_0011_0 * c_0101_0 - c_0011_0^2 - c_0101_0^2</span>
 <span class="go">     - 1 + c_0011_0</span>
@@ -1097,7 +1120,7 @@ help(varieties[0]) for more information):</p>
 <p>Generate a magma file to compute Primary Decomposition for N = 3:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">to_magma</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;ring and ideal&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>     
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;ring and ideal&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 <span class="go">R&lt;c_0012_0, c_0012_1, c_0102_0, c_0111_0, c_0201_0, c_1011_0, c_1011_1, c_1101_0&gt; := PolynomialRing(RationalField(), 8, &quot;grevlex&quot;);</span>
 <span class="go">MyIdeal := ideal&lt;R |</span>
 <span class="go">          c_0012_0 * c_1101_0 + c_0102_0 * c_0111_0 - c_0102_0 * c_1011_0,</span>
@@ -1120,7 +1143,7 @@ and produce exact solutions!!!</p>
 <p>=== If you do not have a magma installation ===</p>
 <p>Load a precomputed example from magma which is provided with the package:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">snappy.ptolemy.processMagmaFile</span> <span class="kn">import</span> <span class="n">_magma_output_for_4_1__sl3</span><span class="p">,</span> <span class="n">solutions_from_magma</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">_magma_output_for_4_1__sl3</span><span class="p">)</span>      
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">_magma_output_for_4_1__sl3</span><span class="p">)</span>
 
 <span class="go">==TRIANGULATION=BEGINS==</span>
 <span class="go">% Triangulation</span>
@@ -1180,7 +1203,7 @@ it is orientable.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cs</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">reverse_orientation</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">cs</span> <span class="o">+</span> <span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">())</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">cs</span> <span class="o">+</span> <span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">())</span>
 <span class="go">0.0</span>
 </pre></div>
 </div>
@@ -1191,15 +1214,15 @@ it is orientable.</p>
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.save" title="Link to this definition"></a></dt>
 <dd><p>Save the triangulation as a SnapPea triangulation file.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>     
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To retrieve a SnapPea triangulation from the saved file
 you can do the following. The first command creates a cusped
 manifold M. The second one creates the filled manifold M1
 with Dehn coefficients (2,3).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>   
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M1</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri(2,3)&#39;</span><span class="p">)</span>   
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M1</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri(2,3)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1258,46 +1281,79 @@ before giving up.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Triangulation.slice_obstruction_HKL">
-<span class="sig-name descname"><span class="pre">slice_obstruction_HKL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primes_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in_S3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.slice_obstruction_HKL" title="Link to this definition"></a></dt>
-<dd><p>For the exterior of a knot in S^3, searches for a topological
-slicing obstruction from:</p>
-<p>Herald, Kirk, Livingston, Math Zeit., 2010
-<a class="reference external" href="https://dx.doi.org/10.1007/s00209-009-0548-1">https://dx.doi.org/10.1007/s00209-009-0548-1</a>
-<a class="reference external" href="https://arxiv.org/abs/0804.1355">https://arxiv.org/abs/0804.1355</a></p>
-<p>The test looks at the cyclic branched covers of the knot of prime
-order p and the F_q homology thereof where q is an odd prime. The
-range of such (p, q) pairs searched is given by primes_spec as a
-list of (p_max, [q_min, q_max]).  It returns the pair (p, q) of
-the first nonzero obstruction found (in which case K is not
-slice), and otherwise returns None:</p>
+<span class="sig-name descname"><span class="pre">slice_obstruction_HKL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primes_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in_S3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'advanced'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ribbon_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Triangulation.slice_obstruction_HKL" title="Link to this definition"></a></dt>
+<dd><p>For the exterior of a knot in the 3-sphere, search for a
+Herald-Kirk-Livingston (HKL) topological slice obstruction as
+described in Section 3 of Dunfield and Gong’s paper
+<a class="reference external" href="https://arXiv.org/abs/2512.21825">[DG]</a>.</p>
+<p>Specifically, it looks at the cyclic branched covers of the knot
+of prime-power order p and the F_q homology thereof where q is
+prime. The range of such (p, q) pairs searched is given by
+primes_spec as a list of (p_max, [q_min, q_max]).  It returns the
+pair (p, q) of the first nonzero obstruction found (in which case
+K is not slice), and otherwise returns <code class="docutils literal notranslate"><span class="pre">None</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;K12n813&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">]),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">])]</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can also specify the p to examine by a range [p_min, p_max] or
 the q by just q_max:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">10</span><span class="p">)]</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;advanced&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If primes_spec is just a pair (p, q) then only that obstruction is
 checked:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Technical note: As implemented, can only get an obstruction when
-the decomposition of H_1(cover; F_q) into irreducible Z/pZ-modules
-has no repeat factors.  The method of [HKL] can be used more
-broadly, but other cases requires computing many more twisted
-Alexander polynomials.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> argument determines which HKL tests are employed:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">method='basic'</span></code> employs Lemma 3.5 of [DG] and corresponds
+roughly to the test used in SnapPy 3.1 and 3.2, though these
+earlier versions required p to be prime and forbid q = 2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method='advanced'</span></code> is the default and employs Theorem 3.8
+from [DG]. This subsumes the <cite>basic</cite> method, but can be quite
+slow when the multiplicity of an irreducible V_i is large.</p>
+<p>An example where this method has more success:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>  <span class="c1"># returns None</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;advanced&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method='direct'</span></code> employs the method of Section 3.20 of [DG] to
+consider not just the F_q homology of the cover, but
+epimorphisms of its group to Z/q^e Z for e &gt; 1.  This is the
+most computationally expensive method.  Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;K14n16945&#39;</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;advanced&#39;</span><span class="p">)</span> <span class="c1"># returns None</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;direct&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>For any method, q = 2 is handled using Section 3.11 of [DG].</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">verbose</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code>, it prints each pair (p, q) being considered;
+when <code class="docutils literal notranslate"><span class="pre">verbose</span></code> is <code class="docutils literal notranslate"><span class="pre">2</span></code>, information is printed about each step.</p>
+<p>Finally, if <code class="docutils literal notranslate"><span class="pre">ribbon_mode</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> then it searches for
+obstructions to being topologically homotopy ribbon.  These differ
+from the slice case only when q = 2; see Theorem 3.12 of [DG]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;DT: qaqcJpEHnoDKBMqIgfal&#39;</span><span class="p">)</span>  <span class="c1"># The knot 17nh_0630889</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># returns None</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ribbon_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1398,14 +1454,18 @@ By specifying <code class="xref py py-attr docutils literal notranslate"><span c
 the unoriented peripheral curves instead.</p></li>
 </ul>
 </li>
-<li><p>Dehn-fillings (if present).</p>
+<li><p>Dehn-fillings and orientation of core curve (if present).</p>
 <ul class="simple">
-<li><p>By default, the decoration encodes the oriented Dehn-fillings.
-That is, we also encodes the orientation of the peripheral curve
-that is used for the Dehn-filling (this explanation only
-works if the coefficients are integral).
+<li><p>By default, the decoration encodes the Dehn-fillings and the
+orientation of the core curve.
+That is, we encode the (unoriented) peripheral curve that is
+used for the Dehn-filling as well as the orientation of the class
+of peripheral curves intersecting that peripheral curve ones
+(this explanation only works if the coefficients are co-prime
+integers). Note that this behavior has changed in Version 3.3.
 By specifying <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_filling_orientations</span> <span class="pre">=</span> <span class="pre">True</span></code>, the
-decoration encodes the unoriented Dehn-fillings.
+decoration encodes the Dehn-fillings without any regard to
+orientation.
 That is, it normalizes the Dehn-filling coefficients by picking
 a canonical pair among <span class="math notranslate nohighlight">\((m,l)\)</span> and <span class="math notranslate nohighlight">\((-m,-l)\)</span>.</p></li>
 </ul>
@@ -1492,6 +1552,37 @@ since it rejects Dehn-fillings):</p>
 <span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo(0,0)(1,5)&#39;</span>
 </pre></div>
 </div>
+<p>A geometric spun-triangulation of the three-fold cover of m007(3,1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;gLLMQcbeefefujumapn(2,-1)&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
+<span class="go">&#39;all tetrahedra positively oriented&#39;</span>
+</pre></div>
+</div>
+<p>Specifying <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_filling_orientations</span> <span class="pre">=</span> <span class="pre">True</span></code> can change the
+orientation of the core curve and a triangulation spinning the other
+way that fails to be geometric:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">ignore_orientation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_filling_orientations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span>
+<span class="go">&#39;gLLMQcbeefefujumapn(-2,1)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="n">isosig</span><span class="p">)</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
+<span class="go">&#39;contains negatively oriented tetrahedra&#39;</span>
+</pre></div>
+</div>
+<p>Preserve the unoriented spun-triangulation structure including the
+direction it is spinning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span>
+<span class="go">&#39;gLLMQcbeefefpjaqupw(1,1)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="n">isosig</span><span class="p">)</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
+<span class="go">&#39;all tetrahedra positively oriented&#39;</span>
+</pre></div>
+</div>
 <p><strong>Orientation</strong></p>
 <p>Note that <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_orientation=True</span></code> only applies to the undecorated
 part of the isomorphism signature. The decoration can still capture the
@@ -1523,7 +1614,8 @@ be given to prior versions.</p></li>
 <li><p><strong>ignore_curve_orientations</strong> – Do not encode the orientations of the peripheral curves.
 Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code> and
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_curves</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p></li>
-<li><p><strong>ignore_filling_orientations</strong> – Do not encode the orientations of the Dehn-fillings.
+<li><p><strong>ignore_filling_orientations</strong> – Do not encode the orientation of the class of peripheral curves
+intersecting the Dehn-fillings.
 Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
 <li><p><strong>ignore_orientation</strong> – Do not encode the orientation of the triangulation in the
 undecorated part of the triangulation isosig.
@@ -1540,7 +1632,7 @@ See above section about orientation.</p></li>
 <a class="reference internal" href="#snappy.Triangulation" title="snappy.Triangulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triangulation</span></code></a> into a <a class="reference internal" href="manifold.html#snappy.Manifold" title="snappy.Manifold"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manifold</span></code></a>.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">with_hyperbolic_structure</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">2.02988321</span>
 </pre></div>
 </div>
@@ -1561,7 +1653,7 @@ See above section about orientation.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2026, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

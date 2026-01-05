@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manifold: the main class &mdash; SnapPy 3.2 documentation</title>
+  <title>Manifold: the main class &mdash; SnapPy 3.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="_static/SnapPy.ico"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=828ea960"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/documentation_options.js?v=26f62d79"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -78,6 +78,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.edge_valences"><code class="docutils literal notranslate"><span class="pre">Manifold.edge_valences()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.exterior_to_link"><code class="docutils literal notranslate"><span class="pre">Manifold.exterior_to_link()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.filled_triangulation"><code class="docutils literal notranslate"><span class="pre">Manifold.filled_triangulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.fox_milnor_test"><code class="docutils literal notranslate"><span class="pre">Manifold.fox_milnor_test()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.fundamental_group"><code class="docutils literal notranslate"><span class="pre">Manifold.fundamental_group()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.gluing_equations"><code class="docutils literal notranslate"><span class="pre">Manifold.gluing_equations()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.gluing_equations_pgl"><code class="docutils literal notranslate"><span class="pre">Manifold.gluing_equations_pgl()</span></code></a></li>
@@ -101,6 +102,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.length_spectrum_alt"><code class="docutils literal notranslate"><span class="pre">Manifold.length_spectrum_alt()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.length_spectrum_alt_gen"><code class="docutils literal notranslate"><span class="pre">Manifold.length_spectrum_alt_gen()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.link"><code class="docutils literal notranslate"><span class="pre">Manifold.link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.margulis"><code class="docutils literal notranslate"><span class="pre">Manifold.margulis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.name"><code class="docutils literal notranslate"><span class="pre">Manifold.name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.normal_boundary_slopes"><code class="docutils literal notranslate"><span class="pre">Manifold.normal_boundary_slopes()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snappy.Manifold.normal_surfaces"><code class="docutils literal notranslate"><span class="pre">Manifold.normal_surfaces()</span></code></a></li>
@@ -187,7 +189,7 @@
 <h1>Manifold: the main class<a class="headerlink" href="#manifold-the-main-class" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.Manifold">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">Manifold</span></span><a class="headerlink" href="#snappy.Manifold" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">Manifold</span></span><a class="headerlink" href="#snappy.Manifold" title="Link to this definition"></a></dt>
 <dd><p>A Manifold is a <a class="reference internal" href="triangulation.html#snappy.Triangulation" title="snappy.Triangulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triangulation</span></code></a> together with a geometric structure.
 That is, a Manifold is an ideal triangulation of the interior of a
 compact 3-manifold with torus and Klein-bottle boundary components, where
@@ -196,9 +198,9 @@ in hyperbolic 3-space. A Dehn-filling can be specified for each
 boundary component, allowing the description of closed 3-manifolds,
 some orbifolds and cone 3-manifolds. Here’s a quick example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;9_42&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">4.05686022</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
 <span class="go">[-4.278936315 + 1.95728679*I]</span>
 </pre></div>
 </div>
@@ -305,7 +307,7 @@ explore the manifold and interact with it.
 This includes: invariants, Dirichlet domain, cusp neighborhoods,
 inside view, symmetry, Dehn filling, drilling, etc.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m125&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">browse</span><span class="p">()</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">browse</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>This does not work when using SnapPy in a Docker container.</p>
@@ -351,12 +353,12 @@ manifolds. We do this using
 <a class="reference internal" href="triangulation.html#snappy.Triangulation.isomorphisms_to" title="snappy.Triangulation.isomorphisms_to"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isomorphisms_to</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;5_2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">canonical_retriangulation</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m015&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">canonical_retriangulation</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 <span class="go">[0 -&gt; 0</span>
 <span class="go">[1 0]</span>
 <span class="go">[0 1]</span>
 <span class="go">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">isomorphisms_to</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="go">[0 -&gt; 0</span>
 <span class="go">[-1  2]</span>
 <span class="go">[ 0 -1]</span>
@@ -483,14 +485,14 @@ not a retriangulation of the canonical cell decomposition.</p>
 <dd><p>Returns the Chern-Simons invariant of the manifold (normalized by
 dividing it by <span class="math notranslate nohighlight">\(2 \pi^2\)</span>), if it is known.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span>
 <span class="go">-0.15320413</span>
 </pre></div>
 </div>
 <p>The return value has an extra attribute, accuracy, which
 is the number of digits of accuracy as <em>estimated</em> by SnapPea.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cs</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">accuracy</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span> <span class="c1"># Low and High precision</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">accuracy</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">)</span> <span class="c1"># Low and High precision</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -501,10 +503,10 @@ original algorithm, which is based on Meyerhoff-Hodgson-Neumann.</p>
 manifold, one must sometimes compute it first for the unfilled
 manifold so as to initialize SnapPea’s internals.  For instance,</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;5_2&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span>
 <span class="go">-0.15320413</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span>
 <span class="go">0.07731787</span>
 </pre></div>
 </div>
@@ -521,26 +523,26 @@ if the first call to chern_simons is not made.</p>
 \[\text{vol} + i \text{CS}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{CS}\)</span> is the (unnormalized) Chern-Simons invariant.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;5_2&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">complex_volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">complex_volume</span><span class="p">()</span>
 <span class="go">2.82812209 - 3.02412838*I</span>
 </pre></div>
 </div>
 <p>Note that <a class="reference internal" href="#snappy.Manifold.chern_simons" title="snappy.Manifold.chern_simons"><code class="xref py py-meth docutils literal notranslate"><span class="pre">chern_simons</span></code></a>
 normalizes the Chern-Simons invariant by dividing it by
 <span class="math notranslate nohighlight">\(2 \pi^2 = 19.7392...\)</span></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span>
 <span class="go">-0.153204133297152</span>
 </pre></div>
 </div>
 <p>More examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">complex_volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">complex_volume</span><span class="p">()</span>
 <span class="go">2.22671790 + 1.52619361*I</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;3_1&quot;</span><span class="p">)</span> <span class="c1"># A non-hyperbolic example.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cvol</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">complex_volume</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cvol</span><span class="o">.</span><span class="n">real</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cvol</span><span class="o">.</span><span class="n">real</span><span class="p">()</span>
 <span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cvol</span><span class="o">.</span><span class="n">imag</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cvol</span><span class="o">.</span><span class="n">imag</span><span class="p">()</span>
 <span class="go">-1.64493407</span>
 </pre></div>
 </div>
@@ -693,7 +695,7 @@ and <span class="math notranslate nohighlight">\(C_j\)</span> are embedded (if <
 if and only if <span class="math notranslate nohighlight">\(A(C_i)A(C_j) \leq A_{ij}\)</span>.</p>
 <p>Here is an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;L6a5&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_area_matrix</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_area_matrix</span><span class="p">()</span>
 <span class="go">[27.9999999999996 7.00000000000000 7.00000000000000]</span>
 <span class="go">[7.00000000000000 27.9999999999999 7.00000000000000]</span>
 <span class="go">[7.00000000000000 7.00000000000000 28.0000000000001]</span>
@@ -708,7 +710,7 @@ SageMath. Thus, in prior versions, <code class="xref py py-attr docutils literal
 <a class="reference internal" href="#snappy.Manifold.cusp_area_matrix" title="snappy.Manifold.cusp_area_matrix"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cusp_area_matrix()</span></code></a> only returned
 (some) lower bounds for the maximal cusp area matrix entries.</p>
 <p>These lower bounds can still be accessed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_area_matrix</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;trigDependentTryCanonize&#39;</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_area_matrix</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;trigDependentTryCanonize&#39;</span><span class="p">)</span>
 <span class="go">[21.4375000000000 7.00000000000000 7.00000000000000]</span>
 <span class="go">[7.00000000000000 28.0000000000000 7.00000000000000]</span>
 <span class="go">[7.00000000000000 7.00000000000000 28.0000000000000]</span>
@@ -761,7 +763,7 @@ is set to a value different from the default).</p>
 cusp neighborhoods are blown up simultaneously and a cusp neighborhood
 stops growing when it touches any cusp neighborhood including itself:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;s776&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">()</span>
 <span class="go">[2.64575131106459, 2.64575131106459, 2.64575131106459]</span>
 </pre></div>
 </div>
@@ -769,20 +771,20 @@ stops growing when it touches any cusp neighborhood including itself:</p>
 that the first cusp neighborhood is blown up until it touches itself,
 then the second cusp neighborhood is blown up until it touches itself
 or the first cusp neighborhood, and so on:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;greedy&#39;</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;greedy&#39;</span><span class="p">)</span>
 <span class="go">[5.29150262212918, 1.32287565553230, 1.32287565553229]</span>
 </pre></div>
 </div>
 <p>Use <code class="xref py py-attr docutils literal notranslate"><span class="pre">first_cusps</span></code> to specify the order in which the cusp
 neighborhoods are blown up:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;greedy&#39;</span><span class="p">,</span> <span class="n">first_cusps</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;greedy&#39;</span><span class="p">,</span> <span class="n">first_cusps</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="go">[1.32287565553230, 5.29150262212918, 1.32287565553229]</span>
 </pre></div>
 </div>
 <p>An incomplete list can be given to <code class="xref py py-attr docutils literal notranslate"><span class="pre">first_cusps</span></code>. In this case,
 the list is automatically completed by appending the remaining cusps in
 order. Thus, the above call is equivalent to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;greedy&#39;</span><span class="p">,</span> <span class="n">first_cusps</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_areas</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;greedy&#39;</span><span class="p">,</span> <span class="n">first_cusps</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">[1.32287565553230, 5.29150262212918, 1.32287565553229]</span>
 </pre></div>
 </div>
@@ -836,7 +838,7 @@ cusp.   Usage:</p>
 </div>
 <p>To get more detailed information about the cusp, we do</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">shape</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">0.11044502 + 0.94677098*I</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">modulus</span>
 <span class="go">-0.12155872 + 1.04204128*I</span>
@@ -851,7 +853,7 @@ basis, i.e.
 ( (second shortest translation)/(shortest translation)).
 For cusps that are filled, one instead cares about the
 holonomies:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;holonomies&#39;</span><span class="p">]</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;holonomies&#39;</span><span class="p">]</span>
 <span class="go">(-0.59883089 + 1.09812548*I, 0.89824633 + 1.49440443*I)</span>
 </pre></div>
 </div>
@@ -859,7 +861,7 @@ holonomies:</p>
 holonomies have an extra attribute, accuracy, which is
 SnapPea’s <em>estimate</em> of their accuracy.</p>
 <p>You can also get information about multiple cusps at once:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">()</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">()</span>
 <span class="go">[Cusp 0 : complete torus cusp of shape 0.11044502 + 0.94677098*I,</span>
 <span class="go"> Cusp 1 : torus cusp with Dehn filling coefficients (M, L) = (1.0, 2.0),</span>
 <span class="go"> Cusp 2 : torus cusp with Dehn filling coefficients (M, L) = (3.0, 2.0)]</span>
@@ -884,11 +886,11 @@ manifold, in the form of data about the corresponding horoball
 diagrams in hyperbolic 3-space.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;s000&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">CN</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">cusp_neighborhood</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">CN</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CN</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">0.32475953</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">CN</span><span class="o">.</span><span class="n">horoballs</span><span class="p">(</span><span class="mf">0.01</span><span class="p">))</span>
 <span class="go">178</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">CN</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>  <span class="c1"># Opens picture of the horoballs  </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CN</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>  <span class="c1"># Opens picture of the horoballs</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -905,12 +907,12 @@ longitude of each cusp. The result is a pair for each cusp. The first
 entry of the pair corresponds to the meridian and is complex. The
 second entry corresponds to the longitude and is always real:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;s776&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_translations</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_translations</span><span class="p">()</span>
 <span class="go">[(0.500000000000000 + 1.32287565553230*I, 2.00000000000000), (0.500000000000000 + 1.32287565553230*I, 2.00000000000000), (0.499999999999999 + 1.32287565553230*I, 2.00000000000000)]</span>
 </pre></div>
 </div>
 <p>It takes the same arguments as <a class="reference internal" href="#snappy.Manifold.cusp_areas" title="snappy.Manifold.cusp_areas"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cusp_areas()</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_translations</span><span class="p">(</span><span class="n">policy</span> <span class="o">=</span> <span class="s1">&#39;greedy&#39;</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_translations</span><span class="p">(</span><span class="n">policy</span> <span class="o">=</span> <span class="s1">&#39;greedy&#39;</span><span class="p">)</span>
 <span class="go">[(0.70710678118654752440084436210 + 1.8708286933869706927918743662*I, 2.8284271247461900976033774484), (0.35355339059327376220042218105 + 0.93541434669348534639593718308*I, 1.4142135623730950488016887242), (0.35355339059327376220042218105 + 0.93541434669348534639593718308*I, 1.4142135623730950488016887242)]</span>
 </pre></div>
 </div>
@@ -978,13 +980,13 @@ have ideal vertices if the manifold is not closed.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">dirichlet_domain</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">D</span>
 <span class="go">32 finite vertices, 2 ideal vertices; 54 edges; 22 faces</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>   <span class="c1">#Shows 3d-graphical view.  </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>   <span class="c1">#Shows 3d-graphical view.</span>
 </pre></div>
 </div>
 <p>The group elements for the face-pairings of the Dirichlet domain
 can be given as words in the original generators of the
 (unsimplified) fundamental group by setting <code class="xref py py-attr docutils literal notranslate"><span class="pre">include_words</span> <span class="pre">=</span> <span class="pre">True</span></code>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">dirichlet_domain</span><span class="p">(</span><span class="n">include_words</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">pairing_words</span><span class="p">())</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">dirichlet_domain</span><span class="p">(</span><span class="n">include_words</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">pairing_words</span><span class="p">())</span>
 <span class="go">[&#39;A&#39;, ...]</span>
 </pre></div>
 </div>
@@ -1026,7 +1028,7 @@ choosing which one to drill out.</p>
 <dd><p>Drills the geodesic corresponding to the given word in the unsimplified
 fundamental group. Here is an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">max_len</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">max_len</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
 <span class="go">[Length                                      Core curve  Word</span>
 <span class="go"> 1.08707014499574 + 1.72276844987009*I       -           bC,</span>
 <span class="go"> 1.08707014499574 - 1.72276844987009*I       -           a]</span>
@@ -1041,7 +1043,7 @@ geodesic. The longitude and meridian for that cusp are chosen such that
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">is_isometric_to</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;core_length&#39;</span><span class="p">]</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;core_length&#39;</span><span class="p">]</span>
 <span class="go">1.08707014499574 - 1.72276844987009*I</span>
 </pre></div>
 </div>
@@ -1051,11 +1053,11 @@ geodesic when embedding the drilled manifold into the given manifold.</p>
 <p>If the given geodesic coincides with a core curve of a filled cusp, the
 cusp is unfilled instead:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004(2,3)&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">1.73712388065</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="s1">&#39;core_length&#39;</span><span class="p">]</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="s1">&#39;core_length&#39;</span><span class="p">]</span>
 <span class="go">0.178792491242577 - 2.11983007979743*I</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">(</span><span class="n">simplify_presentation</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;aBAbbABab&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">(</span><span class="n">simplify_presentation</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;aBAbbABab&#39;</span><span class="p">)</span>
 <span class="go">0.178792491242577 - 2.11983007979743*I</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">drill_word</span><span class="p">(</span><span class="s1">&#39;aBAbbABab&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span>
@@ -1067,7 +1069,7 @@ cusp is unfilled instead:</p>
 <p>In this case, the peripheral information is also
 updated such that the above remark about <code class="docutils literal notranslate"><span class="pre">(1,0)</span></code>-filling applies again:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">1.73712388065</span>
 </pre></div>
 </div>
@@ -1076,7 +1078,7 @@ and the cusps reindexed so that the unfilled cusp becomes the last cusp.</p>
 <p>Here is another example where we drill the core geodesic:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;v2986(3,4)&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">drill_word</span><span class="p">(</span><span class="s1">&#39;EdFgabcGEdFgaDcc&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">is_isometric_to</span><span class="p">(</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;v2986&quot;</span><span class="p">),</span> <span class="n">return_isometries</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">is_isometric_to</span><span class="p">(</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;v2986&quot;</span><span class="p">),</span> <span class="n">return_isometries</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="go">[0 -&gt; 0</span>
 <span class="go"> [3 -1]</span>
 <span class="go"> [4 -1]</span>
@@ -1129,15 +1131,15 @@ unsimplified fundamental group.</p>
 the core curve corresponding to the third cusp. The other geodesic is not
 a core curve:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">=</span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;t12047(0,0)(1,3)(1,4)(1,5)&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core_length&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">()</span> <span class="p">]</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core_length&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">()</span> <span class="p">]</span>
 <span class="go">[None,</span>
 <span class="go"> 0.510804267610103 + 1.92397456664239*I,</span>
 <span class="go"> 0.317363079597924 + 1.48157893409218*I,</span>
 <span class="go"> 0.223574975263386 + 1.26933288854145*I]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">(</span><span class="n">simplify_presentation</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="go">0.317363079597924 + 1.48157893409218*I</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;fA&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;fA&#39;</span><span class="p">)</span>
 <span class="go">1.43914411734250 + 2.66246879992795*I</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">drill_words</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;fA&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span>
@@ -1157,7 +1159,7 @@ cusps.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">is_isometric_to</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core_length&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">N</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">()</span> <span class="p">]</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core_length&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">N</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">()</span> <span class="p">]</span>
 <span class="go">[None,</span>
 <span class="go"> 0.510804267610103 + 1.92397456664239*I,</span>
 <span class="go"> 0.223574975263386 + 1.26933288854145*I,</span>
@@ -1193,7 +1195,7 @@ that appear to represent geodesics. The resulting curves can
 be drilled out.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">curves</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">dual_curves</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">curves</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curves</span>
 <span class="go">[  0: orientation-preserving curve of length 0.56239915 - 2.81543089*I,</span>
 <span class="go">   1: orientation-preserving curve of length 1.12479830 + 0.65232354*I,</span>
 <span class="go">   2: orientation-preserving curve of length 1.26080402 + 1.97804689*I,</span>
@@ -1216,7 +1218,7 @@ with one more cusp.</p>
 <p>By default, this function only finds curves of length 6; this
 can be changed by specifying the optional argument
 max_segments</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">dual_curves</span><span class="p">(</span><span class="n">max_segments</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">dual_curves</span><span class="p">(</span><span class="n">max_segments</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">[  0: orientation-preserving curve of length 0.56239915 - 2.81543089*I]</span>
 </pre></div>
 </div>
@@ -1229,7 +1231,7 @@ max_segments</p>
 in the triangulation, and the value associated to a key is the
 number of edges of that valence.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;v3227&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">edge_valences</span><span class="p">()</span>     
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">edge_valences</span><span class="p">()</span>
 <span class="go">{10: 1, 4: 1, 5: 2, 6: 3}</span>
 </pre></div>
 </div>
@@ -1323,6 +1325,28 @@ structures when there are no cusps.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="snappy.Manifold.fox_milnor_test">
+<span class="sig-name descname"><span class="pre">fox_milnor_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.fox_milnor_test" title="Link to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when the Alexander polynomial data of the link is
+compatible with it being topologically strongly slice (that is,
+the link bounds a disjoint collection of locally-flat disks in the
+4-ball).  More precisely, it checks if the Alexander nullity is as
+expected and that the appropriate Alexander polynomial is a norm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">mflds</span> <span class="o">=</span> <span class="p">[</span><span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L12n1181&#39;</span><span class="p">),</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L11n247&#39;</span><span class="p">),</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L10n107&#39;</span><span class="p">)]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="p">{</span><span class="n">M</span><span class="o">.</span><span class="n">alexander_polynomial</span><span class="p">()</span> <span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">mflds</span><span class="p">}</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">}</span>
+<span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">M</span><span class="o">.</span><span class="n">fox_milnor_test</span><span class="p">()</span> <span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">mflds</span><span class="p">]</span>
+<span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note: This method only requires that the homology (including the
+meridians) is consistent being the complement of a link in S^3.  It
+does not check that the manifold is actually a link complement.</p>
+<p>References: This test is Corollary 12.3.14 of <a class="reference external" href="https://doi.org/10.1007/978-3-0348-9227-8">[Kawauchi]</a> and Theorem 8.18 of
+<a class="reference external" href="https://doi.org/10.1007/978-1-4612-0691-0">[Lickorish]</a>.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="snappy.Manifold.fundamental_group">
 <span class="sig-name descname"><span class="pre">fundamental_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simplify_presentation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillings_may_affect_generators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize_number_of_generators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">try_hard_to_shorten_relators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="additional_classes.html#snappy.HolonomyGroup" title="SnapPy.HolonomyGroup"><span class="pre">HolonomyGroup</span></a></span></span><a class="headerlink" href="#snappy.Manifold.fundamental_group" title="Link to this definition"></a></dt>
 <dd><p>Return a <a class="reference internal" href="additional_classes.html#snappy.HolonomyGroup" title="snappy.HolonomyGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">HolonomyGroup</span></code></a> representing the fundamental group of
@@ -1338,7 +1362,7 @@ corresponding peripheral elements are killed.</p>
 <span class="go">   aaabABBAb</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">peripheral_curves</span><span class="p">()</span>
 <span class="go">[(&#39;ab&#39;, &#39;aBAbABab&#39;)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">SL2C</span><span class="p">(</span><span class="s1">&#39;baaBA&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">SL2C</span><span class="p">(</span><span class="s1">&#39;baaBA&#39;</span><span class="p">)</span>
 <span class="go">[ 2.50000000 - 2.59807621*I -6.06217783 - 0.50000000*I]</span>
 <span class="go">[ 0.86602540 - 2.50000000*I -4.00000000 + 1.73205081*I]</span>
 </pre></div>
@@ -1516,11 +1540,13 @@ finite vertices:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Manifold.holonomy_matrix_entries">
 <span class="sig-name descname"><span class="pre">holonomy_matrix_entries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fundamental_group_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.holonomy_matrix_entries" title="Link to this definition"></a></dt>
-<dd><p>The entries of the matrices of the holonomy as list of ApproximateAlgebraicNumbers
-(four consecutive numbers per matrix). The numbers are guaranteed to lie in the
-trace field only if match_kernel = False:</p>
+<dd><p>The entries of the matrices of the holonomy representation as list
+of ApproximateAlgebraicNumbers (four consecutive numbers per
+matrix). Setting match_kernel=False typically reduces the size of
+the field, though it may still be larger than the trace field when
+the manifold is closed.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">mat_entries</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">holonomy_matrix_entries</span><span class="p">(</span><span class="n">match_kernel</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># doctest: +NORMALIZE_WHITESPACE +NUMERIC9</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">mat_entries</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">holonomy_matrix_entries</span><span class="p">(</span><span class="n">match_kernel</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># doctest: +NORMALIZE_WHITESPACE +NUMERIC9</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">mat_entries</span>
 <span class="o">&lt;</span><span class="n">SetOfAAN</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.8660254037844386</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.8660254037844386</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.8660254037844386</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1.7320508075688772</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">3.4641016151377544</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">+</span> <span class="mf">1.7320508075688772</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1.7320508075688772</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="mf">1.7320508075688772</span><span class="o">*</span><span class="n">I</span><span class="p">]</span><span class="o">&gt;</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">mat_entries</span><span class="o">.</span><span class="n">find_field</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">optimize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -1657,12 +1683,12 @@ because of how the kernel code works:</p>
 <a class="reference external" href="https://im.icerm.brown.edu/portfolio/snappy-views/">images</a>
 and <a class="reference external" href="https://youtu.be/CAERhmUCkRs">demo video</a>.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">inside_view</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">inside_view</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Or show the cohomology fractal:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">inside_view</span><span class="p">(</span><span class="n">cohomology_class</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">inside_view</span><span class="p">(</span><span class="n">cohomology_class</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The cohomology class in <span class="math notranslate nohighlight">\(H^2(M, \partial M; \mathbb{R})\)</span> producing the
@@ -1678,7 +1704,7 @@ combination of basis vectors.</p></li>
 </ul>
 <p>Geodesics can be specified as words in the unsimplified fundamental group:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">inside_view</span><span class="p">(</span><span class="n">geodesics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;bC&#39;</span><span class="p">])</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">inside_view</span><span class="p">(</span><span class="n">geodesics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;bC&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1840,7 +1866,7 @@ closed case.</p>
 </pre></div>
 </div>
 <p>The following code illustrates how the isometry signature is computed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">[Length                                      Core curve  Word</span>
 <span class="go"> 0.06491027903143 - 2.63765810995071*I       -           d,</span>
 <span class="go"> 0.49405010583448 + 2.38451103485706*I       -           a]</span>
@@ -1921,14 +1947,14 @@ meridian of cusp 1.</p>
 up to the specified cutoff value. (The default cutoff is 1.0.)</p>
 <p>Here’s a quick example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m016&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">length_spectrum</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">include_words</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span>
 <span class="go">mult  length                                  topology     parity word</span>
 <span class="go">1     0.58460368501799 +  2.49537045556047*I  circle       +      a</span>
 <span class="go">1     0.72978937305180 +  3.02669828218116*I  circle       +      Bc</span>
 </pre></div>
 </div>
 <p>Access just the length:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">length</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">length</span>
 <span class="go">0.584603685017987 + 2.495370455560469*I</span>
 </pre></div>
 </div>
@@ -1938,8 +1964,8 @@ up to the specified cutoff value. (The default cutoff is 1.0.)</p>
 <dt class="sig sig-object py" id="snappy.Manifold.length_spectrum_alt">
 <span class="sig-name descname"><span class="pre">length_spectrum_alt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_prec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verified</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">LengthSpectrumGeodesicInfo</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#snappy.Manifold.length_spectrum_alt" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of geodesics. How far this list goes can be specified
-by either a cut-off length or a count. The method only supports
-orientable manifolds. It is a convenience method for 
+by a cut-off length or a count. The method only supports
+orientable manifolds. It is a convenience method for
 <a class="reference internal" href="#snappy.Manifold.length_spectrum_alt_gen" title="snappy.Manifold.length_spectrum_alt_gen"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt_gen()</span></code></a>.
 We refer the reader to
 <a class="reference internal" href="#snappy.Manifold.length_spectrum_alt_gen" title="snappy.Manifold.length_spectrum_alt_gen"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt_gen()</span></code></a>
@@ -1947,7 +1973,7 @@ for further details not covered here.</p>
 <p><strong>Cut-off length</strong></p>
 <p>Here is an example where a cut-off length for the geodesics is specified:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m202(3,4)(3,4)&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">max_len</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">max_len</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="go">[Length                                      Core curve  Word</span>
 <span class="go"> 0.14820741547094 - 1.76955170166922*I       Cusp 1      bcDc,</span>
 <span class="go"> 0.14820741547097 - 1.76955170166923*I       Cusp 0      aabcDabcB]</span>
@@ -1966,7 +1992,7 @@ geodesics.</p>
 <p><strong>Count</strong></p>
 <p>Here is an example where a count is specified:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m202(3,4)(3,4)&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">count</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt</span><span class="p">(</span><span class="n">count</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 <span class="go">[Length                                      Core curve  Word</span>
 <span class="go"> 0.14820741547094 - 1.76955170166922*I       Cusp 1      bcDc,</span>
 <span class="go"> 0.14820741547097 - 1.76955170166923*I       Cusp 0      aabcDabcB,</span>
@@ -1992,12 +2018,13 @@ sage: M.length_spectrum_alt(count=1, verified=True, bits_prec=100)[0].length.rea
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>count</strong> – Number of shortest geodesics to list. The actual result might
-contain additional geodesics. Exactly one of <code class="xref py py-attr docutils literal notranslate"><span class="pre">count</span></code> and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">max_len</span></code> has to be specified.</p></li>
+contain additional geodesics. For advanced users: if
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">max_len</span></code> is also given, the result contains either the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">count</span></code> shortest geodesics or all geodesics shorter than
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">max_len</span></code> (and maybe additional geodesics).</p></li>
 <li><p><strong>max_len</strong> – Cut-off length for geodesics. The actual result includes all
 geodesics up to the given length and might include additional
-geodesics. Exactly one of <code class="xref py py-attr docutils literal notranslate"><span class="pre">count</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">max_len</span></code> has
-to be specified.</p></li>
+geodesics. See <code class="xref py py-attr docutils literal notranslate"><span class="pre">count</span></code> when used with <code class="xref py py-attr docutils literal notranslate"><span class="pre">count</span></code>.</p></li>
 <li><p><strong>bits_prec</strong> – Precision used for the computation. Increase if computation did
 not succeed.</p></li>
 <li><p><strong>verified</strong> – Use <a class="reference internal" href="verify.html#verify-primer"><span class="std std-ref">verified computation</span></a>.</p></li>
@@ -2012,18 +2039,18 @@ length is non-decreasing.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Manifold.length_spectrum_alt_gen">
-<span class="sig-name descname"><span class="pre">length_spectrum_alt_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bits_prec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verified</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">LengthSpectrumGeodesicInfo</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#snappy.Manifold.length_spectrum_alt_gen" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">length_spectrum_alt_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bits_prec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verified</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_intermediates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">LengthSpectrumGeodesicInfo</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#snappy.Manifold.length_spectrum_alt_gen" title="Link to this definition"></a></dt>
 <dd><p>Returns a generator for the geodesics sorted by real length. The method
 only supports orientable manifolds.</p>
 <p>Here is an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m202(3,4)(0,0)&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt_gen</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
 <span class="go">Length                                      Core curve  Word</span>
 <span class="go">0.14742465268512 - 1.78287093565202*I       Cusp 0      aabcDabcB</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
 <span class="go">0.81161414965958 + 2.72911699294426*I       -           b</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
 <span class="go">0.84163270359334 + 2.61245944742151*I       -           aB</span>
 </pre></div>
 </div>
@@ -2031,7 +2058,7 @@ only supports orientable manifolds.</p>
 core curve of the filled cusp (Cusp 0).</p>
 <p>Access just the length or word:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">length</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">length</span>
 <span class="go">0.93461379591349 + 2.70060614107722*I</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">word</span>
 <span class="go">&#39;a&#39;</span>
@@ -2039,14 +2066,14 @@ core curve of the filled cusp (Cusp 0).</p>
 </div>
 <p>The word is given with respect to the unsimplified fundamental group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">(</span><span class="n">simplify_presentation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="go">0.93461379591349 + 2.70060614107722*I</span>
 </pre></div>
 </div>
 <p>The method also supports higher precision:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003(-3,1)&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt_gen</span><span class="p">(</span><span class="n">bits_prec</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="o">.</span><span class="n">length</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="o">.</span><span class="n">length</span>
 <span class="go">0.58460368501798696932015666264 + 2.4953704555604684110903962008*I</span>
 </pre></div>
 </div>
@@ -2065,14 +2092,14 @@ and filling a short geodesic:</p>
 </pre></div>
 </div>
 <p>Over an hour to compute:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">high_precision</span><span class="p">()</span><span class="o">.</span><span class="n">length_spectrum</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">high_precision</span><span class="p">()</span><span class="o">.</span><span class="n">length_spectrum</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="go">mult  length                                  topology     parity</span>
 <span class="go">1     0.00150226276052 - 2.39996262244127*I   circle       +</span>
 </pre></div>
 </div>
 <p>A couple of minutes to compute:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">length_spectrum_alt_gen</span><span class="p">(</span><span class="n">bits_prec</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
 <span class="go">Length                                       Word          Core curve</span>
 <span class="go">0.00150226276052 - 2.39996262244127*I        a             -</span>
 </pre></div>
@@ -2081,10 +2108,10 @@ and filling a short geodesic:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">drill_word</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">dehn_fill</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># N is now isometric to o9_00639 but as a surgery m125(0,0)(34,55)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">length_spectrum_alt_gen</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
 <span class="go">Length                                      Core curve  Word</span>
 <span class="go">0.00150226276073 - 2.39996262244128*I       Cusp 1      cDcDDcDcDDcDDcDcDDcDcDDcDDcDcDDcDD</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">real</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">real</span><span class="p">()</span>
 <span class="go">0.96218768626877</span>
 </pre></div>
 </div>
@@ -2156,6 +2183,12 @@ sage: systole # doctest: +NUMERIC6
 <li><p><strong>bits_prec</strong> – Precision used for the computation. Increase if computation did
 not succeed.</p></li>
 <li><p><strong>verified</strong> – Use <a class="reference internal" href="verify.html#verify-primer"><span class="std std-ref">verified computation</span></a>.</p></li>
+<li><p><strong>include_intermediates</strong> – For advanced users, add intermediate lower bounds to the stream.
+These lower bounds do not correspond to ageodesic but indicate that
+all geodesics up to the indicated (real) length have already
+occurred in the stream. When <code class="docutils literal notranslate"><span class="pre">verified=True</span></code>, the size of the
+intervals might fluctate and the left endpoint is not guaranteed
+to be non-decreasing.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2173,6 +2206,79 @@ current session then it returns the number of components
 and crossing of the link. To view and interact with the
 link see <a class="reference internal" href="spherogram.html#spherogram.Link.view" title="spherogram.Link.view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spherogram.Link.view()</span></code></a>
 and <a class="reference internal" href="triangulation.html#snappy.Triangulation.plink" title="snappy.Triangulation.plink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plink</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="snappy.Manifold.margulis">
+<span class="sig-name descname"><span class="pre">margulis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bits_prec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verified</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_thin_part</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stopper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.margulis" title="Link to this definition"></a></dt>
+<dd><p>Returns the optimal Margulis number <span class="math notranslate nohighlight">\(\mu(M)\)</span>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m004&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">margulis</span><span class="p">()</span>
+<span class="go">0.962423650119202</span>
+</pre></div>
+</div>
+<p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">include_thin_part=True</span></code>, returns a triple
+(<span class="math notranslate nohighlight">\(\mu(M)\)</span>, <span class="math notranslate nohighlight">\(\mu(M)\)</span>-thin part, collisions). Recall that the
+<span class="math notranslate nohighlight">\(\mu(M)\)</span>-thin part is the union of all essential loops of length
+less than <span class="math notranslate nohighlight">\(\mu(M)\)</span>. It is a disjoint union of embedded cusp
+neighborhoods and embedded tubes about geodesics. We encode it as list
+of objects pertaining information about each component. The collisions are
+pairs of indices into the thin part indicating which cusp neighborhoods and
+tubes are touching:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;m003&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">margulis</span><span class="p">(</span><span class="n">include_thin_part</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">(0.962423650119189,</span>
+<span class="go"> [Cusp Neighborhood for cusp 0 of area 0.866025403784405,</span>
+<span class="go">  Tube about geodesic aC of radius 0.211824465096784,</span>
+<span class="go">  Tube about geodesic a of radius 0.211824465096782,</span>
+<span class="go">  Tube about geodesic bC of radius 0.211824465096782,</span>
+<span class="go">  Tube about geodesic b of radius 0.211824465096782],</span>
+<span class="go"> [(2, 3), (1, 4)])</span>
+</pre></div>
+</div>
+<p>Note that the method fails on some manifolds with incomplete cusps
+such as <code class="docutils literal notranslate"><span class="pre">s479(-3,1)</span></code> where the boundary of the thin part is intersecting
+a core curve. In such cases (or in order to improve performance), we can
+use <code class="xref py py-attr docutils literal notranslate"><span class="pre">stopper</span></code> to show that <span class="math notranslate nohighlight">\(\mu(M)\)</span> is larger than a given
+number. Here is an example to prove that <span class="math notranslate nohighlight">\(\mu(M)&gt;0.8\)</span>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">=</span><span class="n">ManifoldHP</span><span class="p">(</span><span class="s2">&quot;s479(-3,1)&quot;</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">sage.all</span> <span class="kn">import</span> <span class="n">RealIntervalField</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">margulis</span><span class="p">(</span><span class="n">verified</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stopper</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span><span class="o">&gt;</span><span class="n">RealIntervalField</span><span class="p">()(</span><span class="s1">&#39;0.8&#39;</span><span class="p">)</span>
+<span class="kc">True</span>
+</pre></div>
+</div>
+<p><strong>Verified computations</strong></p>
+<p>The method also supports <a class="reference internal" href="verify.html#verify-primer"><span class="std std-ref">verified computations</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sage: Manifold(&quot;m003&quot;).margulis(verified=True,bits_prec=100) # doctest: +NUMERIC15
+0.9624236501192068949955?
+</pre></div>
+</div>
+<p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">verified=True</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">include_thin_part=True</span></code> are used
+together, the method returns (not necessarily proper) supersets for the
+true thin part and the true collisions. For example, assume there is a
+geodesic of real length equal to (or really close to) <span class="math notranslate nohighlight">\(\mu(M)\)</span>.
+Numerically, we cannot decide whether the limiting constituent of
+<span class="math notranslate nohighlight">\(\mu(M)\)</span> is the geodesic or some other neighborhood or pair of
+neighborhoods. In such a case, we conservatively add the tube about the
+geodesic to the thin part (with lower bound on the radius being 0) and to
+the collisions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bits_prec</strong> – Precision used for the computation. Increase if computation did
+not succeed.</p></li>
+<li><p><strong>verified</strong> – Use <a class="reference internal" href="verify.html#verify-primer"><span class="std std-ref">verified computation</span></a>.</p></li>
+<li><p><strong>include_thin_part</strong> – Return triple
+(<span class="math notranslate nohighlight">\(\mu(M)\)</span>, <span class="math notranslate nohighlight">\(\mu(M)\)</span>-thin part, collisions) instead
+of only the optimal Margulis number <span class="math notranslate nohighlight">\(\mu(M)\)</span>.</p></li>
+<li><p><strong>stopper</strong> – Return the minimum of <code class="xref py py-attr docutils literal notranslate"><span class="pre">stopper</span></code> and the optimal Margulis
+number <span class="math notranslate nohighlight">\(\mu(M)\)</span> (and the corresponding thin part if
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">include_thin_part=True</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optimal Margulis number <span class="math notranslate nohighlight">\(\mu(M)\)</span> or triple
+(<span class="math notranslate nohighlight">\(\mu(M)\)</span>, <span class="math notranslate nohighlight">\(\mu(M)\)</span>-thin part, collisions).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2225,7 +2331,7 @@ giving isolated rays in the space of embedded normal surfaces.</p>
 <span class="sig-name descname"><span class="pre">normal_surfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FXrays'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.normal_surfaces" title="Link to this definition"></a></dt>
 <dd><p>All the vertex spun-normal surfaces in the current triangulation.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">normal_surfaces</span><span class="p">()</span>    
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">normal_surfaces</span><span class="p">()</span>
 <span class="go">[&lt;Surface 0: [0, 0] [1, 2] (4, 1)&gt;,</span>
 <span class="go"> &lt;Surface 1: [0, 1] [1, 2] (4, -1)&gt;,</span>
 <span class="go"> &lt;Surface 2: [1, 2] [2, 1] (-4, -1)&gt;,</span>
@@ -2283,7 +2389,7 @@ as a link complement in your current session.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">link</span><span class="p">()</span>
 <span class="go">&lt;Link: 1 comp; 4 cross&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span> <span class="c1"># stored as a triangulation without a link</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">link</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">link</span><span class="p">()</span>
 <span class="gt">Traceback (most recent call last):</span>
 <span class="c">...</span>
 <span class="gr">ValueError</span>: <span class="n">No associated link known.</span>
@@ -2452,21 +2558,21 @@ database at <a class="reference external" href="http://ptolemy.unhyperbolic.org/
 </pre></div>
 </div>
 <p>Retrieve the solutions from the database</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">retrieve_solutions</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Compute the solutions using magma (default in SnapPy)</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;magma&#39;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;magma&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Compute the solutions using singular (default in sage)</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;sage&#39;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sols</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">compute_solutions</span><span class="p">(</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;sage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that magma is significantly faster.</p>
 <p>Compute all resulting complex volumes</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span> <span class="o">=</span> <span class="n">sols</span><span class="o">.</span><span class="n">complex_volume_numerical</span><span class="p">()</span> 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span>  
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span> <span class="o">=</span> <span class="n">sols</span><span class="o">.</span><span class="n">complex_volume_numerical</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span>
 <span class="go">[[[-4.29405713186238 E-16 + 0.725471193740844*I,</span>
 <span class="go">   -0.942707362776931 + 0.459731436553693*I,</span>
 <span class="go">   0.942707362776931 + 0.459731436553693*I]],</span>
@@ -2477,7 +2583,7 @@ database at <a class="reference external" href="http://ptolemy.unhyperbolic.org/
 </pre></div>
 </div>
 <p>Show complex volumes as a non-nested list:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cvols</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">[-4.29405713186238 E-16 + 0.725471193740844*I,</span>
 <span class="go"> -0.942707362776931 + 0.459731436553693*I,</span>
 <span class="go"> 0.942707362776931 + 0.459731436553693*I,</span>
@@ -2512,13 +2618,13 @@ help(varieties[0]) for more information):</p>
 </pre></div>
 </div>
 <p>Print the variety as an ideal (sage object) for the non-trivial class:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">varieties</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ideal</span>    
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">varieties</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ideal</span>
 <span class="go">Ideal (-c_0011_0^2 + c_0011_0*c_0101_0 + c_0101_0^2, -c_0011_0^2 - c_0011_0*c_0101_0 + c_0101_0^2, c_0011_0 - 1) of Multivariate Polynomial Ring in c_0011_0, c_0101_0 over Rational Field</span>
 </pre></div>
 </div>
 <p>Print the equations of the variety for the non-trivial class:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">eqn</span> <span class="ow">in</span> <span class="n">varieties</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">equations</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>          
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>
 <span class="go">     - c_0011_0 * c_0101_0 + c_0011_0^2 + c_0101_0^2</span>
 <span class="go">     c_0011_0 * c_0101_0 - c_0011_0^2 - c_0101_0^2</span>
 <span class="go">     - 1 + c_0011_0</span>
@@ -2527,7 +2633,7 @@ help(varieties[0]) for more information):</p>
 <p>Generate a magma file to compute Primary Decomposition for N = 3:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">ptolemy_variety</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">to_magma</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;ring and ideal&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>     
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;ring and ideal&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 <span class="go">R&lt;c_0012_0, c_0012_1, c_0102_0, c_0111_0, c_0201_0, c_1011_0, c_1011_1, c_1101_0&gt; := PolynomialRing(RationalField(), 8, &quot;grevlex&quot;);</span>
 <span class="go">MyIdeal := ideal&lt;R |</span>
 <span class="go">          c_0012_0 * c_1101_0 + c_0102_0 * c_0111_0 - c_0102_0 * c_1011_0,</span>
@@ -2550,7 +2656,7 @@ and produce exact solutions!!!</p>
 <p>=== If you do not have a magma installation ===</p>
 <p>Load a precomputed example from magma which is provided with the package:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">snappy.ptolemy.processMagmaFile</span> <span class="kn">import</span> <span class="n">_magma_output_for_4_1__sl3</span><span class="p">,</span> <span class="n">solutions_from_magma</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">_magma_output_for_4_1__sl3</span><span class="p">)</span>      
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">_magma_output_for_4_1__sl3</span><span class="p">)</span>
 
 <span class="go">==TRIANGULATION=BEGINS==</span>
 <span class="go">% Triangulation</span>
@@ -2610,7 +2716,7 @@ it is orientable.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cs</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">reverse_orientation</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">cs</span> <span class="o">+</span> <span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">())</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">cs</span> <span class="o">+</span> <span class="n">M</span><span class="o">.</span><span class="n">chern_simons</span><span class="p">())</span>
 <span class="go">0.0</span>
 </pre></div>
 </div>
@@ -2621,15 +2727,15 @@ it is orientable.</p>
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.save" title="Link to this definition"></a></dt>
 <dd><p>Save the triangulation as a SnapPea triangulation file.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>     
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To retrieve a SnapPea triangulation from the saved file
 you can do the following. The first command creates a cusped
 manifold M. The second one creates the filled manifold M1
 with Dehn coefficients (2,3).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>   
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M1</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri(2,3)&#39;</span><span class="p">)</span>   
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M1</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;fig-eight.tri(2,3)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2663,15 +2769,15 @@ as peripheral_data.</p>
 <li><p>Make the shortest curves the meridians, and the second
 shortest curves the longitudes.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;5_2&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
 <span class="go">[-2.49024467 + 2.97944707*I]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cob</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">set_peripheral_curves</span><span class="p">(</span><span class="s1">&#39;shortest&#39;</span><span class="p">,</span> <span class="n">return_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
 <span class="go">[-0.49024467 + 2.97944707*I]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cob</span>
 <span class="go">[[[1, 0], [-2, 1]]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">set_peripheral_curves</span><span class="p">(</span><span class="n">cob</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_info</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
 <span class="go">[-2.49024467 + 2.97944707*I]</span>
 </pre></div>
 </div>
@@ -2805,46 +2911,79 @@ before giving up.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Manifold.slice_obstruction_HKL">
-<span class="sig-name descname"><span class="pre">slice_obstruction_HKL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primes_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in_S3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.slice_obstruction_HKL" title="Link to this definition"></a></dt>
-<dd><p>For the exterior of a knot in S^3, searches for a topological
-slicing obstruction from:</p>
-<p>Herald, Kirk, Livingston, Math Zeit., 2010
-<a class="reference external" href="https://dx.doi.org/10.1007/s00209-009-0548-1">https://dx.doi.org/10.1007/s00209-009-0548-1</a>
-<a class="reference external" href="https://arxiv.org/abs/0804.1355">https://arxiv.org/abs/0804.1355</a></p>
-<p>The test looks at the cyclic branched covers of the knot of prime
-order p and the F_q homology thereof where q is an odd prime. The
-range of such (p, q) pairs searched is given by primes_spec as a
-list of (p_max, [q_min, q_max]).  It returns the pair (p, q) of
-the first nonzero obstruction found (in which case K is not
-slice), and otherwise returns None:</p>
+<span class="sig-name descname"><span class="pre">slice_obstruction_HKL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primes_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in_S3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'advanced'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ribbon_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.slice_obstruction_HKL" title="Link to this definition"></a></dt>
+<dd><p>For the exterior of a knot in the 3-sphere, search for a
+Herald-Kirk-Livingston (HKL) topological slice obstruction as
+described in Section 3 of Dunfield and Gong’s paper
+<a class="reference external" href="https://arXiv.org/abs/2512.21825">[DG]</a>.</p>
+<p>Specifically, it looks at the cyclic branched covers of the knot
+of prime-power order p and the F_q homology thereof where q is
+prime. The range of such (p, q) pairs searched is given by
+primes_spec as a list of (p_max, [q_min, q_max]).  It returns the
+pair (p, q) of the first nonzero obstruction found (in which case
+K is not slice), and otherwise returns <code class="docutils literal notranslate"><span class="pre">None</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;K12n813&#39;</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">]),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">])]</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can also specify the p to examine by a range [p_min, p_max] or
 the q by just q_max:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">10</span><span class="p">)]</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-   <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">...</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">spec</span> <span class="o">=</span> <span class="p">[([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;advanced&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">Looking</span> <span class="n">at</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If primes_spec is just a pair (p, q) then only that obstruction is
 checked:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Technical note: As implemented, can only get an obstruction when
-the decomposition of H_1(cover; F_q) into irreducible Z/pZ-modules
-has no repeat factors.  The method of [HKL] can be used more
-broadly, but other cases requires computing many more twisted
-Alexander polynomials.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> argument determines which HKL tests are employed:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">method='basic'</span></code> employs Lemma 3.5 of [DG] and corresponds
+roughly to the test used in SnapPy 3.1 and 3.2, though these
+earlier versions required p to be prime and forbid q = 2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method='advanced'</span></code> is the default and employs Theorem 3.8
+from [DG]. This subsumes the <cite>basic</cite> method, but can be quite
+slow when the multiplicity of an irreducible V_i is large.</p>
+<p>An example where this method has more success:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>  <span class="c1"># returns None</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;advanced&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method='direct'</span></code> employs the method of Section 3.20 of [DG] to
+consider not just the F_q homology of the cover, but
+epimorphisms of its group to Z/q^e Z for e &gt; 1.  This is the
+most computationally expensive method.  Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;K14n16945&#39;</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;advanced&#39;</span><span class="p">)</span> <span class="c1"># returns None</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;direct&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>For any method, q = 2 is handled using Section 3.11 of [DG].</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">verbose</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code>, it prints each pair (p, q) being considered;
+when <code class="docutils literal notranslate"><span class="pre">verbose</span></code> is <code class="docutils literal notranslate"><span class="pre">2</span></code>, information is printed about each step.</p>
+<p>Finally, if <code class="docutils literal notranslate"><span class="pre">ribbon_mode</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> then it searches for
+obstructions to being topologically homotopy ribbon.  These differ
+from the slice case only when q = 2; see Theorem 3.12 of [DG]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;DT: qaqcJpEHnoDKBMqIgfal&#39;</span><span class="p">)</span>  <span class="c1"># The knot 17nh_0630889</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># returns None</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span><span class="o">.</span><span class="n">slice_obstruction_HKL</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ribbon_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2852,20 +2991,25 @@ Alexander polynomials.</p>
 <span class="sig-name descname"><span class="pre">solution_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.solution_type" title="Link to this definition"></a></dt>
 <dd><p>Returns the type of the current solution to the gluing
 equations, basically a summary of how degenerate the solution
-is.  If the flag enum=True is set, then an integer value is
+is.  If the flag <code class="xref py py-attr docutils literal notranslate"><span class="pre">enum=True</span></code> is set, then an integer value is
 returned. The possible answers are:</p>
-<ul class="simple">
-<li><p>0: ‘not attempted’</p></li>
-<li><p>1: ‘all tetrahedra positively oriented’ aka ‘geometric_solution’
-Should correspond to a genuine hyperbolic structure.</p></li>
-<li><p>2: ‘contains negatively oriented tetrahedra’ aka ‘nongeometric_solution’
-Probably corresponds to a hyperbolic structure but some
-simplices have reversed orientations.</p></li>
-<li><p>3: ‘contains flat tetrahedra’ All tetrahedra have shape in R - {0, 1}.</p></li>
-<li><p>4: ‘contains degenerate tetrahedra’ Some shapes are close to
-{0,1, or infinity}.</p></li>
-<li><p>5: ‘unrecognized solution type’</p></li>
-<li><p>6: ‘no solution found’</p></li>
+<ul>
+<li><p>0: <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">attempted</span></code></p></li>
+<li><p>1: <code class="docutils literal notranslate"><span class="pre">all</span> <span class="pre">tetrahedra</span> <span class="pre">positively</span> <span class="pre">oriented</span></code> aka <em>geometric_solution</em></p>
+<p>Should correspond to a genuine hyperbolic structure.</p>
+</li>
+<li><p>2: <code class="docutils literal notranslate"><span class="pre">contains</span> <span class="pre">negatively</span> <span class="pre">oriented</span> <span class="pre">tetrahedra</span></code> aka <em>nongeometric solution</em></p>
+<p>Probably corresponds to a hyperbolic structure but some
+simplices have reversed orientations.</p>
+</li>
+<li><p>3: <code class="docutils literal notranslate"><span class="pre">contains</span> <span class="pre">flat</span> <span class="pre">tetrahedra</span></code> (should be called <code class="docutils literal notranslate"><span class="pre">all</span> <span class="pre">tetrahedra</span> <span class="pre">flat</span></code>)</p>
+<p>All tetrahedra have shape in <span class="math notranslate nohighlight">\(\mathbb{R} - \{0, 1\}\)</span>.</p>
+</li>
+<li><p>4: <code class="docutils literal notranslate"><span class="pre">contains</span> <span class="pre">degenerate</span> <span class="pre">tetrahedra</span></code></p>
+<p>Some shapes are close to <span class="math notranslate nohighlight">\(\{0,1, \infty\}\)</span>.</p>
+</li>
+<li><p>5: <code class="docutils literal notranslate"><span class="pre">unrecognized</span> <span class="pre">solution</span> <span class="pre">type</span></code></p></li>
+<li><p>6: <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">solution</span> <span class="pre">found</span></code></p></li>
 </ul>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m007&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
@@ -2895,7 +3039,7 @@ sphere boundary components filled in.</p>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pieces</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">S</span><span class="p">);</span> <span class="n">pieces</span>
 <span class="go">[K14n26039.a(0,0)(0,0), K14n26039.b(0,0)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pieces</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pieces</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">3.66386238</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pieces</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">()</span><span class="o">.</span><span class="n">relators</span><span class="p">()</span>
 <span class="go">[&#39;aabbb&#39;]</span>
@@ -2903,7 +3047,7 @@ sphere boundary components filled in.</p>
 </div>
 <p>You can also specify a surface by its index.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;L10n111&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span> <span class="n">P</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> <span class="k">for</span> <span class="n">P</span> <span class="ow">in</span> <span class="n">M</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span> <span class="n">P</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> <span class="k">for</span> <span class="n">P</span> <span class="ow">in</span> <span class="n">M</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
 <span class="go">5.33348957</span>
 </pre></div>
 </div>
@@ -3017,9 +3161,9 @@ then the function returns only that component of the data.</p>
 used to report the shape parameters are chosen so as to
 normalize the triangle.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m015&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">tetrahedra_shapes</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">tetrahedra_shapes</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span>
 <span class="go">[0.66235898 + 0.56227951*I, 0.66235898 + 0.56227951*I, 0.66235898 + 0.56227951*I]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">tetrahedra_shapes</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">tetrahedra_shapes</span><span class="p">()</span>
 <span class="go">[{&#39;accuracies&#39;: (11, 11, 12, 11), &#39;log&#39;: -0.14059979 + 0.70385772*I, &#39;rect&#39;: 0.66235898 + 0.56227951*I},</span>
 <span class="go"> {&#39;accuracies&#39;: (11, 11, 11, 11), &#39;log&#39;: -0.14059979 + 0.70385772*I, &#39;rect&#39;: 0.66235898 + 0.56227951*I},</span>
 <span class="go"> {&#39;accuracies&#39;: (11, 11, 11, 11), &#39;log&#39;: -0.14059979 + 0.70385772*I, &#39;rect&#39;: 0.66235898 + 0.56227951*I}]</span>
@@ -3119,14 +3263,18 @@ By specifying <code class="xref py py-attr docutils literal notranslate"><span c
 the unoriented peripheral curves instead.</p></li>
 </ul>
 </li>
-<li><p>Dehn-fillings (if present).</p>
+<li><p>Dehn-fillings and orientation of core curve (if present).</p>
 <ul class="simple">
-<li><p>By default, the decoration encodes the oriented Dehn-fillings.
-That is, we also encodes the orientation of the peripheral curve
-that is used for the Dehn-filling (this explanation only
-works if the coefficients are integral).
+<li><p>By default, the decoration encodes the Dehn-fillings and the
+orientation of the core curve.
+That is, we encode the (unoriented) peripheral curve that is
+used for the Dehn-filling as well as the orientation of the class
+of peripheral curves intersecting that peripheral curve ones
+(this explanation only works if the coefficients are co-prime
+integers). Note that this behavior has changed in Version 3.3.
 By specifying <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_filling_orientations</span> <span class="pre">=</span> <span class="pre">True</span></code>, the
-decoration encodes the unoriented Dehn-fillings.
+decoration encodes the Dehn-fillings without any regard to
+orientation.
 That is, it normalizes the Dehn-filling coefficients by picking
 a canonical pair among <span class="math notranslate nohighlight">\((m,l)\)</span> and <span class="math notranslate nohighlight">\((-m,-l)\)</span>.</p></li>
 </ul>
@@ -3213,6 +3361,37 @@ since it rejects Dehn-fillings):</p>
 <span class="go">&#39;oLLvzQLLQQccdhifihnlmkmlnnpvuvbvouggbggoo(0,0)(1,5)&#39;</span>
 </pre></div>
 </div>
+<p>A geometric spun-triangulation of the three-fold cover of m007(3,1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;gLLMQcbeefefujumapn(2,-1)&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
+<span class="go">&#39;all tetrahedra positively oriented&#39;</span>
+</pre></div>
+</div>
+<p>Specifying <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_filling_orientations</span> <span class="pre">=</span> <span class="pre">True</span></code> can change the
+orientation of the core curve and a triangulation spinning the other
+way that fails to be geometric:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">ignore_orientation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_filling_orientations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span>
+<span class="go">&#39;gLLMQcbeefefujumapn(-2,1)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="n">isosig</span><span class="p">)</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
+<span class="go">&#39;contains negatively oriented tetrahedra&#39;</span>
+</pre></div>
+</div>
+<p>Preserve the unoriented spun-triangulation structure including the
+direction it is spinning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">triangulation_isosig</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">ignore_cusp_ordering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">ignore_curves</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isosig</span>
+<span class="go">&#39;gLLMQcbeefefpjaqupw(1,1)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Manifold</span><span class="p">(</span><span class="n">isosig</span><span class="p">)</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
+<span class="go">&#39;all tetrahedra positively oriented&#39;</span>
+</pre></div>
+</div>
 <p><strong>Orientation</strong></p>
 <p>Note that <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_orientation=True</span></code> only applies to the undecorated
 part of the isomorphism signature. The decoration can still capture the
@@ -3244,7 +3423,8 @@ be given to prior versions.</p></li>
 <li><p><strong>ignore_curve_orientations</strong> – Do not encode the orientations of the peripheral curves.
 Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code> and
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_curves</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p></li>
-<li><p><strong>ignore_filling_orientations</strong> – Do not encode the orientations of the Dehn-fillings.
+<li><p><strong>ignore_filling_orientations</strong> – Do not encode the orientation of the class of peripheral curves
+intersecting the Dehn-fillings.
 Only relevant if <code class="xref py py-attr docutils literal notranslate"><span class="pre">decorated</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
 <li><p><strong>ignore_orientation</strong> – Do not encode the orientation of the triangulation in the
 undecorated part of the triangulation isosig.
@@ -3256,7 +3436,7 @@ See above section about orientation.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.Manifold.use_field_conversion">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_field_conversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.use_field_conversion" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_field_conversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.Manifold.use_field_conversion" title="Link to this definition"></a></dt>
 <dd><p>A class method for specifying a numerical conversion function.
 This method is deprecated: SnapPy will automatically use
 SageMath number types or its own SnapPy number type depending on
@@ -3364,7 +3544,7 @@ gluing equations; if the solution is sufficiently non-degenerate,
 this is the sum of the volumes of the hyperbolic pieces in
 the geometric decomposition of the manifold.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">2.02988321</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">solution_type</span><span class="p">()</span>
 <span class="go">&#39;all tetrahedra positively oriented&#39;</span>
@@ -3395,7 +3575,7 @@ that the manifold is indeed hyperbolic):</p>
 <a class="reference internal" href="triangulation.html#snappy.Triangulation" title="snappy.Triangulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triangulation</span></code></a> into a <a class="reference internal" href="#snappy.Manifold" title="snappy.Manifold"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manifold</span></code></a>.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Triangulation</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">with_hyperbolic_structure</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span>
 <span class="go">2.02988321</span>
 </pre></div>
 </div>
@@ -3429,7 +3609,7 @@ structure in the process.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2026, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

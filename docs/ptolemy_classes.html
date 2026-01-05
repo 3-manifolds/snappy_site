@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classes &mdash; SnapPy 3.2 documentation</title>
+  <title>Classes &mdash; SnapPy 3.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="_static/SnapPy.ico"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=828ea960"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/documentation_options.js?v=26f62d79"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -113,7 +113,7 @@
 <h2>PtolemyVariety<a class="headerlink" href="#ptolemyvariety" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.ptolemy.ptolemyVariety.PtolemyVariety">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.ptolemyVariety.</span></span><span class="sig-name descname"><span class="pre">PtolemyVariety</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obstruction_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eliminate_fixed_ptolemys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.ptolemyVariety.PtolemyVariety" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.ptolemyVariety.</span></span><span class="sig-name descname"><span class="pre">PtolemyVariety</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obstruction_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eliminate_fixed_ptolemys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.ptolemyVariety.PtolemyVariety" title="Link to this definition"></a></dt>
 <dd><p>Holds a reduced Ptolemy variety.</p>
 <p>=== Examples ===</p>
 <p>To generate such a variety, call:</p>
@@ -131,14 +131,14 @@
 </pre></div>
 </div>
 <p>Show as an ideal (sage object):</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">ideal</span>    
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">ideal</span>
 <span class="go">Ideal (-c_0011_0^2 + c_0011_0*c_0101_0 + c_0101_0^2, -c_0011_0^2 - c_0011_0*c_0101_0 + c_0101_0^2, c_0011_0 - 1) of Multivariate Polynomial Ring in c_0011_0, c_0101_0 over Rational Field</span>
 <span class="go">(skip doctest because example only works in sage and not plain python)</span>
 </pre></div>
 </div>
 <p>Produce magma input:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">to_magma</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;ring and ideal&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>    
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;ring and ideal&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 <span class="go">R&lt;c_0011_0, c_0101_0&gt; := PolynomialRing(RationalField(), 2, &quot;grevlex&quot;);</span>
 <span class="go">MyIdeal := ideal&lt;R |</span>
 <span class="go">          - c_0011_0 * c_0101_0 + c_0011_0^2 + c_0101_0^2,</span>
@@ -245,7 +245,7 @@ variety.</p>
 </div>
 <p>Get extra information</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eval_section</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">py_eval_section</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">eval_section</span><span class="p">)</span>    
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">eval_section</span><span class="p">)</span>
 <span class="go">{&#39;variable_dict&#39; :</span>
 <span class="go">     (lambda d: {</span>
 <span class="go">    ...</span>
@@ -316,7 +316,7 @@ True</p>
 <h2>PtolemyCoordinates<a class="headerlink" href="#ptolemycoordinates" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.ptolemy.coordinates.PtolemyCoordinates">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.coordinates.</span></span><span class="sig-name descname"><span class="pre">PtolemyCoordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_numerical=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_eval_section=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold_thunk=&lt;function</span> <span class="pre">PtolemyCoordinates.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_trivial_generalized_obstruction_class=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.PtolemyCoordinates" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.coordinates.</span></span><span class="sig-name descname"><span class="pre">PtolemyCoordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_numerical=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_eval_section=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold_thunk=&lt;function</span> <span class="pre">PtolemyCoordinates.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_trivial_generalized_obstruction_class=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.PtolemyCoordinates" title="Link to this definition"></a></dt>
 <dd><p>Represents a solution of a Ptolemy variety as python dictionary.</p>
 <p>=== Examples ===</p>
 <p>Construct solution from magma output:</p>
@@ -706,7 +706,7 @@ only return non-negative volumes.</p>
 <h2>CrossRatios<a class="headerlink" href="#crossratios" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.ptolemy.coordinates.CrossRatios">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.coordinates.</span></span><span class="sig-name descname"><span class="pre">CrossRatios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold_thunk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.CrossRatios" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.coordinates.</span></span><span class="sig-name descname"><span class="pre">CrossRatios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold_thunk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.CrossRatios" title="Link to this definition"></a></dt>
 <dd><p>Represents assigned shape parameters/cross ratios as
 dictionary. The cross ratios are according to SnapPy convention, so we
 have:</p>
@@ -758,7 +758,7 @@ M.fundamental_group(True).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.ptolemy.coordinates.CrossRatios.from_snappy_manifold">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_snappy_manifold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_prec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_prec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.CrossRatios.from_snappy_manifold" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_snappy_manifold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_prec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_prec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.CrossRatios.from_snappy_manifold" title="Link to this definition"></a></dt>
 <dd><p>Constructs an assignment of shape parameters/cross ratios using
 the tetrahehdra_shapes method of a given SnapPy manifold. The optional
 parameters are the same as that of tetrahedra_shapes.</p>
@@ -961,7 +961,7 @@ Gluing Equations for PGL(n,C)-Representations of 3-Manifolds
 <h2>Flattenings<a class="headerlink" href="#flattenings" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.ptolemy.coordinates.Flattenings">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.coordinates.</span></span><span class="sig-name descname"><span class="pre">Flattenings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold_thunk=&lt;function</span> <span class="pre">Flattenings.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evenN=2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.Flattenings" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.coordinates.</span></span><span class="sig-name descname"><span class="pre">Flattenings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold_thunk=&lt;function</span> <span class="pre">Flattenings.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evenN=2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.Flattenings" title="Link to this definition"></a></dt>
 <dd><p>Represents a flattening assigned to each edge of a simplex as dictionary.</p>
 <p>We assign to each pair of parallel edges of each simplex a triple (w, z, p)
 such that:</p>
@@ -1022,7 +1022,7 @@ and m = i * pi**2/18 for PSL(3,C).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.ptolemy.coordinates.Flattenings.from_tetrahedra_shapes_of_manifold">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tetrahedra_shapes_of_manifold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.Flattenings.from_tetrahedra_shapes_of_manifold" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tetrahedra_shapes_of_manifold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.coordinates.Flattenings.from_tetrahedra_shapes_of_manifold" title="Link to this definition"></a></dt>
 <dd><p>Takes as argument a manifold and produces (weak) flattenings using
 the tetrahedra_shapes of the manifold M.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">snappy</span> <span class="kn">import</span> <span class="n">Manifold</span>
@@ -1071,7 +1071,7 @@ Walter D. Neumann, Extended Bloch group and the Cheeger-Chern-Simons class
 <h2>NonZeroDimensionalComponent<a class="headerlink" href="#nonzerodimensionalcomponent" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.ptolemy.component.NonZeroDimensionalComponent">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.component.</span></span><span class="sig-name descname"><span class="pre">NonZeroDimensionalComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">witnesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'unknown'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">free_variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.component.NonZeroDimensionalComponent" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.ptolemy.component.</span></span><span class="sig-name descname"><span class="pre">NonZeroDimensionalComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">witnesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'unknown'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">free_variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.ptolemy.component.NonZeroDimensionalComponent" title="Link to this definition"></a></dt>
 <dd><p>Represents a non-zero dimensional component in the
 Ptolemy variety. It is a list that can hold points sampled from that
 component (witnesses).</p>
@@ -1121,7 +1121,7 @@ NonZeroDimensionalComponent.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2026, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

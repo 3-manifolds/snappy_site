@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SnapPy &mdash; SnapPy 3.2 documentation</title>
+  <title>SnapPy &mdash; SnapPy 3.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
@@ -15,10 +15,9 @@
     <link rel="shortcut icon" href="_static/SnapPy.ico"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=828ea960"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/documentation_options.js?v=26f62d79"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,11 +34,10 @@
           
           <a href="#" class="icon icon-home">
             SnapPy
-              <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
+            <img src="_static/SnapPy-horizontal-128.png" class="logo" alt="Logo"/>
           </a>
 	  <!-- Manually copied over from sphinx_rtd_theme version 2.0 -->
-	  <div style="margin-top: -.4045em; margin-bottom:.809em; font-weight: 400;">3.2</div>
-	  
+          <div style="margin-top: -.4045em; margin-bottom:.809em; font-weight: 400;">3.3</div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -104,6 +102,56 @@ it, and watch the <a class="reference internal" href="tutorial.html"><span class
 <section id="news">
 <h2>News<a class="headerlink" href="#news" title="Link to this heading"></a></h2>
 <ul>
+<li><p>Version 3.3 (January 2026):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="spherogram.html#spherogram.Link" title="spherogram.Link"><code class="xref py py-class docutils literal notranslate"><span class="pre">Link</span></code></a> now supports band moves and can
+search for ribbon disks and ribbon concordances. See
+<a class="reference internal" href="spherogram.html#spherogram.Link.ribbon_concordant_links" title="spherogram.Link.ribbon_concordant_links"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ribbon_concordant_links</span></code></a> and <a class="reference internal" href="spherogram.html#spherogram.Link.add_band" title="spherogram.Link.add_band"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_band</span></code></a>.  From <a class="reference external" href="https://arXiv.org/abs/2512.21825">[DG]</a>.</p></li>
+<li><p>New census <a class="reference internal" href="censuses.html#snappy.RibbonLinks" title="snappy.RibbonLinks"><code class="xref py py-class docutils literal notranslate"><span class="pre">RibbonLinks</span></code></a>.  From <a class="reference external" href="https://arXiv.org/abs/2512.21825">[DG]</a>.</p></li>
+<li><p>Additional slice obstructions added to
+<a class="reference internal" href="triangulation.html#snappy.Triangulation.slice_obstruction_HKL" title="snappy.Triangulation.slice_obstruction_HKL"><code class="xref py py-meth docutils literal notranslate"><span class="pre">slice_obstruction_HKL</span></code></a>.
+From <a class="reference external" href="https://arXiv.org/abs/2512.21825">[DG]</a>.</p></li>
+<li><p>The Fox-Milnor slice obstruction is now available as
+<a class="reference internal" href="triangulation.html#snappy.Triangulation.fox_milnor_test" title="snappy.Triangulation.fox_milnor_test"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fox_milnor_test</span></code></a>.
+From <a class="reference external" href="https://arXiv.org/abs/2512.21825">[DG]</a>.</p></li>
+<li><p>The census <a class="reference internal" href="censuses.html#snappy.OrientableCuspedCensus" title="snappy.OrientableCuspedCensus"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrientableCuspedCensus</span></code></a> has been extended to 10 ideal
+tetrahedra by <a class="reference external" href="https://arXiv.org/abs/2512.02142">[Li]</a>,
+adding 150,000 new manifolds.</p></li>
+<li><p>Margulis number can now be computed with
+<a class="reference internal" href="manifold.html#snappy.Manifold.margulis" title="snappy.Manifold.margulis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">margulis</span></code></a>.</p></li>
+<li><p>The upper bounds on the bridge number of a link from <a class="reference external" href="https://dx.doi.org/10.4310/CAG.2020.v28.n2.a2">[BKVV2020]</a> and <a class="reference external" href="https://arxiv.org/abs/2504.10517">[BKP2025]</a> are available as
+<a class="reference internal" href="spherogram.html#spherogram.Link.bridge_upper_bound" title="spherogram.Link.bridge_upper_bound"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bridge_upper_bound</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="manifold.html#snappy.Manifold.triangulation_isosig" title="snappy.Manifold.triangulation_isosig"><code class="xref py py-meth docutils literal notranslate"><span class="pre">triangulation_isosig</span></code></a> now
+preserves the orientation of the core curve rather than the Dehn-filling
+curve - thus, preserving the (unoriented) spun-triangulation structure.
+This only changes the result when <code class="docutils literal notranslate"><span class="pre">ignore_curves=True</span></code> (and
+<code class="docutils literal notranslate"><span class="pre">ignore_orientation</span></code> and <code class="docutils literal notranslate"><span class="pre">ignore_filling_orientations</span></code> have their
+default values).</p></li>
+<li><p>Fixing a bug in
+<a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum_alt" title="snappy.Manifold.length_spectrum_alt"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt</span></code></a>
+and
+<a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum_alt_gen" title="snappy.Manifold.length_spectrum_alt_gen"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt_gen</span></code></a>.
+The estimate for the upper bound of the global spine radius was not
+correct in all cases. Note that we expect this bug to be very hard to hit
+and do not have a single example where the result of these methods was
+wrong.</p></li>
+<li><p><a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum_alt" title="snappy.Manifold.length_spectrum_alt"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt</span></code></a> can be
+given <code class="docutils literal notranslate"><span class="pre">count</span></code> and <code class="docutils literal notranslate"><span class="pre">max_len</span></code> at the same time. In that case, it stops
+when enough geodesics have been listed to ensure that they include the
+<code class="docutils literal notranslate"><span class="pre">count</span></code> shortest geodesics or that they include all geodesics shorter
+than <code class="docutils literal notranslate"><span class="pre">max_len</span></code>.</p></li>
+<li><p>Acceleration to
+<a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum_alt" title="snappy.Manifold.length_spectrum_alt"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt</span></code></a> when
+the next geodesic has large gap to the last geodesic in the result.
+It uses the new <code class="docutils literal notranslate"><span class="pre">include_intermediates=True</span></code> flag of
+<a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum_alt_gen" title="snappy.Manifold.length_spectrum_alt_gen"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum_alt_gen</span></code></a>.</p></li>
+<li><p>Computing maximal cusp areas in an unbiased way uses a simpler algorithm
+which also returns tighter intervals for verified computations.
+This affects <a class="reference internal" href="manifold.html#snappy.Manifold.cusp_areas" title="snappy.Manifold.cusp_areas"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cusp_areas</span></code></a> and related
+methods.</p></li>
+<li><p>Support for Python 3.14 and SageMath 10.8.</p></li>
+</ul>
+</li>
 <li><p>Version 3.2 (January 2025):</p>
 <ul>
 <li><p>An alternative implementation of the length spectrum. It supports verified
@@ -165,30 +213,6 @@ cover, where the theory does not directly apply.</p></li>
 <li><p>Support for Python 3.13 and SageMath 10.5.</p></li>
 </ul>
 </li>
-<li><p>Versions 3.1 (May 2023) and 3.1.1 (June 2023):</p>
-<ul>
-<li><p>A method <a class="reference internal" href="manifold.html#snappy.Manifold.exterior_to_link" title="snappy.Manifold.exterior_to_link"><code class="xref py py-meth docutils literal notranslate"><span class="pre">exterior_to_link</span></code></a>
-for going from a link exterior to a link diagram taken from
-<a class="reference external" href="https://arxiv.org/abs/2112.03251">Dunfield-Obeidin-Rudd</a>.</p></li>
-<li><p>Covers now computed by the stand-alone <a class="reference external" href="https://pypi.org/project/low-index/">low_index</a> module, which uses
-multiple processor cores and is typically much faster than the old
-code.  In some cases, it is dramatically faster than even GAP or
-Magma.</p></li>
-<li><p>Added geodesics to the <a class="reference internal" href="manifold.html#snappy.Manifold.inside_view" title="snappy.Manifold.inside_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">inside_view</span></code></a>.  Here are some intersecting tubes
-about closed geodesics in the manifold <code class="docutils literal notranslate"><span class="pre">v3539(5,1)</span></code>:</p>
-<a class="reference internal image-reference" href="_images/geodesics.jpg"><img alt="Geodesic tubes for v3539(5,1)" class="align-center" src="_images/geodesics.jpg" style="width: 50%;" />
-</a>
-</li>
-<li><p>Added drilling any simple geodesic with <a class="reference internal" href="manifold.html#snappy.Manifold.drill_word" title="snappy.Manifold.drill_word"><code class="xref py py-meth docutils literal notranslate"><span class="pre">drill_word</span></code></a> and <a class="reference internal" href="manifold.html#snappy.Manifold.drill_words" title="snappy.Manifold.drill_words"><code class="xref py py-meth docutils literal notranslate"><span class="pre">drill_words</span></code></a>, not just those that are
-<a class="reference internal" href="manifold.html#snappy.Manifold.dual_curves" title="snappy.Manifold.dual_curves"><code class="xref py py-meth docutils literal notranslate"><span class="pre">combinatorially</span> <span class="pre">simple</span></code></a>.</p></li>
-<li><p>Added <cite>ignore_orientation</cite> flag to <a class="reference internal" href="triangulation.html#snappy.Triangulation.triangulation_isosig" title="snappy.Triangulation.triangulation_isosig"><code class="xref py py-meth docutils literal notranslate"><span class="pre">triangulation_isosig</span></code></a>.</p></li>
-<li><p>Added <cite>include_words</cite> flag to <a class="reference internal" href="manifold.html#snappy.Manifold.length_spectrum" title="snappy.Manifold.length_spectrum"><code class="xref py py-meth docutils literal notranslate"><span class="pre">length_spectrum</span></code></a> for getting the word
-corresponding to a geodesic which can be given to
-<a class="reference internal" href="manifold.html#snappy.Manifold.drill_word" title="snappy.Manifold.drill_word"><code class="xref py py-meth docutils literal notranslate"><span class="pre">drill_word</span></code></a>.</p></li>
-<li><p>Support for Python 3.11 and SageMath 10.0.</p></li>
-<li><p>Modernized styling of the documentation.</p></li>
-</ul>
-</li>
 <li><p><a class="reference internal" href="news.html"><span class="doc">Complete version history</span></a>.</p></li>
 </ul>
 </section>
@@ -224,11 +248,11 @@ encounter problems with SnapPy, <a class="reference internal" href="bugs.html"><
 <p>Released under the terms of the <a class="reference external" href="http://www.gnu.org/licenses/gpl-2.0.txt">GNU General Public License</a>, version 2 or later.</p>
 <p>The development of SnapPy was partially supported by grants from the
 National Science Foundation, including DMS-0707136, DMS-0906155,
-DMS-1105476, DMS-1510204, DMS-1811156, and the Institute for
-Computational and Experimental Research in Mathematics. Any opinions,
-findings, and conclusions or recommendations expressed on this site
-are those of the authors and do not necessarily reflect the views of
-the National Science Foundation.</p>
+DMS-1105476, DMS-1510204, DMS-1811156, and DMS-2303572, and the
+Institute for Computational and Experimental Research in
+Mathematics. Any opinions, findings, and conclusions or
+recommendations expressed on this site are those of the authors and do
+not necessarily reflect the views of the National Science Foundation.</p>
 </section>
 </section>
 
@@ -242,7 +266,7 @@ the National Science Foundation.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2026, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

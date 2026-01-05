@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Additional Classes &mdash; SnapPy 3.2 documentation</title>
+  <title>Additional Classes &mdash; SnapPy 3.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/snappy_sphinx_rtd_theme.css?v=1b8ec2a8" />
@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="_static/SnapPy.ico"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=828ea960"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/documentation_options.js?v=26f62d79"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -229,7 +229,7 @@ DodecahedralOrientableCuspedCensus, DodecahedralNonorientableCuspedCensus,
 IcosahedralNonorientableClosedCensus, IcosahedralOrientableClosedCensus,
 CubicalNonorientableClosedCensus, CubicalOrientableClosedCensus,
 DodecahedralNonorientableClosedCensus, DodecahedralOrientableClosedCensus,
-Crossing, Strand, Link, Tangle, RationalTangle, ZeroTangle,
+RibbonLinks, Crossing, Strand, Link, Tangle, RationalTangle, ZeroTangle,
 InfinityTangle, IdentityBraid, random_link, DTcodec.</p>
 </dd>
 </dl>
@@ -237,7 +237,7 @@ InfinityTangle, IdentityBraid, random_link, DTcodec.</p>
 <h2>AbelianGroup<a class="headerlink" href="#abeliangroup" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.AbelianGroup">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">AbelianGroup</span></span><a class="headerlink" href="#snappy.AbelianGroup" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">AbelianGroup</span></span><a class="headerlink" href="#snappy.AbelianGroup" title="Link to this definition"></a></dt>
 <dd><p>An AbelianGroup object represents a finitely generated abelian group,
 usually the first homology group of a snappy Manifold.</p>
 <p>Instantiate an abelian group by its elementary divisors:</p>
@@ -300,7 +300,7 @@ group is infinite.</p>
 <h2>FundamentalGroup<a class="headerlink" href="#fundamentalgroup" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">HolonomyGroup</span></span><a class="headerlink" href="#snappy.HolonomyGroup" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">HolonomyGroup</span></span><a class="headerlink" href="#snappy.HolonomyGroup" title="Link to this definition"></a></dt>
 <dd><p>A FundamentalGroup represents a presentation of the fundamental
 group of a SnapPea Triangulation.  Group elements are described as
 words in the generators a,b,…, where the inverse of a is denoted
@@ -313,7 +313,7 @@ operator is named ‘+’, according to Python conventions).</p>
 <span class="go">   a,b</span>
 <span class="go">Relators:</span>
 <span class="go">   aabaBBAABAbb</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">())</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">())</span>
 <span class="go">&lt;class &#39;SnapPy.FundamentalGroup&#39;&gt;</span>
 </pre></div>
 </div>
@@ -331,22 +331,22 @@ only has a FundamentalGroup:</p>
 <span class="go">   a,b</span>
 <span class="go">Relators:</span>
 <span class="go">   aabaBBAABAbb</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">G</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 <span class="go">&lt;class &#39;SnapPy.HolonomyGroup&#39;&gt;</span>
 </pre></div>
 </div>
 <p>In the class HolonomyGroup, methods are provided to evaluate the
 representations on a group element. Other methods are shared
 with the FundamentalGroup class.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">O31</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">O31</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="go">[    2.50000000000000   -0.500000000000000    -2.12132034355964   -0.707106781186547]</span>
 <span class="go">[   0.500000000000002   -0.500000000000001   -0.707106781186549    0.707106781186547]</span>
 <span class="go">[  -0.707106781186548   -0.707106781186547     1.00000000000000                    0]</span>
 <span class="go">[    2.12132034355964   -0.707106781186548    -2.00000000000000    -1.00000000000000]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">SL2C</span><span class="p">(</span><span class="s1">&#39;aaB&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">SL2C</span><span class="p">(</span><span class="s1">&#39;aaB&#39;</span><span class="p">)</span>
 <span class="go">[-1.00000000000000 + 4.00000000000000*I 2.12132034355964 - 0.707106781186545*I]</span>
 <span class="go">[2.12132034355964 - 0.707106781186549*I -1.00000000000000 - 1.00000000000000*I]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">complex_length</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">)</span>
 <span class="go">1.06127506190504 - 2.23703575928741*I</span>
 </pre></div>
 </div>
@@ -372,7 +372,7 @@ vary continuously when filling coefficients are changed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.category">
 <span class="sig-name descname"><span class="pre">category</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.category" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 514)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 513)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -388,7 +388,7 @@ function of that word.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">vars</span><span class="p">,</span> <span class="n">polys</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">character_variety_vars_and_polys</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">vars</span>
 <span class="go">[Ta, Tb, Tab]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">polys</span>    
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polys</span>
 <span class="go">[Ta^3 - Tab*Tb*Ta^2 + (Tb^2 + (Tab^2 - 4))*Ta,</span>
 <span class="go"> Ta^2 - Tab*Tb*Ta + (Tb^2 + (Tab^2 - 4))]</span>
 </pre></div>
@@ -416,14 +416,14 @@ input word.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.dump">
 <span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.dump" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 475)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 474)</p>
 <p>Same as self.save(filename, compress)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.dumps">
 <span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.dumps" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 481)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 480)</p>
 <p>Dump <code class="docutils literal notranslate"><span class="pre">self</span></code> to a string <code class="docutils literal notranslate"><span class="pre">s</span></code>, which can later be reconstituted
 as <code class="docutils literal notranslate"><span class="pre">self</span></code> using <code class="docutils literal notranslate"><span class="pre">loads(s)</span></code>.</p>
 <p>There is an optional boolean argument <code class="docutils literal notranslate"><span class="pre">compress</span></code> which defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
@@ -523,7 +523,7 @@ the format is somewhat obscure.  See the source code of this
 function in fundamental_group.pyx for details.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;K7_1&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">fundamental_group</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">generators_in_originals</span><span class="p">()</span>   
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">generators_in_originals</span><span class="p">()</span>
 <span class="go">[&#39;DBcACbABcaCbDBcACbABcaCbACbaBcaCbd&#39;,</span>
 <span class="go"> &#39;DBcACbABcaCbDBcACbABcaCbCbDBcACbABcaBcACbaBcaCbdACbaBcaCbdBcBcACbaBcaCbd&#39;]</span>
 </pre></div>
@@ -533,7 +533,7 @@ function in fundamental_group.pyx for details.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.get_custom_name">
 <span class="sig-name descname"><span class="pre">get_custom_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.get_custom_name" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 150)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 149)</p>
 <p>Return the custom name of this object, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it is not
 renamed.</p>
 <p>EXAMPLES:</p>
@@ -621,7 +621,7 @@ simplification) in terms of the current generators.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.parent">
 <span class="sig-name descname"><span class="pre">parent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.parent" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 549)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 548)</p>
 <p>Return the type of <code class="docutils literal notranslate"><span class="pre">self</span></code> to support the coercion framework.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sage: t = log(sqrt(2) - 1) + log(sqrt(2) + 1); t                            # needs sage.symbolic
@@ -655,7 +655,7 @@ relator is returned in the form “a*b*a^-1*b^-1” instead of “abAB”.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.rename">
 <span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.rename" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 68)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 67)</p>
 <p>Change <code class="docutils literal notranslate"><span class="pre">self</span></code> so it prints as x, where x is a string.</p>
 <p>If x is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the existing custom name is removed.</p>
 <div class="admonition note">
@@ -708,7 +708,7 @@ a lot of memory.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.reset_name">
 <span class="sig-name descname"><span class="pre">reset_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.reset_name" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 131)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 130)</p>
 <p>Remove the custom name of an object.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">P</span><span class="o">.&lt;</span><span class="n">x</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">QQ</span><span class="p">[]</span>
@@ -733,7 +733,7 @@ a lot of memory.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="snappy.HolonomyGroup.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snappy.HolonomyGroup.save" title="Link to this definition"></a></dt>
-<dd><p>File: sage/structure/sage_object.pyx (starting at line 446)</p>
+<dd><p>File: /home/sage/sage/src/sage/structure/sage_object.pyx (starting at line 445)</p>
 <p>Save <code class="docutils literal notranslate"><span class="pre">self</span></code> to the given filename.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="c1"># needs sage.symbolic</span>
@@ -755,7 +755,7 @@ a lot of memory.</p>
 <h2>SymmetryGroup<a class="headerlink" href="#symmetrygroup" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.SymmetryGroup">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">SymmetryGroup</span></span><a class="headerlink" href="#snappy.SymmetryGroup" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">SymmetryGroup</span></span><a class="headerlink" href="#snappy.SymmetryGroup" title="Link to this definition"></a></dt>
 <dd><p>A SymmetryGroup is a group of self-isometries of hyperbolic
 3-manifold.  Instantiate as follows:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
@@ -959,7 +959,7 @@ polyhedral group, return a description of it.</p>
 <h2>DirichletDomain<a class="headerlink" href="#dirichletdomain" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.DirichletDomain">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">DirichletDomain</span></span><a class="headerlink" href="#snappy.DirichletDomain" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">DirichletDomain</span></span><a class="headerlink" href="#snappy.DirichletDomain" title="Link to this definition"></a></dt>
 <dd><p>A DirichletDomain object represents a Dirichlet Domain of
 a hyperbolic manifold, typically centered at a point which
 is a local maximum of injectivity radius.  It will have ideal
@@ -977,7 +977,7 @@ the default values shown here</p>
 </div>
 <p>You can also create a Dirichlet Domain from a file listing matrix
 generators for the group, in SnapPea’s “% Generator” format, via</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">DirichletDomain</span><span class="p">(</span><span class="n">generator_file</span><span class="o">=</span><span class="s1">&#39;test.gens&#39;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">DirichletDomain</span><span class="p">(</span><span class="n">generator_file</span><span class="o">=</span><span class="s1">&#39;test.gens&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Or from matrices:</p>
@@ -1019,10 +1019,10 @@ infinitely thin cusps, which cannot be printed.</p>
 <p>This can take a long time for finely subdivided domains. So we call UI_callback
 every so often if it is not None.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dirichlet_domain</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-klein.stl&#39;</span><span class="p">)</span>     
-<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-poincare.stl&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;poincare&#39;</span><span class="p">)</span>     
-<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-klein-wireframe.stl&#39;</span><span class="p">,</span> <span class="n">cutout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>     
-<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-poincare-wireframe.stl&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;poincare&#39;</span><span class="p">,</span> <span class="n">cutout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>     
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-klein.stl&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-poincare.stl&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;poincare&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-klein-wireframe.stl&#39;</span><span class="p">,</span> <span class="n">cutout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">export_stl</span><span class="p">(</span><span class="s1">&#39;fig-eight-poincare-wireframe.stl&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;poincare&#39;</span><span class="p">,</span> <span class="n">cutout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1167,7 +1167,7 @@ this DirichletDomain.</p>
 as words in the original generators:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m004&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">dirichlet_domain</span><span class="p">(</span><span class="n">include_words</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">pairing_words</span><span class="p">())</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">pairing_words</span><span class="p">())</span>
 <span class="go">[&#39;A&#39;, ...]</span>
 </pre></div>
 </div>
@@ -1253,7 +1253,7 @@ manifolds defined by a set of generators.</p>
 <h2>CuspNeighborhood<a class="headerlink" href="#cuspneighborhood" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="snappy.CuspNeighborhood">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">CuspNeighborhood</span></span><a class="headerlink" href="#snappy.CuspNeighborhood" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snappy.</span></span><span class="sig-name descname"><span class="pre">CuspNeighborhood</span></span><a class="headerlink" href="#snappy.CuspNeighborhood" title="Link to this definition"></a></dt>
 <dd><p>A CuspNeighborhood object represents an equivariant collection of
 disjoint horoballs that project to cusp neighborhoods.</p>
 <p>Instantiate as M.cusp_neighborhood()</p>
@@ -1277,7 +1277,7 @@ and longitude for each cusp measured with respect to the cusp neighborhood.</p>
 longitude is always real:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s2">&quot;v3227&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">cusp_neighborhood</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">all_translations</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">all_translations</span><span class="p">()</span>
 <span class="go">[(-0.152977162509284 + 0.747697694854404*I, 0.868692062725708), (-0.152977162509284 + 0.747697694854404*I, 0.868692062725708), (0.0961611977895952 + 0.725536253181650*I, 0.895226186134782)]</span>
 </pre></div>
 </div>
@@ -1285,13 +1285,13 @@ longitude is always real:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">set_displacement</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">set_displacement</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">set_displacement</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">all_translations</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">all_translations</span><span class="p">()</span>
 <span class="go">[(-0.477656250512815 + 2.33461303362557*I, 2.71240613125259), (-0.259696455247511 + 1.26930345526993*I, 1.47470541152065), (0.131389112265699 + 0.991330873713731*I, 1.22318540718077)]</span>
 </pre></div>
 </div>
 <p>This can also be achieved by <a class="reference internal" href="manifold.html#snappy.Manifold.cusp_translations" title="snappy.Manifold.cusp_translations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Manifold.cusp_translations()</span></code></a> which
 would have made a different choice of disjoint cusp neighborhoods though:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_translations</span><span class="p">()</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span><span class="o">.</span><span class="n">cusp_translations</span><span class="p">()</span>
 <span class="go">[(-0.315973594129651 + 1.54436599614183*I, 1.79427928161946), (-0.315973594129649 + 1.54436599614182*I, 1.79427928161946), (0.198620491993677 + 1.49859164484929*I, 1.84908538602825)]</span>
 </pre></div>
 </div>
@@ -1300,7 +1300,7 @@ would have made a different choice of disjoint cusp neighborhoods though:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">set_displacement</span><span class="p">(</span><span class="mf">1.125</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">set_displacement</span><span class="p">(</span><span class="mf">0.515625</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">set_displacement</span><span class="p">(</span><span class="mf">0.3125</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">all_translations</span><span class="p">(</span><span class="n">bits_prec</span> <span class="o">=</span> <span class="mi">120</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">.</span><span class="n">all_translations</span><span class="p">(</span><span class="n">bits_prec</span> <span class="o">=</span> <span class="mi">120</span><span class="p">)</span>
 <span class="go">[(-0.47120283346076781167174343474008914 + 2.3030710375877078211095122873223488*I, 2.6757599281290843845710310925394911), (-0.25618853688042434043044508297577899 + 1.2521580040549576537090841783446072*I, 1.4547854392045669515377748986943560), (0.13143677360753666862808198126761923 + 0.99169047854575721271560179767750893*I, 1.2236291171413362101960100623801910)]</span>
 </pre></div>
 </div>
@@ -1449,7 +1449,7 @@ which cusp to put at infinity and how large of horoballs to
 look at, e.g.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">Manifold</span><span class="p">(</span><span class="s1">&#39;m125&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">cusp_neighborhood</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">which_cusp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>   
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">which_cusp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1477,7 +1477,7 @@ cusp.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2009-2025, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
+    <p>&#169; Copyright 2009-2026, by Marc Culler, Nathan Dunfield, Matthias Goerner, Jeffrey Weeks and others.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
